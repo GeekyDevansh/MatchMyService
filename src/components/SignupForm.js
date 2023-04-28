@@ -51,7 +51,7 @@ const Form = ({ loading, setLoading }) => {
   return (
     <>
       <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] scrollbar-hide overflow-y-auto ">
-        <div className="flex justify-center mt-8 md:mt-0 md:text-5xl text-3xl font-semibold ">
+        <div className="flex justify-center mt-4 md:mt-0 md:text-5xl text-3xl font-semibold ">
           <h1>Sign Up</h1>
         </div>
         <form
@@ -104,7 +104,7 @@ const Form = ({ loading, setLoading }) => {
             </div>
             <button
               type="submit"
-              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl drop-shadow-xl "
+              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg "
             >
               SIGN UP
             </button>
