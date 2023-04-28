@@ -1,13 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import Login from './pages/Login';
+import Signup from './pages/Signup';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Landing from './pages/Landing';
+import Protected from './components/Protected';
+import { Toaster } from "react-hot-toast";
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+    <Toaster />
+      <Routes>
+    <Route exact path='/login' element={<Login/>} />
+    <Route exact path='/signup' element={<Signup/>} />
+    <Route exact path='/home'  element={ <Protected> <Home/> </Protected>}/>
+    
+    <Route exact path='/' element={<Landing/>} />
+      </Routes>
+    {/* <App /> */}
+    </Router>
   </React.StrictMode>
 );
 
