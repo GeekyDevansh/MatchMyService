@@ -8,7 +8,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
   const navigate = useNavigate();
 
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
     setModalIsOpen(true);
