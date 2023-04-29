@@ -40,7 +40,7 @@ const Form = ({ loading, setLoading }) => {
         })
         .catch((error) => {
           console.log(error.message);
-          toast.error("Email Already In Use... \n Please Sign In",{ className:'font-semibold' });
+          toast.error("Email Already In Use. \n Please Sign In",{ className:'font-semibold' });
         })
         .finally(() => {
           setLoading(false);
@@ -50,7 +50,7 @@ const Form = ({ loading, setLoading }) => {
 
   return (
     <>
-      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] scrollbar-hide overflow-y-auto ">
+      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] overflow-y-auto scrollbar-hide ">
         <div className="flex justify-center mt-4 md:mt-0 md:text-5xl text-3xl font-semibold ">
           <h1>Sign Up</h1>
         </div>

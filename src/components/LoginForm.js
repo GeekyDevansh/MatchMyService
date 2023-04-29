@@ -82,8 +82,7 @@ const Form = ({ loading, setLoading }) => {
 
             <button
               type="submit"
-              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg"
-              >
+              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg">
               SIGN IN
             </button>
           </div>

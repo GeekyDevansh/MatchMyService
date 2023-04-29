@@ -1,14 +1,19 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Navbar from '../components/Navbar';
+import Body from '../components/Body';
 
 const Home = () => {
 
 const name = JSON.parse(localStorage.getItem("user")).user?.displayName;
-console.log(name)
+const email = JSON.parse(localStorage.getItem("user")).user?.email;
+const [darkMode,setDarkMode] = useState(true);
 
   return (
-    <div className='text-2xl' >
-        Welcome Back <span className='font-semibold' > {name} </span> !
-    </div>
+    <>
+        <Navbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} />
+        <Body darkMode={darkMode} setDarkMode={setDarkMode} /> 
+        
+    </>
   )
 }
 
