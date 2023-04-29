@@ -34,7 +34,7 @@ const Form = ({ loading, setLoading }) => {
         })
         .catch((err) => {
           console.log(err);
-          toast.error("The username or password you entered is incorrect.",{ className:'font-semibold' });
+          toast.error("The email or password you entered is incorrect.",{ className:'font-semibold' });
         })
         .finally(() => {
           setLoading(false);

@@ -52,7 +52,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      height: "20%",
+      height: "25%",
       width: "90%",
       borderWidth:"1px",
       borderColor:"gray",
@@ -96,7 +96,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       <div
         className={`${
           darkMode ? "bg-black" : "bg-white"
-        } border-gray-300 drop-shadow-lg`}
+        } border-gray-300 drop-shadow-lg md:p-0 p-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li

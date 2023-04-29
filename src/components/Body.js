@@ -16,7 +16,7 @@ const Body = ({ darkMode }) => {
         <div
           className={`md:w-2/3 w-[80%] ${
             darkMode ? "bg-black" : "bg-white"
-          } flex flex-col cursor-pointer items-center md:mt-[10%] mt-[50%] h-2/5 border-2 border-dashed ${
+          } flex flex-col cursor-pointer items-center md:mt-[10%] mt-[30%] h-2/5 border-2 border-dashed ${
             darkMode ? "border-white" : "border-gray-900"
           } rounded-xl text-white gap-2 md:gap-0 drop-shadow-2xl`}
           onClick={handleClick}
