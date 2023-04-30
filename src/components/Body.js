@@ -1,13 +1,58 @@
-import React from "react";
+import React,{useState} from "react";
 import { HiPencil } from "react-icons/hi";
+import Modal from "react-modal";
+import ServiceForm from "./ServiceForm";
 
 const Body = ({ darkMode }) => {
+
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  
+
   const handleClick = () => {
-    console.log("clicked");
+    setModalIsOpen(true);
+  };
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      maxHeight:"98%",
+      overflowY:"auto",
+      borderWidth:"1px",
+      borderColor:"gray",
+      borderRadius: "15px",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
+  };
+  const customStylesSm = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      maxWidth:"90%",
+      borderWidth:"1px",
+      borderColor:"gray",
+      borderRadius: "15px",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+    },
   };
 
   return (
     <>
+    <Modal
+        isOpen={modalIsOpen}
+        style={window.screen.width > "768" ? customStyles : customStylesSm}
+        contentLabel="Example Modal"
+      >
+      <ServiceForm setModalIsOpen={setModalIsOpen} />
+      
+        
+      </Modal>
       <div
         className={`h-screen ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
