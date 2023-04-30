@@ -26,7 +26,7 @@ const Body = ({ darkMode }) => {
               <img
                 src="/postRequirement.gif"
                 alt="img"
-                className="md:w-28 md:h-28 w-24 h-24 md:mt-[15%] md:mb-[15%] mt-[50%] ml-4 "
+                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[50%] "
               />
             </div>
           ) : (
@@ -34,7 +34,7 @@ const Body = ({ darkMode }) => {
               <img
                 src="/postRequirementLight.gif"
                 alt="img"
-                className="md:w-28 md:h-28 w-24 h-24 md:mt-[15%] md:mb-[15%] mt-[50%] "
+                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[50%] "
               />
             </div>
           )}

@@ -110,7 +110,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
 
             <div className=" text-xs md:text-sm font-medium"> {email} </div>
           </li>
-          <li className="flex justify-center gap-4">
+          <li className="flex justify-center md:gap-4 gap-2">
             <button
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
