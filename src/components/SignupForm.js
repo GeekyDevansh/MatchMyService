@@ -109,8 +109,8 @@ const Form = ({ loading, setLoading }) => {
               SIGN UP
             </button>
 
-            <div className="text-center md:text-sm font-semibold">
-              Already have an account? <Link to="/login"> Sign In </Link>
+            <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm font-semibold">
+           <div>   Already have an account?</div> <div><Link to="/login"> Sign In </Link> </div>
             </div>
           </div>
         </form>

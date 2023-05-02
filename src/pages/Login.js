@@ -10,7 +10,7 @@ function Login() {
       <div className="flex justify-center md:items-center h-screen bg-[url('/public/bgnew.svg')] ">
         
           {loading ? (
-            <div className=" items-center mx-auto bg-white flex justify-center md:p-10 p-6 md:h-2/3 md:min-h-0 md:mt-0 md:w-2/3 w-[80%] min-h-fit max-h-[80%] mt-[50%] rounded-xl shadow-lg h-1/2 ">
+            <div className=" items-center mx-auto bg-white flex justify-center md:p-10 p-6 md:h-2/3 md:min-h-0 md:mt-0 md:w-2/3 w-[80%] min-h-fit max-h-[80%] mt-[20%] rounded-xl shadow-lg h-1/2 ">
               <Loading />
             </div>
           ) : (

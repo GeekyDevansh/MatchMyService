@@ -29,8 +29,6 @@ const ServiceForm = ({ setModalIsOpen }) => {
     description:description,
     service_type:service
   });
-
-
   
   const handleSubmit = async(e) => {
   setLoading(true);
@@ -41,21 +39,22 @@ const ServiceForm = ({ setModalIsOpen }) => {
     setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service}));
     const res=await addDoc(collection(db, "product_data",), {
      sendData
-    });
+    })
+    .then(()=>{ 
+    setLoading(false);
+    setSuccess(true);})
+    .then(()=>{ setTimeout(() => {
+      setSuccess(false)
+    }, 2500);})
+   
+   
+    
+    
   }catch(err){
     console.log(err);
-    toast.error("Please fill all the fields.");
+    setLoading(false);
+    toast.error("All fields are mandatory.");
     document.getElementById("service-form").reset();
-  }
-  finally{
-    setTimeout(() => {
-      setLoading(false);
-    setSuccess(true);
-    }, 2000);
-    
-    setTimeout(() => {
-      setSuccess(false)
-    }, 6000);
   }
   };
   return (
