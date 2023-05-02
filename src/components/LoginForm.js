@@ -6,6 +6,7 @@ import { basicSchema } from "../schemas/loginSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Form = ({ loading, setLoading }) => {
   const {
@@ -19,7 +20,7 @@ const Form = ({ loading, setLoading }) => {
   const navigate = useNavigate();
   const [user, setUser] = useState();
 
-  const onSubmit = (data,e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
@@ -34,7 +35,9 @@ const Form = ({ loading, setLoading }) => {
         })
         .catch((err) => {
           console.log(err);
-          toast.error("The email or password you entered is incorrect.",{ className:'font-semibold' });
+          toast.error("The email or password you entered is incorrect.", {
+            className: "font-semibold",
+          });
         })
         .finally(() => {
           setLoading(false);
@@ -49,44 +52,45 @@ const Form = ({ loading, setLoading }) => {
         </div>
         <form method="POST" onSubmit={handleSubmit(onSubmit)}>
           <div className="flex flex-col justify-center items-center mt-6 gap-6 md:p-10">
-            <div className="w-full flex flex-col justify-center items-center " >
-
-            <input
-              type="email"
-              name="email"
-              id="email"
-              placeholder="Enter Email"
-              className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
-              {...register("email")}
+            <div className="w-full flex flex-col justify-center items-center ">
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Enter Email"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
+                {...register("email")}
               />
-            <span className="text-center text-red-500 font-semibold text-sm ">
-              {errors?.email?.message}
-            </span>
+              <span className="text-center text-red-500 font-semibold text-sm ">
+                {errors?.email?.message}
+              </span>
             </div>
-            <div className="w-full flex flex-col justify-center items-center" >
-
-            <input
-              type="password"
-              name="password"
-              id="password"
-              placeholder="Enter Password"
-              className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
-              {...register("password")}
+            <div className="w-full flex flex-col justify-center items-center">
+              <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter Password"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
+                {...register("password")}
               />
-              
-            <span className="text-center text-red-500 font-semibold text-sm ">
-              {errors?.password?.message}
-            </span>
-            </div>
-            <div className="w-full flex justify-center " >
 
-            <button
-              type="submit"
-              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg">
-              SIGN IN
-            </button>
+              <span className="text-center text-red-500 font-semibold text-sm ">
+                {errors?.password?.message}
+              </span>
+            </div>
+            <div className="w-full flex justify-center ">
+              <button
+                type="submit"
+                className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg"
+              >
+                SIGN IN
+              </button>
+            </div>
+            <div className="text-center md:text-sm font-semibold">
+              New to MatchMyService ? <Link to="/signup"> Create a FREE account </Link>
+            </div>
           </div>
-              </div>
         </form>
       </div>
     </>

@@ -77,13 +77,13 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
           </div>
           <div className="flex justify-end gap-2 absolute md:right-5 right-[6%] md:bottom-5 bottom-[12%] ">
             <button
-              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-gray-500 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={closeModal}
             >
               Cancel
             </button>
             <button
-              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={handleSignOut}
             >
               Sign Out
@@ -129,7 +129,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
             </button>
             <button
               onClick={handleClick}
-              className="md:px-6 md:py-2 px-2 text-sm md:text-medium text-white font-extrabold bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-2 text-sm md:text-medium text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
             >
               SIGN OUT
             </button>

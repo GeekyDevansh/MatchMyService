@@ -1,13 +1,63 @@
 import React, { useState } from "react";
 import Loading from "./Loading";
+import {doc,serverTimestamp,addDoc,collection,getDocs, deleteDoc, updateDoc} from "firebase/firestore";
+import {db} from "../firebase";
+import toast from "react-hot-toast";
+import FormSubmitted from "./FormSubmitted";
 
 const ServiceForm = ({ setModalIsOpen }) => {
-  const [loading, setLoading] = useState(false);
-  const [service, setService] = useState();
-  const handleSubmit = () => {
-    setLoading(true);
-  };
 
+  var budget;
+  var contact;
+  var description;
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [serviceType, setServiceType] = useState();
+  const [service, setService] = useState();
+
+  const user = JSON.parse(localStorage.getItem("user")).user.uid;
+  const cName= JSON.parse(localStorage.getItem("user")).user.displayName;
+
+  console.log(budget);
+
+  const [sendData,setSendData] = useState({
+    budget: budget,
+    customer_name: cName,
+    user_id: user,
+    created_at: serverTimestamp(),
+    contact_number:contact,
+    description:description,
+    service_type:service
+  });
+
+
+  
+  const handleSubmit = async(e) => {
+  setLoading(true);
+  e.preventDefault();
+  try{
+    console.log("sendData",sendData);
+    setServiceType(" ");
+    setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service}));
+    const res=await addDoc(collection(db, "product_data",), {
+     sendData
+    });
+  }catch(err){
+    console.log(err);
+    toast.error("Please fill all the fields.");
+    document.getElementById("service-form").reset();
+  }
+  finally{
+    setTimeout(() => {
+      setLoading(false);
+    setSuccess(true);
+    }, 2000);
+    
+    setTimeout(() => {
+      setSuccess(false)
+    }, 6000);
+  }
+  };
   return (
     <>
       {loading ? (
@@ -16,8 +66,8 @@ const ServiceForm = ({ setModalIsOpen }) => {
           <Loading />{" "}
         </div>
       ) : (
-        <div className=" p-2 flex justify-center items-center ">
-          <form action="POST" onSubmit={handleSubmit}>
+        <div className={`${!success?"block":"hidden"} p-2 flex justify-center items-center`}>
+          <form action="POST" onSubmit={handleSubmit} id="service-form" >
             <div className="font-semibold text-2xl flex justify-center items-center md:mb-5 mb-2">
               <h1>Service Request Form</h1>
             </div>
@@ -29,9 +79,10 @@ const ServiceForm = ({ setModalIsOpen }) => {
                 <div>
                   <button
                     type="button"
-                    className="bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16 focus:outline-none focus:ring focus:ring-gray-900"
+                    className={`${serviceType==="plumber"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16`}
                     onClick={() => {
-                      setService("plumber");
+                      setServiceType("plumber");
+                      setSendData({...sendData,service_type:"Plumber"});
                     }}
                   >
                     <img src="/plumber.gif" alt="" className="rounded-xl" />
@@ -43,9 +94,10 @@ const ServiceForm = ({ setModalIsOpen }) => {
                 <div>
                   <button
                     type="button"
-                    className="bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16 focus:outline-none focus:ring focus:ring-gray-900 "
+                    className={`${serviceType==="carpenter"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16`}
                     onClick={() => {
-                      setService("carpenter");
+                      setServiceType("carpenter");
+                      setSendData({...sendData,service_type:"Carpenter"});
                     }}
                   >
                     <img src="/carpenter.gif" alt="" className="rounded-xl" />
@@ -57,9 +109,10 @@ const ServiceForm = ({ setModalIsOpen }) => {
                 <div>
                   <button
                     type="button"
-                    className="bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16 focus:outline-none focus:ring focus:ring-gray-900 "
+                    className={`${serviceType==="electrician"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16`}
                     onClick={() => {
-                      setService("electrician");
+                      setServiceType("electrician");
+                      setSendData({...sendData,service_type:"Electrician"});
                     }}
                   >
                     <img
@@ -75,9 +128,9 @@ const ServiceForm = ({ setModalIsOpen }) => {
                 <div>
                   <button
                     type="button"
-                    className="bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16 focus:outline-none focus:ring focus:ring-gray-900 "
+                    className={`${serviceType==="other"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-20 md:h-20 w-16 h-16`}
                     onClick={() => {
-                      setService("other");
+                      setServiceType("other");
                     }}
                   >
                     <img src="/other.gif" alt="" className="rounded-xl" />
@@ -90,11 +143,14 @@ const ServiceForm = ({ setModalIsOpen }) => {
             </div>
 
             <div className="flex flex-col gap-4 justify-center items-center  ">
-              {service === "other" && (
+              {serviceType === "other" && (
                 <input
                   type="text"
                   placeholder="Please specify the required service"
+                  required={true}
+                  value={service}
                   className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
+                  onChange={(e)=>setSendData({...sendData,service_type:e.target.value})}
                 />
               )}
               <textarea
@@ -102,17 +158,29 @@ const ServiceForm = ({ setModalIsOpen }) => {
                 rows="3"
                 cols="50"
                 placeholder="Description of service"
+                value={description}
+                required={true}
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
+                onChange={(e)=> setSendData({...sendData,description:e.target.value})}
               />
               <input
-                type="text"
-                placeholder="Budget (in &#8377;)"
+                type="number"
+                min="500"
+                max="500000"
+                placeholder="Budget (from &#8377;500 to &#8377;5,00,000)"
+                required={true}
+                value={budget}
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
+                onChange={(e)=> setSendData({...sendData,budget:e.target.value})}
               />
               <input
-                type="text"
-                placeholder="Contact Number"
+                type="text" 
+                pattern="[6789][0-9]{9}"
+                placeholder="Contact Number (10 digit)"
+                required={true}
+                value={contact}
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
+                onChange={(e)=> setSendData({...sendData,contact_number:e.target.value})}
               />
 
               <button
@@ -133,6 +201,9 @@ const ServiceForm = ({ setModalIsOpen }) => {
           </form>
         </div>
       )}
+      {success && <div className="flex justify-center items-center " >
+          <FormSubmitted/>
+      </div>}
     </>
   );
 };
