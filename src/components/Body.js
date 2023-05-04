@@ -1,14 +1,47 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import {
+  doc,
+  serverTimestamp,
+  addDoc,
+  collection,
+  getDocs,
+  deleteDoc,
+  updateDoc,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { db } from "../firebase";
 import Modal from "react-modal";
 import ServiceForm from "./ServiceForm";
 import UserRequests from "./UserRequests";
 import AllRequests from "./AllRequests";
 import PostRequirement from "./PostRequirement";
 
-const Body = ({ darkMode }) => {
+const Body = ({ darkMode, sendData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [request, setRequest] = useState(false);
+  const [data, setData] = useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let list = [];
+        const dataRef = collection(db, "product_data");
+        const q = query(dataRef, orderBy("sendData.created", "desc"));
+        console.log("q", q);
+        const querySnapshot = await getDocs(q);
+        console.log(querySnapshot);
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [request]);
 
-  
+  console.log("data", data);
 
   const customStyles = {
     content: {
@@ -47,25 +80,26 @@ const Body = ({ darkMode }) => {
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
-        <ServiceForm setModalIsOpen={setModalIsOpen} />
+        <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} />
       </Modal>
       <div
         className={` ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
-        } flex flex-col justify-center items-center`}
+        } flex flex-col justify-center items-center h-screen `}
       >
-        <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] gap-10 ">
-          <div className="md:w-[40%]">
-            <UserRequests />
+        <PostRequirement
+          setModalIsOpen={setModalIsOpen}
+          darkMode={darkMode}
+        />
+   <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
+          <div className="md:w-[40%] w-full ">
+            <UserRequests data={data} setModalIsOpen={setModalIsOpen} />
           </div>
-          <div className="md:w-[60%]">
-            <AllRequests />
+          <div className="md:w-[60%] w-full">
+            <AllRequests data={data} />
           </div>
         </div>
-        
 
-        <PostRequirement setModalIsOpen={setModalIsOpen} darkMode={darkMode} />
-        
         
       </div>
     </>

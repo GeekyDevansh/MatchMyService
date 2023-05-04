@@ -12,7 +12,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
     <div
           className={` md:w-[75%] w-[80%] ${
             darkMode ? "bg-black" : "bg-white"
-          } flex flex-col cursor-pointer items-center my-[5%] pb-10 border-2 border-dashed ${
+          } flex flex-col cursor-pointer items-center pb-10 border-2 border-dashed ${
             darkMode ? "border-white" : "border-gray-900"
           } rounded-xl text-white gap-2 md:gap-0 drop-shadow-2xl`}
           onClick={handleClick}
@@ -22,7 +22,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
               <img
                 src="/postRequirement.gif"
                 alt="img"
-                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[50%] "
+                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />
             </div>
           ) : (
@@ -30,7 +30,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
               <img
                 src="/postRequirementLight.gif"
                 alt="img"
-                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[50%] "
+                className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />
             </div>
           )}

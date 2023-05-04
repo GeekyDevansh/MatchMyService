@@ -4,8 +4,9 @@ import {doc,serverTimestamp,addDoc,collection,getDocs, deleteDoc, updateDoc} fro
 import {db} from "../firebase";
 import toast from "react-hot-toast";
 import FormSubmitted from "./FormSubmitted";
+import moment from 'moment'
 
-const ServiceForm = ({ setModalIsOpen }) => {
+const ServiceForm = ({ setModalIsOpen, setRequest }) => {
 
   var budget;
   var contact;
@@ -24,10 +25,11 @@ const ServiceForm = ({ setModalIsOpen }) => {
     budget: budget,
     customer_name: cName,
     user_id: user,
-    created_at: serverTimestamp(),
+    created_at: moment().format('MMMM Do YYYY'),
     contact_number:contact,
     description:description,
-    service_type:service
+    service_type:service,
+    created: serverTimestamp()
   });
   
   const handleSubmit = async(e) => {
@@ -45,7 +47,8 @@ const ServiceForm = ({ setModalIsOpen }) => {
     setSuccess(true);})
     .then(()=>{ setTimeout(() => {
       setSuccess(false)
-    }, 2500);})
+    }, 2500);}
+    ).then(()=>{setRequest(true)})
    
    
     
