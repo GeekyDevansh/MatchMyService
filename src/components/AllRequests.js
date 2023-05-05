@@ -5,7 +5,7 @@ const AllRequests = ({data, darkMode}) => {
     <>
       <div className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} drop-shadow-xl md:p-10 p-4 mt-10`}>
         <div className="text-center text-2xl font-semibold" >All Service Requests</div>
-        {data!=""?data?.map((e,i)=> {return (<div className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl md:p-8 p-4`} key={i} >
+        {data!=""?data?.map((e,i)=> {return (<div className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`} key={i} >
           <div className="flex flex-col gap-2">
             <div className="flex flex-col">
               <div className="flex justify-between">
@@ -23,11 +23,11 @@ const AllRequests = ({data, darkMode}) => {
                 <div className="font-semibold md:text-normal text-sm capitalize " >{e.sendData.service_type}</div>
               </div>
               <div className="flex flex-col gap-4 w-2/3">
-                <div className={`flex justify-between text-gray-900 font-semibold drop-shadow-md ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
+                <div className={`flex justify-between text-gray-900 font-semibold ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
                   <div className="md:text-lg" >Budget</div>
                   <div className="md:text-lg" >&#8377; {e.sendData.budget}</div>
                 </div>
-                <div className={`text-gray-900 rounded-xl p-4 drop-shadow-md ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold text-sm md:text-base `}>
+                <div className={`text-gray-900 rounded-xl p-4 ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold text-sm md:text-base `}>
                 {e.sendData.description}
                 </div>
               </div>

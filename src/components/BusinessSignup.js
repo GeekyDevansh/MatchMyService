@@ -7,9 +7,8 @@ import { basicSchema } from "../schemas/signupSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
-import BusinessSignup from "./BusinessSignup";
 
-const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
+const BusinessSignup = ({ loading, setLoading }) => {
   const {
     register,
     handleSubmit,
@@ -53,11 +52,11 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
 
   return (
     <>
-      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] overflow-y-auto scrollbar-hide ">
-        <div className={`flex justify-center items-center text-center mt-4 md:mt-0 ${businessSignup?"md:text-4xl":"md:text-5xl"} ${businessSignup?"md:ml-4":"md:ml-0"}  text-3xl font-semibold`}>
-          {businessSignup?<h1>Create Business Account</h1>:<h1>Sign Up</h1>}
-        </div>
-        {!businessSignup && <form
+      <div className=" bg-white text-gray-900 w-full md:border-l-2 md:border-t-0 border-gray-300 max-h-[110%] overflow-y-auto scrollbar-hide ">
+        {/* <div className="flex justify-center items-center text-center mt-4 md:mt-0 md:text-5xl text-3xl font-semibold ">
+          <h1>Create Business Account</h1>
+        </div> */}
+        <form
           method="POST"
           onSubmit={handleSubmit(handleSignup)}
           className="max-h-screen overflow-y-hidden "
@@ -68,7 +67,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 type="text"
                 name="name"
                 placeholder="Enter Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%]"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%]"
                 {...register("name")}
               />
               {errors && (
@@ -82,7 +81,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
                 {...register("email")}
               />
               {errors && (
@@ -96,7 +95,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 type="password"
                 name="password"
                 placeholder="Enter Password"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
                 {...register("password")}
               />
               {errors && (
@@ -112,33 +111,17 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
               SIGN UP
             </button>
 
-            <div className=" flex flex-col justify-center items-center gap-1 text-center">
-              <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm">
-                <div className="text-center"> Already have an account?</div>{" "}
-                <div className="text-center font-semibold text-blue-800">
-                  <Link to="/login"> Sign In </Link>{" "}
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
-                {" "}
-                Are you a business?{" "}
-                <span
-                  className="cursor-pointer font-semibold text-blue-800"
-                  onClick={() => {
-                    setBusinessSignup(true);
-                  }}
-                >
-                  {" "}
-                 Create a FREE business account{" "}
-                </span>{" "}
+            <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
+              <div className="text-center"> Already have an account?</div>{" "}
+              <div className="text-center font-semibold text-blue-800 ">
+                <Link to="/login"> Sign In </Link>{" "}
               </div>
             </div>
           </div>
-        </form>}
+        </form>
       </div>
-      {businessSignup && <BusinessSignup />}
     </>
   );
 };
 
-export default Form;
+export default BusinessSignup;

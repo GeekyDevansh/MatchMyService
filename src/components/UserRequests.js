@@ -44,11 +44,11 @@ const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
                   </div>
                 </div>
 
-                <div className={`flex justify-between w-full text-gray-900 font-semibold drop-shadow-md ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
+                <div className={`flex justify-between w-full text-gray-900 font-semibold ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
                   <div className="text-lg">Budget</div>
                   <div className="text-lg">&#8377; {e.sendData.budget}</div>
                 </div>
-                <div className={`text-gray-900 rounded-xl border-white drop-shadow-md p-4 ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold w-full`}>
+                <div className={`text-gray-900 rounded-xl border-white p-4 ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold w-full`}>
                   {e.sendData.description}
                 </div>
               </div>

@@ -46,8 +46,8 @@ const Form = ({ loading, setLoading }) => {
   };
   return (
     <>
-      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 font-semibold max-h-[110%] scrollbar-hide overflow-y-auto  ">
-        <div className="flex justify-center mt-8 md:mt-0 md:text-5xl text-3xl">
+      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] scrollbar-hide overflow-y-auto  ">
+        <div className="flex justify-center mt-8 md:mt-0 md:text-5xl text-3xl font-semibold">
           <h1>Sign In</h1>
         </div>
         <form method="POST" onSubmit={handleSubmit(onSubmit)}>
@@ -58,7 +58,7 @@ const Form = ({ loading, setLoading }) => {
                 name="email"
                 id="email"
                 placeholder="Enter Email"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
+                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
                 {...register("email")}
               />
               <span className="text-center text-red-500 font-semibold text-sm ">
@@ -71,7 +71,7 @@ const Form = ({ loading, setLoading }) => {
                 name="password"
                 id="password"
                 placeholder="Enter Password"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
+                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
                 {...register("password")}
               />
 
@@ -87,8 +87,8 @@ const Form = ({ loading, setLoading }) => {
                 SIGN IN
               </button>
             </div>
-            <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm font-semibold">
-             <div> New to MatchMyService ?</div> <div> <Link to="/signup"> Create a FREE account </Link> </div>
+            <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
+             <div> New to MatchMyService ?</div> <div className="font-semibold text-blue-800" > <Link to="/signup"> Create a FREE account </Link> </div>
             </div>
           </div>
         </form>
