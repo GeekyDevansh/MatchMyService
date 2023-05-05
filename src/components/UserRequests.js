@@ -1,14 +1,14 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
 
-const UserRequests = ({ data, setModalIsOpen }) => {
+const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
   const openModal=()=>{
     setModalIsOpen(true);
   }
 
   return (
-    <div className=" flex flex-col text-white border-2 border-white rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto overflow-scroll scrollbar-hide ">
+    <div className={`flex flex-col ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}>
       <div className="font-semibold text-2xl">Your Service Requests</div>
       {data
         ?.filter((e) => {
@@ -17,7 +17,7 @@ const UserRequests = ({ data, setModalIsOpen }) => {
         ?.map((e, i) => {
           return (
             <div
-              className=" bg-black drop-shadow-lg rounded-xl p-8 mt-4 "
+              className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl p-8 mt-4 `}
               key={i}
             >
               <div className="flex flex-col gap-4 items-center">
@@ -36,19 +36,19 @@ const UserRequests = ({ data, setModalIsOpen }) => {
                           : "/other.gif"
                       }`}
                       alt=""
-                      className="rounded-full"
+                      className="rounded-full  border-2 border-gray-300 "
                     />
                   </div>
-                  <div className="font-semibold md:text-xl text-lg">
+                  <div className="font-semibold md:text-xl text-lg capitalize ">
                     {e.sendData.service_type}
                   </div>
                 </div>
 
-                <div className="flex justify-between w-full text-gray-900 font-semibold bg-white p-4 rounded-xl">
+                <div className={`flex justify-between w-full text-gray-900 font-semibold drop-shadow-md ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
                   <div className="text-lg">Budget</div>
                   <div className="text-lg">&#8377; {e.sendData.budget}</div>
                 </div>
-                <div className="text-gray-900 rounded-xl border-white p-4 bg-white font-semibold w-full ">
+                <div className={`text-gray-900 rounded-xl border-white drop-shadow-md p-4 ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold w-full`}>
                   {e.sendData.description}
                 </div>
               </div>

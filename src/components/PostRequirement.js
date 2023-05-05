@@ -14,7 +14,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
             darkMode ? "bg-black" : "bg-white"
           } flex flex-col cursor-pointer items-center pb-10 border-2 border-dashed ${
             darkMode ? "border-white" : "border-gray-900"
-          } rounded-xl text-white gap-2 md:gap-0 drop-shadow-2xl`}
+          } rounded-xl text-white gap-2 md:gap-0 drop-shadow-2xl md:mt-[5%] mt-[10%] `}
           onClick={handleClick}
         >
           {darkMode ? (

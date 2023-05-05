@@ -80,12 +80,12 @@ const Body = ({ darkMode, sendData }) => {
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
-        <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} />
+        <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} request={request} />
       </Modal>
       <div
         className={` ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
-        } flex flex-col justify-center items-center h-screen `}
+        } flex flex-col justify-center items-center md:h-auto min-h-screen `}
       >
         <PostRequirement
           setModalIsOpen={setModalIsOpen}
@@ -93,10 +93,10 @@ const Body = ({ darkMode, sendData }) => {
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserRequests data={data} setModalIsOpen={setModalIsOpen} />
+            <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} />
           </div>
           <div className="md:w-[60%] w-full">
-            <AllRequests data={data} />
+            <AllRequests data={data} darkMode={darkMode} />
           </div>
         </div>
 

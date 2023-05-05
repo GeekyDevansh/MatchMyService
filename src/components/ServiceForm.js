@@ -6,7 +6,7 @@ import toast from "react-hot-toast";
 import FormSubmitted from "./FormSubmitted";
 import moment from 'moment'
 
-const ServiceForm = ({ setModalIsOpen, setRequest }) => {
+const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
 
   var budget;
   var contact;
@@ -48,7 +48,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest }) => {
     .then(()=>{ setTimeout(() => {
       setSuccess(false)
     }, 2500);}
-    ).then(()=>{setRequest(true)})
+    ).then(()=>{setRequest(!request)})
    
    
     
