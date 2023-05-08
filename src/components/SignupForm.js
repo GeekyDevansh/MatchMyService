@@ -54,7 +54,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
   return (
     <>
       <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] overflow-y-auto scrollbar-hide ">
-        <div className={`flex justify-center items-center text-center mt-1 md:mt-0 overflow-y-hidden ${businessSignup?"md:text-3xl":"md:text-5xl"} ${businessSignup?"md:ml-4":"md:ml-0"}  text-3xl font-semibold`}>
+        <div className={`flex justify-center items-center text-center mt-1 md:mt-0 overflow-y-hidden md:overflow-y-visible ${businessSignup?"md:text-3xl":"md:text-5xl"} ${businessSignup?"md:ml-4":"md:ml-0"}  text-3xl font-semibold`}>
           {businessSignup?<h1>Create Business Account</h1>:<h1>Sign Up</h1>}
         </div>
         {!businessSignup && <form
