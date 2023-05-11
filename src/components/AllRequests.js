@@ -18,7 +18,7 @@ const AllRequests = ({data, darkMode}) => {
             <div className="flex justify-around ">
               <div className="flex flex-col items-center md:w-20 md:h-20 w-12 h-12">
                 <div className="flex flex-col ">
-                  <img src={`${e.sendData.service_type==="Plumber"?"/plumber.gif":e.sendData.service_type==="Carpenter"?"/carpenter.gif":e.sendData.service_type==="Electrician"?"/electrician.gif":"/other.gif"}`} alt="" className="rounded-full border-2 border-gray-300 " />
+                  <img src={`${e.sendData.service_type==="Plumber"?"/plumber.png":e.sendData.service_type==="Carpenter"?"/carpenter.png":e.sendData.service_type==="Electrician"?"/electrician.png":"/other.png"}`} alt="" className="rounded-full border-2 border-gray-300 " />
                 </div>
                 <div className="font-semibold md:text-normal text-sm capitalize " >{e.sendData.service_type}</div>
               </div>

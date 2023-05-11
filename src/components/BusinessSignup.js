@@ -59,13 +59,13 @@ const BusinessSignup = ({ loading, setLoading }) => {
           onSubmit={handleSubmit(handleSignup)}
           className="max-h-screen overflow-y-hidden overflow-x-hidden "
         >
-          <div className=" items-center gap-2 my-4 bg-[#E8E8E8] p-[3%] md:p-[1%] md:h-34 md:w-[80%] justify-center mx-auto rounded-xl">
+          {/* <div className=" items-center gap-2 my-4 bg-[#E8E8E8] p-[3%] md:p-[1%] md:h-34 md:w-[80%] justify-center mx-auto rounded-xl">
             <div className="text-gray-400 mb-2 md:pl-3">
               Choose your Business
             </div>
 
-            <div className="flex justify-center w-[90%] items-center md:gap-2 gap-5 mx-auto px-2">
-              <div>
+            <div className="flex justify-center gap-4 md:gap-2 mx-auto px-2">
+              <div className="w-1/4" >
                 <button
                   type="button"
                   className={`${
@@ -82,7 +82,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   <span className=" text-xs font-semibold">Plumber</span>
                 </button>
               </div>
-              <div>
+              <div className="w-1/4">
                 <button
                   type="button"
                   className={`${
@@ -99,7 +99,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   <span className=" text-xs font-semibold">Carpenter</span>
                 </button>
               </div>
-              <div>
+              <div className="w-1/4" >
                 <button
                   type="button"
                   className={`${
@@ -116,7 +116,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   <span className="text-xs font-semibold">Electrician</span>
                 </button>
               </div>
-              <div>
+              <div className="w-1/4" >
                 <button
                   type="button"
                   className={`${
@@ -133,7 +133,78 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 </button>
               </div>
             </div>
-          </div>
+          </div> */}
+
+<div className=" items-center gap-2 mb-4 bg-[#E8E8E8] p-[5%] md:p-[1%] md:h-34 md:w-[80%] rounded-xl md:mx-auto mt-5 ">
+              <div className="text-gray-400 mb-2 md:pl-3">Choose service type</div>
+
+              <div className="flex justify-center items-center gap-2 px-2">
+                <div>
+                  <button
+                    type="button"
+                    className={`${serviceType==="plumber"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
+                    onClick={() => {
+                      setServiceType("plumber");
+                      // setSendData({...sendData,service_type:"Plumber"});
+                    }}
+                  >
+                    <img src="/plumber.gif" alt="" className="rounded-xl bg-white " />
+                    <span className="text-xs font-semibold">
+                      Plumber
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    className={`${serviceType==="carpenter"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
+                    onClick={() => {
+                      setServiceType("carpenter");
+                      // setSendData({...sendData,service_type:"Carpenter"});
+                    }}
+                  >
+                    <img src="/carpenter.gif" alt="" className="rounded-xl bg-white " />
+                    <span className="text-xs font-semibold">
+                      Carpenter
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    className={`${serviceType==="electrician"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
+                    onClick={() => {
+                      setServiceType("electrician");
+                      // setSendData({...sendData,service_type:"Electrician"});
+                    }}
+                  >
+                    <img
+                      src="/electrician.gif"
+                      alt=""
+                      className="rounded-xl bg-white  "
+                    />
+                    <span className="text-xs  font-semibold">
+                      Electrician
+                    </span>
+                  </button>
+                </div>
+                <div>
+                  <button
+                    type="button"
+                    className={`${serviceType==="other"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
+                    onClick={() => {
+                      setServiceType("other");
+                    }}
+                  >
+                    <img src="/other.gif" alt="" className="rounded-xl bg-white" />
+                    <span className="text-xs  font-semibold">
+                      Others
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
           <div className="flex gap-2">
             <div>
               <input

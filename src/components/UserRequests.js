@@ -28,12 +28,12 @@ const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
                     <img
                       src={`${
                         e.sendData.service_type === "Plumber"
-                          ? "/plumber.gif"
+                          ? "/plumber.png"
                           : e.sendData.service_type === "Carpenter"
-                          ? "/carpenter.gif"
+                          ? "/carpenter.png"
                           : e.sendData.service_type === "Electrician"
-                          ? "/electrician.gif"
-                          : "/other.gif"
+                          ? "/electrician.png"
+                          : "/other.png"
                       }`}
                       alt=""
                       className="rounded-full  border-2 border-gray-300 "

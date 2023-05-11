@@ -91,7 +91,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                       setSendData({...sendData,service_type:"Plumber"});
                     }}
                   >
-                    <img src="/plumber.gif" alt="" className="rounded-xl" />
+                    <img src="/plumber.png" alt="" className="rounded-xl bg-white " />
                     <span className="md:text-sm text-xs font-semibold">
                       Plumber
                     </span>
@@ -106,7 +106,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                       setSendData({...sendData,service_type:"Carpenter"});
                     }}
                   >
-                    <img src="/carpenter.gif" alt="" className="rounded-xl" />
+                    <img src="/carpenter.png" alt="" className="rounded-xl bg-white " />
                     <span className="md:text-sm text-xs font-semibold">
                       Carpenter
                     </span>
@@ -122,9 +122,9 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                     }}
                   >
                     <img
-                      src="/electrician.gif"
+                      src="/electrician.png"
                       alt=""
-                      className="rounded-xl "
+                      className="rounded-xl bg-white  "
                     />
                     <span className="text-xs md:text-sm font-semibold">
                       Electrician
@@ -139,7 +139,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                       setServiceType("other");
                     }}
                   >
-                    <img src="/other.gif" alt="" className="rounded-xl" />
+                    <img src="/other.png" alt="" className="rounded-xl bg-white" />
                     <span className="text-xs md:text-sm font-semibold">
                       Others
                     </span>
