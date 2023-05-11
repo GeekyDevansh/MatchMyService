@@ -7,9 +7,9 @@ const Protected = ({ children }) => {
   if (!user) {
     return <Navigate to="/" replace />;
   }
-else if (service !== undefined)
+else if(service === undefined)
 {
-     return <Navigate to="/business/home" replace />;
+     return <Navigate to="/home" replace />;
 }
   return children;
 };

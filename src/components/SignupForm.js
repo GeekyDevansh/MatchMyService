@@ -136,7 +136,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
           </div>
         </form>}
       </div>
-      {businessSignup && <BusinessSignup />}
+      {businessSignup && <BusinessSignup setLoading={setLoading} />}
     </>
   );
 };

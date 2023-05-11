@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { auth } from "../firebase";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
-import { basicSchema } from "../schemas/signupSchema";
+import { businessSchema } from "../schemas/businessSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
@@ -14,41 +14,55 @@ const BusinessSignup = ({ loading, setLoading }) => {
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(basicSchema),
+    resolver: yupResolver(businessSchema),
   });
 
   const navigate = useNavigate();
   const [user, setUser] = useState();
   const [serviceType, setServiceType] = useState();
+  const [serviceName, setServiceName] = useState("");
 
   const handleSignup = (data, e) => {
     e.preventDefault();
     setLoading(true);
-    setTimeout(() => {
-      createUserWithEmailAndPassword(auth, data.email, data.password)
-        .then(async (res) => {
-          const newUser = res.user;
-          await updateProfile(newUser, { displayName: data.name });
-          return res;
-        })
-        .then((res) => {
-          localStorage.setItem("user", JSON.stringify(res));
-          setUser(res.user.uid);
-          console.log("res", res);
-        })
-        .then(() => {
-          navigate("/home");
-        })
-        .catch((error) => {
-          console.log(error.message);
-          toast.error("Email Already In Use. \n Please Sign In", {
-            className: "font-semibold",
+    if(serviceName !=="")
+    {
+
+      setTimeout(() => {
+        createUserWithEmailAndPassword(auth, data.email, data.password)
+          .then(async (res) => {
+            const newUser = res.user;
+            await updateProfile(newUser, { displayName: data.name, photoURL: data.serviceType || serviceName });
+            return res;
+          })
+          .then((res) => {
+            localStorage.setItem("user", JSON.stringify(res));
+            setUser(res.user.uid);
+            console.log("res", res);
+          })
+          .then(() => {
+            navigate("/business/home");
+          })
+          .catch((error) => {
+            console.log(error.message);
+            toast.error("Email Already In Use. \n Please Sign In", {
+              className: "font-semibold",
+            });
+          })
+          .finally(() => {
+            setLoading(false);
           });
-        })
-        .finally(() => {
-          setLoading(false);
-        });
-    }, 1500);
+      }, 1500);
+
+    }
+    else
+    {
+      toast.error("Service type is missing", {
+        className: "font-semibold",
+      });
+      setLoading(false);
+    }
+    
   };
 
   return (
@@ -59,82 +73,6 @@ const BusinessSignup = ({ loading, setLoading }) => {
           onSubmit={handleSubmit(handleSignup)}
           className="max-h-screen overflow-y-hidden overflow-x-hidden "
         >
-          {/* <div className=" items-center gap-2 my-4 bg-[#E8E8E8] p-[3%] md:p-[1%] md:h-34 md:w-[80%] justify-center mx-auto rounded-xl">
-            <div className="text-gray-400 mb-2 md:pl-3">
-              Choose your Business
-            </div>
-
-            <div className="flex justify-center gap-4 md:gap-2 mx-auto px-2">
-              <div className="w-1/4" >
-                <button
-                  type="button"
-                  className={`${
-                    serviceType === "plumber"
-                      ? "border-2 border-gray-900"
-                      : "border-0 border-transparent"
-                  } bg-[#E8E8E8] rounded-xl md:w-16 md:h-16 w-12 h-12`}
-                  onClick={() => {
-                    setServiceType("plumber");
-                    // setSendData({...sendData,service_type:"Plumber"});
-                  }}
-                >
-                  <img src="/plumber.gif" alt="" className="rounded-xl" />
-                  <span className=" text-xs font-semibold">Plumber</span>
-                </button>
-              </div>
-              <div className="w-1/4">
-                <button
-                  type="button"
-                  className={`${
-                    serviceType === "carpenter"
-                      ? "border-2 border-gray-900"
-                      : "border-0 border-transparent"
-                  } bg-[#E8E8E8] rounded-xl md:w-16 md:h-16 w-12 h-12`}
-                  onClick={() => {
-                    setServiceType("carpenter");
-                    // setSendData({...sendData,service_type:"Carpenter"});
-                  }}
-                >
-                  <img src="/carpenter.gif" alt="" className="rounded-xl" />
-                  <span className=" text-xs font-semibold">Carpenter</span>
-                </button>
-              </div>
-              <div className="w-1/4" >
-                <button
-                  type="button"
-                  className={`${
-                    serviceType === "electrician"
-                      ? "border-2 border-gray-900"
-                      : "border-0 border-transparent"
-                  } bg-[#E8E8E8] rounded-xl md:w-16 md:h-16 w-12 h-12`}
-                  onClick={() => {
-                    setServiceType("electrician");
-                    // setSendData({...sendData,service_type:"Electrician"});
-                  }}
-                >
-                  <img src="/electrician.gif" alt="" className="rounded-xl " />
-                  <span className="text-xs font-semibold">Electrician</span>
-                </button>
-              </div>
-              <div className="w-1/4" >
-                <button
-                  type="button"
-                  className={`${
-                    serviceType === "other"
-                      ? "border-2 border-gray-900"
-                      : "border-0 border-transparent"
-                  } bg-[#E8E8E8] rounded-xl md:w-16 md:h-16 w-12 h-12`}
-                  onClick={() => {
-                    setServiceType("other");
-                  }}
-                >
-                  <img src="/other.gif" alt="" className="rounded-xl" />
-                  <span className="text-xs font-semibold">Others</span>
-                </button>
-              </div>
-            </div>
-          </div> */}
-
 <div className=" items-center gap-2 mb-4 bg-[#E8E8E8] p-[5%] md:p-[1%] md:h-34 md:w-[80%] rounded-xl md:mx-auto mt-5 ">
               <div className="text-gray-400 mb-2 md:pl-3">Choose service type</div>
 
@@ -144,6 +82,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                     type="button"
                     className={`${serviceType==="plumber"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
                     onClick={() => {
+                      setServiceName("plumber");
                       setServiceType("plumber");
                       // setSendData({...sendData,service_type:"Plumber"});
                     }}
@@ -159,6 +98,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                     type="button"
                     className={`${serviceType==="carpenter"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
                     onClick={() => {
+                      setServiceName("carpenter");
                       setServiceType("carpenter");
                       // setSendData({...sendData,service_type:"Carpenter"});
                     }}
@@ -174,6 +114,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                     type="button"
                     className={`${serviceType==="electrician"?"border-2 border-gray-900":"border-0 border-transparent"} bg-[#E8E8E8] rounded-xl md:w-18 md:h-18 w-16 h-16`}
                     onClick={() => {
+                      setServiceName("electrician");
                       setServiceType("electrician");
                       // setSendData({...sendData,service_type:"Electrician"});
                     }}
@@ -206,7 +147,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
             </div>
 
           <div className="flex gap-2">
-            <div>
+            <div className="w-full flex flex-col justify-center md:items-start items-center " >
               <input
                 type="text"
                 name="name"
@@ -215,12 +156,12 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 {...register("name")}
               />
               {errors && (
-                <span className="text-center text-red-500 font-semibold text-sm ">
+                <span className="text-center text-red-500 font-semibold text-sm md:ml-12 ">
                   {errors?.name?.message}
                 </span>
               )}
             </div>
-            <div>
+            <div className="w-full flex flex-col justify-start md:items-start items-center " >
               <input
                 type="email"
                 name="email"
@@ -236,17 +177,17 @@ const BusinessSignup = ({ loading, setLoading }) => {
             </div>
           </div>
           <div className={`gap-1 flex mt-4`}>
-            <div className={`${serviceType==="other"?"":"md:w-[56%]"}`} >
+            <div className={`${serviceType==="other"?"":"md:w-[56%]"} flex flex-col justify-center md:items-start items-center `} >
               <input
                 type="password"
-                name="name"
+                name="password"
                 placeholder="Enter Password"
                 className={`p-3 bg-gray-200 rounded-xl text-gray-900 ${serviceType==="other"?"w-full":"w-[94%]"} md:w-[80%] md:ml-12`}
-                {...register("name")}
+                {...register("password")}
               />
               {errors && (
-                <span className="text-center text-red-500 font-semibold text-sm ">
-                  {errors?.name?.message}
+                <span className="text-center text-red-500 font-semibold text-sm md:ml-12 ">
+                  {errors?.password?.message}
                 </span>
               )}
             </div>
@@ -264,11 +205,12 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 name="business_name"
                 placeholder="Business Name"
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full md:w-[80%] md:mr-10 "
-                {...register("email")}
+                {...register("serviceType")}
+                onChange={(e)=>setServiceName(e.target.value)}
               />
               {errors && (
-                <span className="text-center text-red-500 font-semibold text-sm ">
-                  {errors?.email?.message}
+                <span className="text-center text-red-500 font-semibold text-sm  ">
+                  {errors?.serviceType?.message}
                 </span>
               )}
             </div>

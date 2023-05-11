@@ -26,12 +26,17 @@ const Form = ({ loading, setLoading }) => {
     setTimeout(() => {
       signInWithEmailAndPassword(auth, data.email, data.password)
         .then((res) => {
+          if(res?.user.photoURL !== null)
+          {
+            navigate("/business/home"); 
+          }
+          else
+          {
+            navigate("/home");
+          }
           localStorage.setItem("user", JSON.stringify(res));
-          setUser(res.user.uid);
-          console.log("res", res);
-        })
-        .then(() => {
-          navigate("/home");
+          setUser(res?.user?.uid);
+          console.log("res", res?.user.photoURL);
         })
         .catch((err) => {
           console.log(err);
