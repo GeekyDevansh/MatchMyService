@@ -7,6 +7,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './pages/Home';
 import Landing from './pages/Landing';
+import Business from './pages/Business';
 import Protected from './components/Protected';
 import { Toaster } from "react-hot-toast";
 
@@ -19,6 +20,7 @@ root.render(
       <Routes>
     <Route exact path='/login' element={<Login/>} />
     <Route exact path='/signup' element={<Signup/>} />
+    <Route exact path='/business/home' element={<Business/>} />
     <Route exact path='/home'  element={ <Protected> <Home/> </Protected>}/>
     
     <Route exact path='/' element={<Landing/>} />

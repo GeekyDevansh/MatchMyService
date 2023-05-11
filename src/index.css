@@ -2,21 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 
-*{
-    font-family: 'Poppins', sans-serif;
-    scroll-behavior: smooth;
+* {
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
 }
 .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
 }
 .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-    margin: 0;
+  -webkit-appearance: none;
+  margin: 0;
+}
+.gradient-background {
+  background: linear-gradient(99deg, #72a489, #cf15d9, #9c3135);
+  background-size: 180% 180%;
+  animation: gradient-animation 3s ease infinite;
+  font-size: 1rem;
+  line-height: 1rem;
+  color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  /* margin-left:5px; */
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+ .gradient-background{
+  font-size: 0.75rem;
+  line-height: 1rem;
+ }
 }

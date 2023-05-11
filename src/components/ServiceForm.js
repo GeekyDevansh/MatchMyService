@@ -29,7 +29,11 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
     contact_number:contact,
     description:description,
     service_type:service,
-    created: serverTimestamp()
+    created: serverTimestamp(),
+    bidding:false,
+    bidding_price:"",
+    bidder_name:"",
+    bidder_id:"",
   });
   
   const handleSubmit = async(e) => {
