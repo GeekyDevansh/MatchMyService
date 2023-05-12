@@ -42,7 +42,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   try{
     console.log("sendData",sendData);
     setServiceType(" ");
-    setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service}));
+    setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service?.toUpperCase()}));
     const res=await addDoc(collection(db, "product_data",), {
      sendData
     })
@@ -155,7 +155,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                   placeholder="Please specify the required service"
                   required={true}
                   value={service}
-                  className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
+                  className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full capitalize "
                   onChange={(e)=>setSendData({...sendData,service_type:e.target.value})}
                 />
               )}

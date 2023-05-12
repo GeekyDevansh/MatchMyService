@@ -1,11 +1,43 @@
-import React,{useState} from "react";
+import React,{useState,useEffect} from "react";
 import { Link } from "react-router-dom";
+import {
+  doc,
+  serverTimestamp,
+  addDoc,
+  collection,
+  getDocs,
+  deleteDoc,
+  updateDoc,
+  orderBy,
+  query,
+} from "firebase/firestore";
+import { db } from "../firebase";
 
-const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
+const UserRequests = ({ setModalIsOpen, darkMode, request }) => {
+  const [data, setData] = useState();
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
   const openModal=()=>{
     setModalIsOpen(true);
   }
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        let list = [];
+        const dataRef = collection(db, "product_data");
+        const q = query(dataRef, orderBy("bidding_time", "desc"));
+        console.log("q", q);
+        const querySnapshot = await getDocs(q);
+        console.log(querySnapshot);
+        querySnapshot.forEach((doc) => {
+          list.push({ id: doc.id, ...doc.data() });
+        });
+        setData(list);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, [request]);
 
   return (
     <div className={`flex flex-col ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}>

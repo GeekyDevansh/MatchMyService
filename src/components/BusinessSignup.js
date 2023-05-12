@@ -204,9 +204,9 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="text"
                 name="business_name"
                 placeholder="Business Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full md:w-[80%] md:mr-10 "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full md:w-[80%] md:mr-10"
                 {...register("serviceType")}
-                onChange={(e)=>setServiceName(e.target.value)}
+                onChange={(e)=>setServiceName(e.target.value.toUpperCase())}
               />
               {errors && (
                 <span className="text-center text-red-500 font-semibold text-sm  ">

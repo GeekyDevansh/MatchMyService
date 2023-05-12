@@ -89,10 +89,10 @@ const BusinessBody = ({ darkMode, sendData }) => {
       >
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} />
+            <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} />
           </div>
           <div className="md:w-[60%] w-full">
-            <BusinessRequests darkMode={darkMode} />
+            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} />
           </div>
         </div>
       </div>

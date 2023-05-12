@@ -33,6 +33,22 @@ const AllRequests = ({data, darkMode}) => {
               </div>
             </div>
           </div>
+          {e.bidding === true && (
+                    <div
+                      className={`flex justify-between text-gray-900 ${
+                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                      } rounded-xl px-6 py-3 mt-5 md:text-lg `}
+                    >
+                      <div className="capitalize">
+                        <h1 className="font-semibold">Bidder Name</h1>
+                        {e.bidder_name}
+                      </div>
+                      <div>
+                        <h1 className="font-semibold">Bid Price</h1>
+                        &#8377; {e.bidding_price}
+                      </div>
+                    </div>
+                  )}
         </div>) }  ):(<div className="flex justify-center items-center" > No service Requests. </div> )}
       </div>
     </>

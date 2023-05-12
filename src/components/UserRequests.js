@@ -1,14 +1,20 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
-  const openModal=()=>{
+  const openModal = () => {
     setModalIsOpen(true);
-  }
+  };
 
   return (
-    <div className={`flex flex-col ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}>
+    <div
+      className={`flex flex-col ${
+        darkMode ? "text-white" : "text-gray-900"
+      } border-2 ${
+        darkMode ? "border-white" : "border-gray-900"
+      } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
+    >
       <div className="font-semibold text-2xl">Your Service Requests</div>
       {data
         ?.filter((e) => {
@@ -17,7 +23,9 @@ const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
         ?.map((e, i) => {
           return (
             <div
-              className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl p-8 mt-4 `}
+              className={` ${
+                darkMode ? "bg-black" : "bg-white"
+              } drop-shadow-lg rounded-xl p-8 mt-4 `}
               key={i}
             >
               <div className="flex flex-col gap-4 items-center">
@@ -44,20 +52,48 @@ const UserRequests = ({ data, setModalIsOpen, darkMode }) => {
                   </div>
                 </div>
 
-                <div className={`flex justify-between w-full text-gray-900 font-semibold ${darkMode?"bg-white":"bg-[#E8E8E8]"} p-4 rounded-xl`}>
+                <div
+                  className={`flex justify-between w-full text-gray-900 font-semibold ${
+                    darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                  } p-4 rounded-xl`}
+                >
                   <div className="text-lg">Budget</div>
                   <div className="text-lg">&#8377; {e.sendData.budget}</div>
                 </div>
-                <div className={`text-gray-900 rounded-xl border-white p-4 ${darkMode?"bg-white":"bg-[#E8E8E8]"} font-semibold w-full`}>
+                <div
+                  className={`text-gray-900 rounded-xl border-white p-4 ${
+                    darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                  } font-semibold w-full`}
+                >
                   {e.sendData.description}
                 </div>
               </div>
+              {e.bidding === true && (
+              <div
+                className={`flex justify-between text-gray-900 ${
+                  darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                } rounded-xl px-6 py-3 mt-5 md:text-lg `}
+              >
+                <div className="capitalize">
+                  <h1 className="font-semibold">Bidder Name</h1>
+                  {e.bidder_name}
+                </div>
+                <div>
+                  <h1 className="font-semibold">Bid Price</h1>
+                  &#8377; {e.bidding_price}
+                </div>
+              </div>
+            )}
             </div>
           );
         })}
-        <div className="md:block flex flex-col" >
-         Need some service?  <span onClick={openModal} className="cursor-pointer font-semibold" > Post your requirement.</span>
-        </div>
+      <div className="md:block flex flex-col">
+        Need some service?{" "}
+        <span onClick={openModal} className="cursor-pointer font-semibold">
+          {" "}
+          Post your requirement.
+        </span>
+      </div>
     </div>
   );
 };
