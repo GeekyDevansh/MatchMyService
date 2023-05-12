@@ -10,6 +10,8 @@ import {
   orderBy,
   query,
   where,
+  FieldValue,
+  arrayUnion,
 } from "firebase/firestore";
 import { db } from "../firebase";
 
@@ -19,13 +21,15 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
   const cName = JSON.parse(localStorage.getItem("user")).user.displayName;
   const [biddingPrice, setBiddingPrice] = useState("");
 
+  const entry = { bidding_price: biddingPrice, bidder_name: cName };
+
   const handleClick = async (id) => {
     const washingtonRef = doc(db, "product_data", id);
     await updateDoc(washingtonRef, {
       bidding: true,
-      bidder_id: user,
-      bidding_price: biddingPrice,
-      bidder_name: cName,
+      bidder_id: arrayUnion(user),
+      bidding_info: arrayUnion(entry),
+      // bidder_name: arrayUnion(cName),
       bidding_time: serverTimestamp(),
     }).then(() => {
       setRequest(!request);
@@ -55,6 +59,8 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
     fetchData();
   }, [request]);
 
+  console.log("data", data);
+
   return (
     <>
       <div
@@ -70,7 +76,9 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
         {data != "" ? (
           data
             ?.filter((e, i) => {
-              return e.sendData.service_type.toUpperCase() === business.toUpperCase();
+              return (
+                e.sendData.service_type.toUpperCase() === business.toUpperCase()
+              );
             })
             ?.map((e, i) => {
               return (
@@ -141,40 +149,62 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
                   </div>
                   {e.bidding === true && (
                     <div
-                      className={`flex justify-between text-gray-900 ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
-                      } rounded-xl px-6 py-3 mt-5 md:text-lg `}
+                      className={` text-gray-900 rounded-xl md:px-6 md:py-3 mt-5 md:text-lg `}
                     >
                       <div className="capitalize">
-                        <h1 className="font-semibold">Bidder Name</h1>
-                        {e.bidder_name}
-                      </div>
-                      <div>
-                        <h1 className="font-semibold">Bid Price</h1>
-                        &#8377; {e.bidding_price}
+                        {e.bidding_info?.map((e) => {
+                          return (
+                            <div
+                              className={`${
+                                darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                              } flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
+                            >
+                              <div className="flex flex-col">
+                                <h1 className="font-semibold">Bidder Name</h1>
+                                {e.bidder_name}
+                              </div>
+                              <div className="flex flex-col">
+                                <h1 className="font-semibold">Bidding price</h1>
+                                &#8377; {e.bidding_price}
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {e.bidding_price?.map((e) => {
+                          return (
+                            <div className="bg-white text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg ">
+                              <h1 className="font-semibold">Bid Price</h1>
+                              &#8377; {e}
+                            </div>
+                          );
+                        })}
                       </div>
                     </div>
                   )}
-                  <div className="flex justify-between">
-                    <div className="w-1/2">
-                      <input
-                        type="number"
-                        min="500"
-                        max="500000"
-                        id="ip"
-                        required={true}
-                        placeholder="Bid Amount"
-                        onChange={(e) => setBiddingPrice(e.target.value)}
-                        className=" rounded-lg px-3 py-3 mt-5 w-full text-gray-900 font-semibold border-2 border-gray-800 "
-                      />
-                    </div>
-                    <button
-                      onClick={() => handleClick(e.id)}
-                      className="bg-blue-500 rounded-lg px-8 py-3 mt-5 hover:bg-blue-700 text-white"
-                    >
-                      Bid
-                    </button>
-                  </div>
+                  
+                    
+                        <div className="flex justify-between">
+                          <div className="w-1/2">
+                            <input
+                              type="number"
+                              min="500"
+                              max="500000"
+                              id="ip"
+                              required={true}
+                              placeholder="Bid Amount"
+                              onChange={(e) => setBiddingPrice(e.target.value)}
+                              className=" rounded-lg px-3 py-3 mt-5 w-full text-gray-900 font-semibold border-2 border-gray-800 "
+                            />
+                          </div>
+                          <button
+                            onClick={() => handleClick(e.id)}
+                            className="bg-blue-500 disabled:bg-gray-600 rounded-lg px-8 py-3 mt-5 hover:bg-blue-700 text-white"
+                            disabled={e?.bidder_id.includes(user)}
+                          >
+                            Bid
+                          </button>
+                        </div>
+                      
                 </div>
               );
             })

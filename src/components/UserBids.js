@@ -39,12 +39,14 @@ const UserRequests = ({ setModalIsOpen, darkMode, request }) => {
     fetchData();
   }, [request]);
 
+  console.log("data",data)
+
   return (
     <div className={`flex flex-col ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}>
       <div className="font-semibold text-2xl">Your Bids</div>
       {data
         ?.filter((e) => {
-          return e.bidder_id === user;
+          return e.bidder_id.includes(user);
         })
         ?.map((e, i) => {
           return (
@@ -84,16 +86,38 @@ const UserRequests = ({ setModalIsOpen, darkMode, request }) => {
                   {e.sendData.description}
                 </div>
               </div>
-              {e.bidding===true && <div className={`flex justify-between text-gray-900 ${darkMode?"bg-white":"bg-[#E8E8E8]"} rounded-xl px-6 py-3 mt-5 md:text-lg font-semibold `} >
-                    <div>
-                        
-                        <h1>Your Bid</h1>
+                <div
+                      className={` text-gray-900 rounded-xl  mt-5 md:text-lg `}
+                    >
+                      <div className="capitalize">
+                        {e.bidding_info?.map((e) => {
+                          return (
+                            <div
+                              className={`${
+                                darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                              } flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                            >
+                              <div className="flex flex-col md:text-base text-sm">
+                                <h1 className="font-semibold md:text-base text-sm">Bidder Name</h1>
+                                {e.bidder_name}
+                              </div>
+                              <div className="flex flex-col md:text-base text-sm ">
+                                <h1 className="font-semibold md:text-base text-sm ">Bidding price</h1>
+                                &#8377; {e.bidding_price}
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {e.bidding_price?.map((e) => {
+                          return (
+                            <div className="bg-white text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg ">
+                              <h1 className="font-semibold">Bid Price</h1>
+                              &#8377; {e}
+                            </div>
+                          );
+                        })}
+                      </div>
                     </div>
-                    <div>
-                   
-                    &#8377; {e.bidding_price}
-                    </div>
-                </div>}
             </div>
             
           );
