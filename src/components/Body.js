@@ -93,7 +93,7 @@ const Body = ({ darkMode, sendData }) => {
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} />
+            <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} />
           </div>
           <div className="md:w-[60%] w-full">
             <AllRequests data={data} darkMode={darkMode} />

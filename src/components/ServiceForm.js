@@ -30,10 +30,6 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
     description:description,
     service_type:service,
     created: serverTimestamp(),
-    bidding:false,
-    bidding_price:"",
-    bidder_name:"",
-    bidder_id:"",
   });
   
   const handleSubmit = async(e) => {
@@ -43,8 +39,9 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
     console.log("sendData",sendData);
     setServiceType(" ");
     setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service?.toUpperCase()}));
-    const res=await addDoc(collection(db, "product_data",), {
-     sendData
+    const res=await addDoc(collection(db, "product_data"), {
+     sendData,
+     bidding:false
     })
     .then(()=>{ 
     setLoading(false);

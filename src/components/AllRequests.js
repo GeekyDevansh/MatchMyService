@@ -35,20 +35,78 @@ const AllRequests = ({data, darkMode}) => {
           </div>
           {e.bidding === true && (
                     <div
-                      className={`flex justify-between text-gray-900 ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
-                      } rounded-xl px-6 py-3 mt-5 md:text-lg `}
+                      className={` text-gray-900 rounded-xl md:px-6 md:py-3 mt-5 md:text-lg `}
                     >
                       <div className="capitalize">
-                        <h1 className="font-semibold">Bidder Name</h1>
-                        {e.bidder_name}
+                        {e.acceptedId===undefined && e?.bidding_info?.map((e) => {
+                          return (
+                            <div
+                              className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
+                            >
+                              <div className="flex flex-col w-1/2 break-words">
+                                <h1 className="font-semibold">Bidder Name</h1>
+                                {e.bidder_name}
+                              </div>
+                              <div className="w-px bg-gray-500" >
+
+                              </div>
+                              <div className="flex flex-col w-1/2">
+                                <h1 className="font-semibold">Bidding price</h1>
+                                &#8377; {e.bidding_price}
+                              </div>
+                            </div>
+                          );
+                        })}
+                        {e.acceptedId!==undefined && e?.bidding_info?.filter((f)=>{return f?.bidder_id===e?.acceptedId})?.map((element) => {
+                  return (
+                    <div>
+                      <div
+                        className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                      >
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
+                          <h1 className="font-semibold md:text-base text-sm">
+                            Bidder Name
+                          </h1>
+                          {element?.bidder_name}
+                        </div>
+                        <div className="w-0.5 bg-gray-500"></div>
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
+                          <h1 className="font-semibold md:text-base text-sm ">
+                            Bidding price
+                          </h1>
+                          &#8377; {element?.bidding_price}
+                        </div>
                       </div>
-                      <div>
-                        <h1 className="font-semibold">Bid Price</h1>
-                        &#8377; {e.bidding_price}
+                    </div>
+                  );
+                })}
+                 {e.acceptedId!==undefined && e?.bidding_info?.filter((f)=>{return f.bidder_id!==e?.acceptedId})?.map((element) => {
+                  return (
+                    <div>
+                      <div
+                        className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                      >
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
+                          <h1 className="font-semibold md:text-base text-sm">
+                            Bidder Name
+                          </h1>
+                          {element?.bidder_name}
+                        </div>
+                        <div className="w-0.5 bg-gray-500"></div>
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
+                          <h1 className="font-semibold md:text-base text-sm ">
+                            Bidding price
+                          </h1>
+                          &#8377; {element?.bidding_price}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
                       </div>
                     </div>
                   )}
+                  
         </div>) }  ):(<div className="flex justify-center items-center" > No service Requests. </div> )}
       </div>
     </>

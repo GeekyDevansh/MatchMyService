@@ -46,7 +46,7 @@ const UserRequests = ({ setModalIsOpen, darkMode, request }) => {
       <div className="font-semibold text-2xl">Your Bids</div>
       {data
         ?.filter((e) => {
-          return e.bidder_id.includes(user);
+          return e?.bidder_id?.includes(user);
         })
         ?.map((e, i) => {
           return (
@@ -90,32 +90,71 @@ const UserRequests = ({ setModalIsOpen, darkMode, request }) => {
                       className={` text-gray-900 rounded-xl  mt-5 md:text-lg `}
                     >
                       <div className="capitalize">
-                        {e.bidding_info?.map((e) => {
+                        {e.acceptedId===undefined && e.bidding_info?.map((e) => {
                           return (
                             <div
-                              className={`${
-                                darkMode ? "bg-white" : "bg-[#E8E8E8]"
-                              } flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                              className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                             >
-                              <div className="flex flex-col md:text-base text-sm">
+                              <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
                                 <h1 className="font-semibold md:text-base text-sm">Bidder Name</h1>
-                                {e.bidder_name}
+                                {e.bidder_name} 
                               </div>
-                              <div className="flex flex-col md:text-base text-sm ">
+                              <div className="w-0.5 bg-gray-500" >
+
+                              </div>
+                              <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
                                 <h1 className="font-semibold md:text-base text-sm ">Bidding price</h1>
                                 &#8377; {e.bidding_price}
                               </div>
                             </div>
                           );
                         })}
-                        {e.bidding_price?.map((e) => {
-                          return (
-                            <div className="bg-white text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg ">
-                              <h1 className="font-semibold">Bid Price</h1>
-                              &#8377; {e}
-                            </div>
-                          );
-                        })}
+                             {e.acceptedId!==undefined && e?.bidding_info?.filter((f)=>{return f?.bidder_id===e?.acceptedId})?.map((element) => {
+                  return (
+                    <div>
+                      <div
+                        className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                      >
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
+                          <h1 className="font-semibold md:text-base text-sm">
+                            Bidder Name
+                          </h1>
+                          {element?.bidder_name}
+                        </div>
+                        <div className="w-0.5 bg-gray-500"></div>
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
+                          <h1 className="font-semibold md:text-base text-sm ">
+                            Bidding price
+                          </h1>
+                          &#8377; {element?.bidding_price}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+                 {e.acceptedId!==undefined && e?.bidding_info?.filter((f)=>{return f.bidder_id!==e?.acceptedId})?.map((element) => {
+                  return (
+                    <div>
+                      <div
+                        className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                      >
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
+                          <h1 className="font-semibold md:text-base text-sm">
+                            Bidder Name
+                          </h1>
+                          {element?.bidder_name}
+                        </div>
+                        <div className="w-0.5 bg-gray-500"></div>
+                        <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
+                          <h1 className="font-semibold md:text-base text-sm ">
+                            Bidding price
+                          </h1>
+                          &#8377; {element?.bidding_price}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
                       </div>
                     </div>
             </div>
