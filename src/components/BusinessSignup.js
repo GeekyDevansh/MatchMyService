@@ -166,7 +166,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full md:w-[80%] md:mr-10 "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[98%] md:w-[80%] md:mr-10 "
                 {...register("email")}
               />
               {errors && (

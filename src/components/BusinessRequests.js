@@ -264,7 +264,7 @@ const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading })
             })
         }
         </div>)}
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center font-medium">
           You're all caught up.
         </div>
       </div>
