@@ -15,6 +15,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Loading from "./Loading";
+import {BsTagFill} from "react-icons/bs";
 
 const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading }) => {
   const [data, setData] = useState();
@@ -145,8 +146,8 @@ const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading })
                             darkMode ? "bg-white" : "bg-[#E8E8E8]"
                           } p-4 rounded-xl`}
                         >
-                          <div className="md:text-lg">Budget</div>
-                          <div className="md:text-lg">
+                          <div className="md:text-lg text-sm flex justify-center items-center gap-1 "> <BsTagFill/> Budget</div>
+                          <div className="md:text-lg text-sm">
                             &#8377; {e.sendData.budget}
                           </div>
                         </div>

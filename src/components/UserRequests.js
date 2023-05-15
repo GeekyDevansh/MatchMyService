@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {BsTagFill} from "react-icons/bs";
 import {
   doc,
   serverTimestamp,
@@ -111,8 +112,8 @@ const UserRequests = ({
                         darkMode ? "bg-white" : "bg-[#E8E8E8]"
                       } p-4 rounded-xl`}
                     >
-                      <div className="text-lg">Budget</div>
-                      <div className="text-lg">&#8377; {e.sendData.budget}</div>
+                      <div className="md:text-lg  flex justify-center items-center gap-1 "> <BsTagFill/> Budget</div>
+                      <div className="md:text-lg ">&#8377; {e.sendData.budget}</div>
                     </div>
                     <div
                       className={`text-gray-900 rounded-xl border-white p-4 ${

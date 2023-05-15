@@ -107,7 +107,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
               Welcome<span className="font-medium capitalize"> {name} </span>
             </div>
 
-            <div className=" text-xs md:text-sm font-medium"> {email} </div>
+            <div className=" text-xs md:text-sm font-thin"> {email} </div>
           </li>
           <li className="flex justify-center md:gap-4 gap-2">
             <button
