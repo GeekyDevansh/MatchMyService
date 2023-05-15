@@ -11,8 +11,11 @@ function Signup() {
       <div className="flex justify-center md:items-center h-screen bg-[url('/public/bgnew.svg')] ">
        
           {loading ? 
-            <div className="bg-white flex justify-center md:p-10 p-6 md:h-2/3 mt-[20%] md:mt-0 md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[83%] overflow-y-auto scrollbar-hide rounded-xl shadow-lg items-center h-1/2 ">
+            <div className="bg-white flex justify-center md:p-10 p-6 md:h-2/3 mt-[50%] md:mt-0 md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[83%] overflow-y-auto scrollbar-hide rounded-xl shadow-lg items-center h-1/2 ">
+              <div className="md:w-[50%]" >
+
               <Loading />
+              </div>
             </div>
            : 
             [ <div className="bg-white md:flex md:justify-between md:p-10 p-6 md:h-2/3  md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[83%] overflow-y-auto scrollbar-hide rounded-xl shadow-lg md:mt-0 mt-[10%] ">

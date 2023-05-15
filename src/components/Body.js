@@ -16,13 +16,16 @@ import ServiceForm from "./ServiceForm";
 import UserRequests from "./UserRequests";
 import AllRequests from "./AllRequests";
 import PostRequirement from "./PostRequirement";
+import Loading from "./Loading";
 
 const Body = ({ darkMode, sendData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [data, setData] = useState();
+  const [loading,setLoading]=useState(false);
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         let list = [];
         const dataRef = collection(db, "product_data");
@@ -36,6 +39,9 @@ const Body = ({ darkMode, sendData }) => {
         setData(list);
       } catch (error) {
         console.log(error);
+      }
+      finally{
+        setLoading(false);
       }
     };
     fetchData();
@@ -93,10 +99,10 @@ const Body = ({ darkMode, sendData }) => {
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} />
+           <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} />
           </div>
           <div className="md:w-[60%] w-full">
-            <AllRequests data={data} darkMode={darkMode} />
+           <AllRequests data={data} darkMode={darkMode} loading={loading} />
           </div>
         </div>
 

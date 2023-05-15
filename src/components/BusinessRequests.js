@@ -14,8 +14,9 @@ import {
   arrayUnion,
 } from "firebase/firestore";
 import { db } from "../firebase";
+import Loading from "./Loading";
 
-const BusinessRequests = ({ darkMode, request, setRequest }) => {
+const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading }) => {
   const [data, setData] = useState();
   
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
@@ -24,6 +25,7 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
 
   
   const handleClick = async (req_id) => {
+    setLoading(true);
     const entry = { bidding_price: biddingPrice, bidder_name: cName,   bidder_id: user, req_id:req_id };
     const washingtonRef = doc(db, "product_data", req_id);
     await updateDoc(washingtonRef, {
@@ -34,7 +36,10 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
     })
     .then(() => {
       setRequest(!request);
-    });
+    })
+    .finally(()=>{
+      setLoading(false);
+    })
   };
 
   const business = JSON.parse(localStorage.getItem("user"))?.user.photoURL;
@@ -42,6 +47,7 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
 
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         let list = [];
         const dataRef = collection(db, "product_data");
@@ -55,6 +61,9 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
         setData(list);
       } catch (error) {
         console.log(error);
+      }
+      finally{
+        setLoading(false);
       }
     };
     fetchData();
@@ -74,6 +83,9 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
         <div className="text-center text-2xl font-semibold">
           All Service Requests
         </div>
+       {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div>):( <div>
+
+        
         {data != "" ? (
           data
             ?.filter((e, i) => {
@@ -176,7 +188,7 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
                   return (
                     <div>
                       <div
-                        className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
+                        className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl px-4 md:px-6 py-3 mt-5 md:text-lg text-center `}
                       >
                         <div className="flex flex-col w-1/2 break-words">
                           <h1 className="font-semibold md:text-base text-sm">
@@ -256,6 +268,7 @@ const BusinessRequests = ({ darkMode, request, setRequest }) => {
             No service Requests.{" "}
           </div>
         )}
+        </div>)}
       </div>
     </>
   );

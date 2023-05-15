@@ -21,8 +21,10 @@ const BusinessBody = ({ darkMode, sendData }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [data, setData] = useState();
+  const [loading,setLoading]=useState(false);
   useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         let list = [];
         const dataRef = collection(db, "product_data");
@@ -36,6 +38,9 @@ const BusinessBody = ({ darkMode, sendData }) => {
         setData(list);
       } catch (error) {
         console.log(error);
+      }
+      finally{
+        setLoading(false)
       }
     };
     fetchData();
@@ -75,13 +80,13 @@ const BusinessBody = ({ darkMode, sendData }) => {
 
   return (
     <>
-      <Modal
+      {/* <Modal
         isOpen={modalIsOpen}
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
         <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} request={request} />
-      </Modal>
+      </Modal> */}
       <div
         className={` ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
@@ -89,10 +94,10 @@ const BusinessBody = ({ darkMode, sendData }) => {
       >
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} />
+            <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} loading={loading} setLoading={setLoading} />
           </div>
           <div className="md:w-[60%] w-full">
-            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} />
+            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} />
           </div>
         </div>
       </div>

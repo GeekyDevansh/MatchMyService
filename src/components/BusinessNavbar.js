@@ -37,8 +37,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       left: "50%",
       right: "auto",
       bottom: "auto",
-      height: "30%",
-      width: "40%",
+      height: "40%",
+      width: "50%",
       borderWidth:"1px",
       borderColor:"gray",
       borderRadius: "15px",
@@ -71,7 +71,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
-       {loading? <div className="flex justify-center items-center h-full w-full overflow-y-hidden  " > <Loading/> </div> : <div className="flex flex-col">
+       {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : <div className="flex flex-col">
           <div className="md:text-xl text-base font-semibold border-b-2 border-gray-500 p-2 ">
             Are you sure you want to Sign Out?
           </div>

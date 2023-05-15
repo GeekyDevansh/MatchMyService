@@ -1,9 +1,10 @@
 import React from 'react'
 
-const Loading = () => {
+const Loading = ({darkMode}) => {
   return (
-    <div className='md:w-[50%]' >
-        <img src="/cube.gif" alt="Loading..." />
+    <div>
+      {darkMode? <img src="/cube_white.gif" alt="Loading..." />: <img src="/cube.gif" alt="Loading..." />}
+       
     </div>
   )
 }

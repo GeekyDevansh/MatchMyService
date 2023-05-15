@@ -1,11 +1,13 @@
 import React,{useEffect,useState} from "react";
+import Loading from "./Loading";
 
-const AllRequests = ({data, darkMode}) => {
+const AllRequests = ({data, darkMode,loading}) => {
   return (
     <>
       <div className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${darkMode?"text-white":"text-gray-900"} border-2 ${darkMode?"border-white":"border-gray-900"} drop-shadow-xl md:p-10 p-4 mt-10`}>
         <div className="text-center text-2xl font-semibold" >All Service Requests</div>
-        {data!=""?data?.map((e,i)=> {return (<div className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`} key={i} >
+        {loading?( <div className="flex justify-center items-center" > <Loading darkMode={darkMode}/></div>):(<div>
+          {data!=""?data?.map((e,i)=> {return (<div className={` ${darkMode?"bg-black":"bg-white"} drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`} key={i} >
           <div className="flex flex-col gap-2">
             <div className="flex flex-col">
               <div className="flex justify-between">
@@ -41,7 +43,7 @@ const AllRequests = ({data, darkMode}) => {
                         {e.acceptedId===undefined && e?.bidding_info?.map((e) => {
                           return (
                             <div
-                              className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
+                              className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 py-3 mt-5 md:text-lg text-center `}
                             >
                               <div className="flex flex-col w-1/2 break-words">
                                 <h1 className="font-semibold">Bidder Name</h1>
@@ -108,6 +110,8 @@ const AllRequests = ({data, darkMode}) => {
                   )}
                   
         </div>) }  ):(<div className="flex justify-center items-center" > No service Requests. </div> )}
+        </div>)}
+        
       </div>
     </>
   );
