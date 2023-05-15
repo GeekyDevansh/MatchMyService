@@ -152,7 +152,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="text"
                 name="name"
                 placeholder="Enter Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full  md:w-[80%] md:ml-12"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full  md:w-[80%] md:ml-12 ml-1"
                 {...register("name")}
               />
               {errors && (
@@ -182,7 +182,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="password"
                 name="password"
                 placeholder="Enter Password"
-                className={`p-3 bg-gray-200 rounded-xl text-gray-900 ${serviceType==="other"?"w-full":"w-[94%]"} md:w-[80%] md:ml-12`}
+                className={`p-3 bg-gray-200 rounded-xl text-gray-900 ${serviceType==="other"?"w-full":"w-[95%]"} md:w-[80%] md:ml-12 ${serviceType==="other"?"ml-1":"ml-0"} `}
                 {...register("password")}
               />
               {errors && (
@@ -204,7 +204,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="text"
                 name="business_name"
                 placeholder="Business Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full md:w-[80%] md:mr-10"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[97%] md:w-[80%] md:mr-10 ml-1 md:ml-0 "
                 {...register("serviceType")}
                 onChange={(e)=>setServiceName(e.target.value.toUpperCase())}
               />

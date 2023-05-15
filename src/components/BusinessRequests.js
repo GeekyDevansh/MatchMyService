@@ -86,7 +86,7 @@ const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading })
        {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div>):( <div>
 
         
-        {data != "" ? (
+        {
           data
             ?.filter((e, i) => {
               return (
@@ -262,13 +262,11 @@ const BusinessRequests = ({ darkMode, request, setRequest, loading,setLoading })
                 </div>
               );
             })
-        ) : (
-          <div className="flex justify-center items-center">
-            {" "}
-            No service Requests.{" "}
-          </div>
-        )}
+        }
         </div>)}
+        <div className="flex justify-center items-center">
+          You're all caught up.
+        </div>
       </div>
     </>
   );
