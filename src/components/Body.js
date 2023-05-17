@@ -89,10 +89,15 @@ const Body = ({ darkMode, sendData }) => {
         <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} request={request} />
       </Modal>
       <div
-        className={` ${
+        className={` 
+        ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
-        } flex flex-col justify-center items-center md:h-auto min-h-screen `}
+        } 
+        flex flex-col justify-center items-center md:h-auto min-h-screen`}
       >
+        <div className=" absolute md:top-[10%] top-[10%] " >
+          <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
+        </div>
         <PostRequirement
           setModalIsOpen={setModalIsOpen}
           darkMode={darkMode}

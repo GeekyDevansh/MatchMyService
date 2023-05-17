@@ -95,7 +95,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       <div
         className={`${
           darkMode ? "bg-black" : "bg-white"
-        } border-gray-300 drop-shadow-lg md:p-0 p-2 `}
+        } border-gray-300 drop-shadow-lg md:p-0 p-2`}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li
@@ -128,7 +128,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
             </button>
             <button
               onClick={handleClick}
-              className="md:px-6 md:py-2 px-2 text-sm md:text-medium text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
             >
               SIGN OUT
             </button>

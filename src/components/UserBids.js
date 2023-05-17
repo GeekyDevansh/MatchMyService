@@ -117,15 +117,15 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading }) 
                           <div
                             className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                           >
-                            <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
-                              <h1 className="font-semibold md:text-base text-sm">
+                            <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                              <h1 className="font-normal text-gray-700 md:text-base text-sm">
                                 Bidder Name
                               </h1>
                               {e.bidder_name}
                             </div>
                             <div className="w-0.5 bg-gray-500"></div>
-                            <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
-                              <h1 className="font-semibold md:text-base text-sm ">
+                            <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                              <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                 Bidding price
                               </h1>
                               &#8377; {e.bidding_price}
@@ -144,15 +144,15 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading }) 
                               <div
                                 className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                               >
-                                <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
-                                  <h1 className="font-semibold md:text-base text-sm">
+                                <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                  <h1 className="font-normal text-gray-700 md:text-base text-sm">
                                     Bidder Name
                                   </h1>
                                   {element?.bidder_name}
                                 </div>
                                 <div className="w-0.5 bg-gray-500"></div>
-                                <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
-                                  <h1 className="font-semibold md:text-base text-sm ">
+                                <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                                  <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                     Bidding price
                                   </h1>
                                   &#8377; {element?.bidding_price}
@@ -172,15 +172,15 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading }) 
                               <div
                                 className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                               >
-                                <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words">
-                                  <h1 className="font-semibold md:text-base text-sm">
+                                <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                  <h1 className="font-normal text-gray-700 md:text-base text-sm">
                                     Bidder Name
                                   </h1>
                                   {element?.bidder_name}
                                 </div>
                                 <div className="w-0.5 bg-gray-500"></div>
-                                <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 ">
-                                  <h1 className="font-semibold md:text-base text-sm ">
+                                <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
+                                  <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                     Bidding price
                                   </h1>
                                   &#8377; {element?.bidding_price}
