@@ -59,6 +59,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      display:"flex"
     },
   };
 
@@ -71,24 +72,35 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
-       {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : <div className="flex flex-col">
-          <div className="md:text-xl text-base font-semibold border-b-2 border-gray-500 p-2 ">
-            Are you sure you want to Sign Out?
+       {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : 
+       <div className="flex border border-black md:justify-center items-center rounded-xl p-2 m-1" >
+        <div className="flex justify-center items-center w-[40%]  " >
+          <img src="/signout.png" alt="" />
+        </div>
+        <div className="w-[60%] flex justify-center items-center " >
+        <div className="flex flex-col gap-10">
+          <div className="md:text-xl text-base font-medium text-center ">
+            Are you sure you want to <span className="font-semibold" >Sign Out</span> ?
           </div>
-          <div className="flex justify-end gap-2 absolute md:right-5 right-[6%] md:bottom-5 bottom-[12%] ">
+          <div className="flex justify-end gap-2">
             <button
-              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={closeModal}
             >
               Cancel
             </button>
             <button
-              className="md:px-6 md:py-2 px-4 py-2 text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={handleSignOut}
             >
               Sign Out
             </button>
           </div>
+        </div>
+        </div>
+
+       
+      
         </div>}
         {/* <div className="flex justify-center items-center h-full w-full overflow-y-hidden" > <Loading/> </div> */}
       </Modal>

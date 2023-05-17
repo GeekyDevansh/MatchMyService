@@ -69,7 +69,7 @@ const UserRequests = ({
         darkMode ? "border-white" : "border-gray-900"
       } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
-      <div className="font-semibold text-2xl">Your Service Requests</div>
+      <div className={`${modalIsOpen?"z-0":"z-10"} font-semibold text-2xl`}>Your Service Requests</div>
       {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div> ):(
         <div>
           {data

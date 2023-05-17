@@ -182,7 +182,7 @@ const AllRequests = ({ data, darkMode, loading }) => {
             }
           </div>
         )}
-         <div className="flex justify-center items-center font-medium">
+         <div className="flex justify-center items-center font-normal">
           You're all caught up.
         </div>
       </div>
