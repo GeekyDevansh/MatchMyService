@@ -95,9 +95,13 @@ const Body = ({ darkMode, sendData }) => {
         } 
         flex flex-col justify-center items-center md:h-auto min-h-screen`}
       >
-        <div className=" absolute md:top-[10%] top-[10%] " >
+
+        {!darkMode && <div className=" absolute md:top-[10%] top-[50%] " >
           <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
-        </div>
+        </div>}
+         {!darkMode && <div className=" absolute md:top-[10%] top-[150%] md:hidden " >
+          <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
+        </div>}
         <PostRequirement
           setModalIsOpen={setModalIsOpen}
           darkMode={darkMode}
