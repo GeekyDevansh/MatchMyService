@@ -8,6 +8,9 @@
   font-family: "Poppins", sans-serif;
   scroll-behavior: smooth;
 }
+body{
+  overflow-x: hidden;
+}
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
 }

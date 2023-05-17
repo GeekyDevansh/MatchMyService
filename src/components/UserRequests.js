@@ -23,6 +23,7 @@ const UserRequests = ({
   request,
   setRequest,
   loading,
+  modalIsOpen
 }) => {
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
   const openModal = () => {
@@ -222,7 +223,7 @@ const UserRequests = ({
             })}
         </div>
       )}
-      <div className="md:block flex flex-col">
+      <div className={`md:block flex flex-col ${!modalIsOpen?"z-10":"z-0"}`}>
         Need some service?{" "}
         <span onClick={openModal} className="cursor-pointer font-semibold">
           {" "}
