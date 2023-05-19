@@ -83,6 +83,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
     <>
       <Modal
         isOpen={modalIsOpen}
+        closeTimeoutMS={200}
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >

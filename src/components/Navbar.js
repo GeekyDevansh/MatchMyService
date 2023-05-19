@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import { HiMoon, HiSun } from "react-icons/hi";
 import Loading from "./Loading";
+import { motion } from "framer-motion"
 
 const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, signoutModalIsOpen }) => {
   const navigate = useNavigate();
@@ -64,11 +65,14 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
 
   return (
     <>
+    
+
       <Modal
         isOpen={signoutModalIsOpen}
+        closeTimeoutMS={200}
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
-      >
+        >
         {loading ? (
           <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] ">
             {" "}
@@ -89,13 +93,13 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
                   <button
                     className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
                     onClick={closeModal}
-                  >
+                    >
                     Cancel
                   </button>
                   <button
                     className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
                     onClick={handleSignOut}
-                  >
+                    >
                     Sign Out
                   </button>
                 </div>
@@ -104,6 +108,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
           </div>
         )}
       </Modal>
+       
 
       <div
         className={`${
@@ -116,29 +121,43 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
               darkMode ? "text-gray-300" : "text-gray-900"
             } flex flex-col font-light md:text-xl text-sm`}
           >
-            <div>
+            <motion.div  initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }} >
               Welcome<span className="font-medium capitalize"> {name} </span>
-            </div>
+            </motion.div>
 
-            <div className=" text-xs md:text-sm font-thin"> {email} </div>
+            <motion.div  initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5, delay:0.5 }} className=" text-xs md:text-sm font-thin"> {email} </motion.div>
           </li>
           <li className="flex justify-center md:gap-4 gap-2">
-            <button
+            <motion.button
+             initial={{ y: 10, opacity: 0 }}
+             whileInView={{ y: 0, opacity: 1 }}
+             exit={{ y: -10, opacity: 0 }}
+             transition={{ duration: 0.5 }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full hidden md:block`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+               initial={{ y: 10, opacity: 0 }}
+               whileInView={{ y: 0, opacity: 1 }}
+               exit={{ y: -10, opacity: 0 }}
+               transition={{ duration: 0.5 }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full md:hidden`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={24} /> : <HiMoon size={24} />}
-            </button>
+            </motion.button>
             <button
               onClick={handleClick}
               className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"

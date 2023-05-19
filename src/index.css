@@ -47,6 +47,30 @@ input::-webkit-inner-spin-button {
   }
 }
 
+.ReactModal__Overlay {
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open{
+  opacity: 1;
+}
+
+.ReactModal__Overlay--before-close{
+  opacity: 0;
+  transition: opacity 200ms ease-out;
+}
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: var(--red);
+  transform-origin: 0%;
+}
+
 @media only screen and (max-width: 768px) {
  .gradient-background{
   font-size: 0.75rem;

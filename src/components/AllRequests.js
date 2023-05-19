@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import {BsTagFill} from "react-icons/bs";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const AllRequests = ({ data, darkMode, loading, signoutModalIsOpen, modalIsOpen }) => {
 
@@ -15,9 +16,12 @@ const AllRequests = ({ data, darkMode, loading, signoutModalIsOpen, modalIsOpen 
           darkMode ? "border-white" : "border-gray-900"
         } drop-shadow-xl md:p-10 p-4 mt-10`}
       >
-        <div className={` ${signoutModalIsOpen || modalIsOpen?"z-0":"z-10"} text-center text-2xl font-semibold`}>
+        <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }} className={` ${signoutModalIsOpen || modalIsOpen?"z-0":"z-10"} text-center text-2xl font-semibold`}>
           All Service Requests
-        </div>
+        </motion.div>
         {loading ? (
           <div className="flex justify-center items-center">
             {" "}
@@ -28,7 +32,11 @@ const AllRequests = ({ data, darkMode, loading, signoutModalIsOpen, modalIsOpen 
             {
               data?.map((e, i) => {
                 return (
-                  <div
+                  <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }}
                     className={` ${
                       darkMode ? "bg-black" : "bg-white"
                     } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
@@ -179,7 +187,7 @@ const AllRequests = ({ data, darkMode, loading, signoutModalIsOpen, modalIsOpen 
                         </div>
                       </div>
                     )}
-                  </div>
+                  </motion.div>
                 );
               })
             }

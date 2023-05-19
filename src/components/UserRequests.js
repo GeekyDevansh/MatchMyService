@@ -16,6 +16,7 @@ import {
 } from "firebase/firestore";
 import { db } from "../firebase";
 import Loading from "../components/Loading";
+import { motion, useScroll, useSpring } from "framer-motion";
 
 const UserRequests = ({
   setModalIsOpen,
@@ -73,7 +74,10 @@ const UserRequests = ({
         darkMode ? "border-white" : "border-gray-900"
       } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
-      <div className={`${signoutModalIsOpen || modalIsOpen?"z-0":"z-10"} font-semibold text-2xl`}>Your Service Requests</div>
+      <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }} className={`${signoutModalIsOpen || modalIsOpen?"z-0":"z-10"} font-semibold text-2xl`}>Your Service Requests</motion.div>
       {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div> ):(
         <div>
           {data
@@ -82,7 +86,11 @@ const UserRequests = ({
             })
             ?.map((e, i) => {
               return (
-                <div
+                <motion.div
+                initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5 }}
                   className={` ${
                     darkMode ? "bg-black" : "bg-white"
                   } drop-shadow-lg rounded-xl p-8 mt-4 `}
@@ -222,7 +230,7 @@ const UserRequests = ({
                           </div>
                         );
                       })}
-                </div>
+                </motion.div>
               );
             })}
         </div>
