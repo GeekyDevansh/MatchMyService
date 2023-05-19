@@ -10,7 +10,10 @@ import Landing from './pages/Landing';
 import Business from './pages/Business';
 import Protected from './components/Protected';
 import ProtectedBusiness from './components/ProtectedBusiness';
+import ProtectedLanding from './components/ProtectedLanding';
 import { Toaster } from "react-hot-toast";
+
+const user = JSON.parse(localStorage.getItem("user"));
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,8 +26,9 @@ root.render(
     <Route exact path='/signup' element={<Signup/>} />
     <Route exact path='/home'  element={ <Protected> <Home/> </Protected>}/>
     <Route exact path='/business/home'  element={ <ProtectedBusiness> <Business/> </ProtectedBusiness>}/>
-    
-    <Route exact path='/' element={<Landing/>} />
+    <Route exact path='/' element={<ProtectedLanding><Landing/></ProtectedLanding>} />
+    <Route exact path='/landing' element={<Landing/>} />
+
       </Routes>
     {/* <App /> */}
     </Router>

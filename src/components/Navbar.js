@@ -77,7 +77,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex border border-black md:justify-center items-center rounded-xl p-2 m-1">
+          <div className="flex md:border md:border-black md:justify-center items-center rounded-xl p-2 m-1">
             <div className="flex justify-center items-center w-[40%]  ">
               <img src="/signout.png" alt="" />
             </div>

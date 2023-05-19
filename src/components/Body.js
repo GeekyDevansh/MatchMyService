@@ -122,7 +122,7 @@ const Body = ({ darkMode, sendData }) => {
            <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} />
           </div>
           <div className="md:w-[60%] w-full">
-           <AllRequests data={data} darkMode={darkMode} loading={loading} />
+           <AllRequests data={data} darkMode={darkMode} loading={loading} modalIsOpen={modalIsOpen} />
           </div>
         </div>
 

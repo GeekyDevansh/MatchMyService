@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import {BsTagFill} from "react-icons/bs";
 
-const AllRequests = ({ data, darkMode, loading }) => {
+const AllRequests = ({ data, darkMode, loading, modalIsOpen }) => {
   return (
     <>
       <div
@@ -12,7 +12,7 @@ const AllRequests = ({ data, darkMode, loading }) => {
           darkMode ? "border-white" : "border-gray-900"
         } drop-shadow-xl md:p-10 p-4 mt-10`}
       >
-        <div className="text-center text-2xl font-semibold">
+        <div className={` ${modalIsOpen===true?"z-0":"z-10"} text-center text-2xl font-semibold`}>
           All Service Requests
         </div>
         {loading ? (

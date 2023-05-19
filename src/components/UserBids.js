@@ -55,7 +55,7 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading, mo
         darkMode ? "border-white" : "border-gray-900"
       } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
-      <div className={`${modalIsOpen?"z-0":"z-10"} font-semibold text-2xl`}>Your Bids</div>
+      <div className={`${modalIsOpen===true?"z-0":"z-10"} font-semibold text-2xl`}>Your Bids</div>
       {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div>):(<div>
         {data
           ?.filter((e) => {

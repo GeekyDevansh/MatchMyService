@@ -59,7 +59,9 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      display:"flex"
+      display:"flex",
+      paddingRight:"15px",
+      paddingLeft:"5px",
     },
   };
 
@@ -73,7 +75,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
         contentLabel="Example Modal"
       >
        {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : 
-       <div className="flex border border-black md:justify-center items-center rounded-xl p-2 m-1" >
+       <div className="flex md:border md:border-black md:justify-center items-center rounded-xl md:p-2 m-1" >
         <div className="flex justify-center items-center w-[40%]  " >
           <img src="/signout.png" alt="" />
         </div>

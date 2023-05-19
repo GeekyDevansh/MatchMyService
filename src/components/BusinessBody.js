@@ -111,7 +111,7 @@ const BusinessBody = ({ darkMode, sendData }) => {
             <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} loading={loading} setLoading={setLoading} modalIsOpen={modalIsOpen} />
           </div>
           <div className="md:w-[60%] w-full">
-            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} />
+            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} modalIsOpen={modalIsOpen} />
           </div>
         </div>
       </div>
