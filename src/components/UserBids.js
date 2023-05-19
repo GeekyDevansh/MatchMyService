@@ -15,12 +15,9 @@ import {
 import { db } from "../firebase";
 import Loading from "./Loading";
 
-const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading, modalIsOpen }) => {
+const UserRequests = ({ darkMode, request,loading,setLoading, signoutModalIsOpen }) => {
   const [data, setData] = useState();
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
@@ -55,7 +52,7 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading, mo
         darkMode ? "border-white" : "border-gray-900"
       } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
-      <div className={`${modalIsOpen===true?"z-0":"z-10"} font-semibold text-2xl`}>Your Bids</div>
+      <div className={`${signoutModalIsOpen?"z-0":"z-10"} font-semibold text-2xl`}>Your Bids</div>
       {loading?(<div className="flex justify-center items-center" > <Loading darkMode={darkMode} /> </div>):(<div>
         {data
           ?.filter((e) => {
@@ -195,7 +192,7 @@ const UserRequests = ({ setModalIsOpen, darkMode, request,loading,setLoading, mo
             );
           })}
       </div>)}
-        <div className={`${modalIsOpen?"z-0":"z-10"} md:block flex flex-col`}>
+        <div className={`${signoutModalIsOpen?"z-0":"z-10"} md:block flex flex-col`}>
           Need some work? <span className="font-semibold"> Start Bidding.</span>
         </div>
     </div>

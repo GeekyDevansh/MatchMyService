@@ -4,17 +4,16 @@ import Modal from "react-modal";
 import { HiMoon, HiSun } from "react-icons/hi";
 import Loading from './Loading';
 
-const Navbar = ({ name, email, darkMode, setDarkMode }) => {
+const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSignoutModalIsOpen }) => {
   const navigate = useNavigate();
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [loading, setLoading] = useState(false);
 
   const handleClick = () => {
-    setModalIsOpen(true);
+    setSignoutModalIsOpen(true);
   };
   const closeModal = () => {
-    setModalIsOpen(false);
+    setSignoutModalIsOpen(false);
   };
 
   const handleSignOut = () => {
@@ -70,12 +69,12 @@ const Navbar = ({ name, email, darkMode, setDarkMode }) => {
   return (
     <>
       <Modal
-        isOpen={modalIsOpen}
+        isOpen={signoutModalIsOpen}
         style={window.screen.width > "768" ? customStyles : customStylesSm}
         contentLabel="Example Modal"
       >
        {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : 
-       <div className="flex md:border md:border-black md:justify-center items-center rounded-xl md:p-2 m-1" >
+       <div className="flex md:border md:border-gray-800 md:justify-center items-center rounded-xl md:p-2 m-1 " >
         <div className="flex justify-center items-center w-[40%]  " >
           <img src="/signout.png" alt="" />
         </div>

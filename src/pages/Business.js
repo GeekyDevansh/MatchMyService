@@ -7,11 +7,12 @@ const Home = () => {
 const name = JSON.parse(localStorage.getItem("user")).user?.displayName;
 const email = JSON.parse(localStorage.getItem("user")).user?.email;
 const [darkMode,setDarkMode] = useState(true);
+const [signoutModalIsOpen,setSignoutModalIsOpen]=useState(false);
 
   return (
     <>
-        <BusinessNavbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} />
-        <BusinessBody darkMode={darkMode} setDarkMode={setDarkMode} /> 
+        <BusinessNavbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} />
+        <BusinessBody darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} /> 
         
     </>
   )

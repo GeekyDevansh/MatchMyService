@@ -17,8 +17,7 @@ import UserBids from "./UserBids";
 import BusinessRequests from "./BusinessRequests";
 import PostRequirement from "./PostRequirement";
 
-const BusinessBody = ({ darkMode, sendData }) => {
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen }) => {
   const [request, setRequest] = useState(false);
   const [data, setData] = useState();
   const [loading,setLoading]=useState(false);
@@ -80,13 +79,6 @@ const BusinessBody = ({ darkMode, sendData }) => {
 
   return (
     <>
-      {/* <Modal
-        isOpen={modalIsOpen}
-        style={window.screen.width > "768" ? customStyles : customStylesSm}
-        contentLabel="Example Modal"
-      >
-        <ServiceForm setModalIsOpen={setModalIsOpen} setRequest={setRequest} request={request} />
-      </Modal> */}
       <div
         className={` ${
           darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
@@ -108,10 +100,10 @@ const BusinessBody = ({ darkMode, sendData }) => {
         </div>}
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full ">
-            <UserBids data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} loading={loading} setLoading={setLoading} modalIsOpen={modalIsOpen} />
+            <UserBids data={data} darkMode={darkMode} request={request} loading={loading} setLoading={setLoading} signoutModalIsOpen={signoutModalIsOpen} />
           </div>
           <div className="md:w-[60%] w-full">
-            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} modalIsOpen={modalIsOpen} />
+            <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} signoutModalIsOpen={signoutModalIsOpen} />
           </div>
         </div>
       </div>

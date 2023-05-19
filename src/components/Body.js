@@ -18,7 +18,7 @@ import AllRequests from "./AllRequests";
 import PostRequirement from "./PostRequirement";
 import Loading from "./Loading";
 
-const Body = ({ darkMode, sendData }) => {
+const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen }) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [request, setRequest] = useState(false);
   const [data, setData] = useState();
@@ -62,7 +62,6 @@ const Body = ({ darkMode, sendData }) => {
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      zIndex:20,
     },
   };
   const customStylesSm = {
@@ -119,10 +118,10 @@ const Body = ({ darkMode, sendData }) => {
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className="md:w-[40%] w-full">
-           <UserRequests data={data} setModalIsOpen={setModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} />
+           <UserRequests data={data} signoutModalIsOpen={signoutModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} />
           </div>
           <div className="md:w-[60%] w-full">
-           <AllRequests data={data} darkMode={darkMode} loading={loading} modalIsOpen={modalIsOpen} />
+           <AllRequests data={data} darkMode={darkMode} loading={loading} signoutModalIsOpen={signoutModalIsOpen} modalIsOpen={modalIsOpen} />
           </div>
         </div>
 
