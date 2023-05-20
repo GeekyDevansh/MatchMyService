@@ -90,13 +90,13 @@ const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalI
          {!darkMode && <div className=" absolute md:top-[10%] -bottom-[40%] md:hidden " >
           <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
         </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[40%] bg-gradient-to-r from-[#22c1c3] to-[#fdbb2d] top-[10%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0" >
+        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#00b09b] to-[#96c93d] top-[10%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0" >
         </div>}
         {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[20%] bg-gradient-to-r from-[#eeaeca] to-[#94bbe9] top-[20%] md:rounded-full rounded-l-full md:-right-20 -right-0 overflow-x-hidden z-0" >
         </div>}
         {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[20%] bg-gradient-to-r from-[#fcb045] to-[#833ab4] md:top-[100%] top-[145%] md:rounded-full rounded-l-full md:-right-20 -right-0 overflow-x-hidden z-0" >
         </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[40%] bg-gradient-to-r from-[#c6ffdd] to-[#f7797d] md:top-[90%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
+        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#c6ffdd] to-[#f7797d] md:top-[90%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
         </div>}
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className={`md:w-[40%] w-full ${signoutModalIsOpen?"z-0":"z-10"}`}>

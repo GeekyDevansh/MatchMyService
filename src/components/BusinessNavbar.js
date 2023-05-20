@@ -142,18 +142,14 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
             </button>
-            <motion.button
-            initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
-            transition={{ duration: 0.5 }}
+            <button
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full md:hidden`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={24} /> : <HiMoon size={24} />}
-            </motion.button>
+            </button>
             <button
               onClick={handleClick}
               className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"

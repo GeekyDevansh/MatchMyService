@@ -48,7 +48,7 @@ const AllRequests = ({
                   transition={{ duration: 1 }}
                   className={` ${
                     darkMode ? "bg-black" : "bg-white"
-                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
+                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 `}
                   key={i}
                 >
                   <div className="flex flex-col gap-2">
