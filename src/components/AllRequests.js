@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import Loading from "./Loading";
 import { BsTagFill } from "react-icons/bs";
 import { motion, useScroll, useSpring } from "framer-motion";
+import { Tooltip } from "react-tippy";
+import 'react-tippy/dist/tippy.css'
 
 const AllRequests = ({
   data,
@@ -28,7 +30,7 @@ const AllRequests = ({
           transition={{ duration: 0.5 }}
           className={` ${
             signoutModalIsOpen || modalIsOpen ? "z-0" : "z-10"
-          } text-center text-2xl font-semibold`}
+          } text-center text-2xl font-semibold `}
         >
           All Service Requests
         </motion.div>
@@ -38,7 +40,7 @@ const AllRequests = ({
             <Loading darkMode={darkMode} />
           </div>
         ) : (
-          <div>
+          <div >
             {data?.map((e, i) => {
               return (
                 <motion.div
@@ -48,7 +50,7 @@ const AllRequests = ({
                   transition={{ duration: 1 }}
                   className={` ${
                     darkMode ? "bg-black" : "bg-white"
-                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 `}
+                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
                   key={i}
                 >
                   <div className="flex flex-col gap-2">
@@ -121,23 +123,30 @@ const AllRequests = ({
                         {e.acceptedId === undefined &&
                           e?.bidding_info?.map((e) => {
                             return (
-                              <div
-                                className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 py-3 mt-5 md:text-lg text-center `}
+                              <Tooltip
+                                title="&#10711; Pending"
+                                position="top"
+                                trigger="mouseenter"
+                                arrow="true"
                               >
-                                <div className="flex flex-col w-1/2 break-words font-semibold">
-                                  <h1 className="text-gray-700 font-normal">
-                                    Bidder Name
-                                  </h1>
-                                  {e.bidder_name}
+                                <div
+                                  className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 py-3 mt-5 md:text-lg text-center `}
+                                >
+                                  <div className="flex flex-col w-1/2 break-words font-semibold">
+                                    <h1 className="text-gray-700 font-normal">
+                                      Bidder Name
+                                    </h1>
+                                    {e.bidder_name}
+                                  </div>
+                                  <div className="w-px bg-gray-500"></div>
+                                  <div className="flex flex-col w-1/2 font-semibold">
+                                    <h1 className="font-normal text-gray-700">
+                                      Bidding price
+                                    </h1>
+                                    &#8377; {e.bidding_price}
+                                  </div>
                                 </div>
-                                <div className="w-px bg-gray-500"></div>
-                                <div className="flex flex-col w-1/2 font-semibold">
-                                  <h1 className="font-normal text-gray-700">
-                                    Bidding price
-                                  </h1>
-                                  &#8377; {e.bidding_price}
-                                </div>
-                              </div>
+                              </Tooltip>
                             );
                           })}
                         {e.acceptedId !== undefined &&
@@ -148,23 +157,30 @@ const AllRequests = ({
                             ?.map((element) => {
                               return (
                                 <div>
-                                  <div
-                                    className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  <Tooltip
+                                    title="&#10004; Accepted"
+                                    position="top"
+                                    trigger="mouseenter"
+                                    arrow="true"
                                   >
-                                    <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                      <h1 className=" md:text-base text-sm font-normal text-gray-700">
-                                        Bidder Name
-                                      </h1>
-                                      {element?.bidder_name}
+                                    <div
+                                      className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                    >
+                                      <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                        <h1 className=" md:text-base text-sm font-normal text-gray-700">
+                                          Bidder Name
+                                        </h1>
+                                        {element?.bidder_name}
+                                      </div>
+                                      <div className="w-0.5 bg-gray-500"></div>
+                                      <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                                        <h1 className=" md:text-base text-sm text-gray-700 font-normal ">
+                                          Bidding price
+                                        </h1>
+                                        &#8377; {element?.bidding_price}
+                                      </div>
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
-                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
-                                      <h1 className=" md:text-base text-sm text-gray-700 font-normal ">
-                                        Bidding price
-                                      </h1>
-                                      &#8377; {element?.bidding_price}
-                                    </div>
-                                  </div>
+                                  </Tooltip>
                                 </div>
                               );
                             })}
@@ -176,23 +192,30 @@ const AllRequests = ({
                             ?.map((element) => {
                               return (
                                 <div>
-                                  <div
-                                    className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  <Tooltip
+                                    title="&#10006; Rejected"
+                                    position="top"
+                                    trigger="mouseenter"
+                                    arrow="true"
                                   >
-                                    <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                      <h1 className="font-normal md:text-base text-sm text-gray-700">
-                                        Bidder Name
-                                      </h1>
-                                      {element?.bidder_name}
+                                    <div
+                                      className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                    >
+                                      <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                        <h1 className="font-normal md:text-base text-sm text-gray-700">
+                                          Bidder Name
+                                        </h1>
+                                        {element?.bidder_name}
+                                      </div>
+                                      <div className="w-0.5 bg-gray-500"></div>
+                                      <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                                        <h1 className="font-normal md:text-base text-sm text-gray-700">
+                                          Bidding price
+                                        </h1>
+                                        &#8377; {element?.bidding_price}
+                                      </div>
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
-                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
-                                      <h1 className="font-normal md:text-base text-sm text-gray-700">
-                                        Bidding price
-                                      </h1>
-                                      &#8377; {element?.bidding_price}
-                                    </div>
-                                  </div>
+                                  </Tooltip>
                                 </div>
                               );
                             })}
@@ -204,13 +227,17 @@ const AllRequests = ({
             })}
           </div>
         )}
-        <div
+        <motion.div
+        initial={{ y: 10, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 1 }}
           className={` ${
             signoutModalIsOpen ? "z-0" : "z-10"
           } flex justify-center items-center font-normal`}
         >
           You're all caught up.
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -17,7 +17,9 @@ import {
 import { db } from "../firebase";
 import Loading from "./Loading";
 import { BsTagFill } from "react-icons/bs";
-import { motion, useScroll, useSpring } from "framer-motion";
+import { motion} from "framer-motion";
+import { Tooltip } from "react-tippy";
+import 'react-tippy/dist/tippy.css'
 
 const BusinessRequests = ({
   darkMode,
@@ -29,7 +31,6 @@ const BusinessRequests = ({
   signoutModalIsOpen,
 }) => {
   const [data, setData] = useState();
-  const { scrollYProgress } = useScroll();
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
   const cName = JSON.parse(localStorage.getItem("user")).user.displayName;
   const [biddingPrice, setBiddingPrice] = useState("");
@@ -84,14 +85,7 @@ const BusinessRequests = ({
     fetchData();
   }, [request]);
   
-  console.log("data", data);
-
-  const scaleX = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
-    restDelta: 0.001,
-  });
-  
+  console.log("data", data);  
   
   return (
     <>
@@ -102,7 +96,6 @@ const BusinessRequests = ({
           darkMode ? "border-white" : "border-gray-900"
         } drop-shadow-xl md:p-10 p-4 mt-10`}
       >
-        <motion.div className="progress-bar" style={{ scaleX }} />
         <motion.div
           initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -210,6 +203,12 @@ const BusinessRequests = ({
                           {e.acceptedId === undefined &&
                             e.bidding_info?.map((e) => {
                               return (
+                                <Tooltip
+                                title="&#10711; Pending"
+                                position="top"
+                                trigger="mouseenter"
+                                arrow="true"
+                              >
                                 <div
                                   className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
                                 >
@@ -227,6 +226,7 @@ const BusinessRequests = ({
                                     &#8377; {e.bidding_price}
                                   </div>
                                 </div>
+                                </Tooltip>
                               );
                             })}
                           {e.acceptedId !== undefined &&
@@ -237,6 +237,12 @@ const BusinessRequests = ({
                               ?.map((element) => {
                                 return (
                                   <div>
+                                     <Tooltip
+                                    title="&#10004; Accepted"
+                                    position="top"
+                                    trigger="mouseenter"
+                                    arrow="true"
+                                  >
                                     <div
                                       className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl px-4 md:px-6 py-3 mt-5 md:text-lg text-center `}
                                     >
@@ -254,6 +260,7 @@ const BusinessRequests = ({
                                         &#8377; {element?.bidding_price}
                                       </div>
                                     </div>
+                                    </Tooltip>
                                   </div>
                                 );
                               })}
@@ -265,6 +272,12 @@ const BusinessRequests = ({
                               ?.map((element) => {
                                 return (
                                   <div>
+                                     <Tooltip
+                                    title="&#10006; Rejected"
+                                    position="top"
+                                    trigger="mouseenter"
+                                    arrow="true"
+                                  >
                                     <div
                                       className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                     >
@@ -282,6 +295,7 @@ const BusinessRequests = ({
                                         &#8377; {element?.bidding_price}
                                       </div>
                                     </div>
+                                    </Tooltip>
                                   </div>
                                 );
                               })}
@@ -320,13 +334,16 @@ const BusinessRequests = ({
               })}
           </div>
         )}
-        <div
+        <motion.div initial={{ y: 10, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 1 }}
           className={` ${
             modalIsOpen || signoutModalIsOpen ? "z-0" : "z-10"
           } flex justify-center items-center font-normal`}
         >
           You're all caught up.
-        </div>
+        </motion.div>
       </div>
     </>
   );

@@ -109,7 +109,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
         </div>}
         {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[20%] bg-gradient-to-r from-[#fcb045] to-[#833ab4] md:top-[105%] top-[145%] md:rounded-full rounded-l-full md:-right-20 -right-0 overflow-x-hidden z-0" >
         </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#c6ffdd] to-[#f7797d] md:top-[155%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
+        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#f86594] to-[#ffcaa6] md:top-[155%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
         </div>}
         
         
@@ -119,7 +119,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className={`md:w-[40%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"} `}>
-           <UserRequests data={data} signoutModalIsOpen={signoutModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} />
+           <UserRequests data={data} signoutModalIsOpen={signoutModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
           </div>
           <div className={`md:w-[60%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"}`}>
            <AllRequests data={data} darkMode={darkMode} loading={loading} signoutModalIsOpen={signoutModalIsOpen} modalIsOpen={modalIsOpen} />
