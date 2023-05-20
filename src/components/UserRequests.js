@@ -72,7 +72,7 @@ const UserRequests = ({
         darkMode ? "text-white" : "text-gray-900"
       } border-2 ${
         darkMode ? "border-white" : "border-gray-900"
-      } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
+      } ${modalIsOpen || signoutModalIsOpen?"z-0":"z-10"} rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
       <motion.div initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
@@ -90,7 +90,7 @@ const UserRequests = ({
                 initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
                   className={` ${
                     darkMode ? "bg-black" : "bg-white"
                   } drop-shadow-lg rounded-xl p-8 mt-4 `}

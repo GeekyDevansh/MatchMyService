@@ -107,7 +107,7 @@ const BusinessRequests = ({
           initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 1 }}
           className={` ${
             modalIsOpen || signoutModalIsOpen ? "z-0" : "z-10"
           } text-center text-2xl font-semibold`}

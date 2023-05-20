@@ -62,7 +62,7 @@ const UserRequests = ({
         initial={{ y: 10, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: 0.5 }}
+        transition={{ duration: 1 }}
         className={`${
           signoutModalIsOpen ? "z-0" : "z-10"
         } font-semibold text-2xl`}

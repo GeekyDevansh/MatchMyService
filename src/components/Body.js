@@ -118,10 +118,10 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
           darkMode={darkMode}
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
-          <div className="md:w-[40%] w-full">
+          <div className={`md:w-[40%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"} `}>
            <UserRequests data={data} signoutModalIsOpen={signoutModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} />
           </div>
-          <div className="md:w-[60%] w-full">
+          <div className={`md:w-[60%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"}`}>
            <AllRequests data={data} darkMode={darkMode} loading={loading} signoutModalIsOpen={signoutModalIsOpen} modalIsOpen={modalIsOpen} />
           </div>
         </div>

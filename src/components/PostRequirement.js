@@ -1,5 +1,6 @@
 import React from 'react'
 import { HiPencil } from "react-icons/hi";
+import {motion} from "framer-motion";
 
 const PostRequirement = ({setModalIsOpen,darkMode}) => {
 
@@ -18,24 +19,37 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
           onClick={handleClick}
         >
           {darkMode ? (
-            <div>
+            <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            >
               <img
                 src="/postRequirement.gif"
                 alt="img"
                 className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />
-            </div>
+            </motion.div>
           ) : (
-            <div>
+            <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.5 }}
+            >
               <img
                 src="/postRequirementLight.gif"
                 alt="img"
                 className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />
-            </div>
+            </motion.div>
           )}
 
-          <button className="md:px-4 px-2 text-white text-sm md:text-base font-black bg-blue-700 hover:bg-blue-800 rounded-md md:h-14 h-12 md:drop-shadow-xl drop-shadow-lg ">
+          <motion.button initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 0.5,delay: 0.5 }} className="md:px-4 px-2 text-white text-sm md:text-base font-black bg-blue-700 hover:bg-blue-800 rounded-md md:h-14 h-12 md:drop-shadow-xl drop-shadow-lg ">
             <span className="pr-2"> POST REQUIREMENT </span>{" "}
             <span className=" hidden float-right md:flex justify-center items-center border-l-2 pl-2 border-slate-400 ">
               {" "}
@@ -45,14 +59,18 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
               {" "}
               <HiPencil size={20} />{" "}
             </span>
-          </button>
-          <div
+          </motion.button>
+          <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 0.5, delay:0.75 }}
             className={`md:text-sm text-medium font-bold ${
               darkMode ? "text-gray-300" : "text-gray-900"
             } mt-[2%] text-center px-[10%] md:px-0 `}
           >
             Get the best skilled professionals compete for you.
-          </div>
+          </motion.div>
         </div>
     </>
   )

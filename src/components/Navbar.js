@@ -134,18 +134,15 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
           transition={{ duration: 0.5, delay:0.5 }} className=" text-xs md:text-sm font-thin"> {email} </motion.div>
           </li>
           <li className="flex justify-center md:gap-4 gap-2">
-            <motion.button
-             initial={{ y: 10, opacity: 0 }}
-             whileInView={{ y: 0, opacity: 1 }}
-             exit={{ y: -10, opacity: 0 }}
-             transition={{ duration: 0.5 }}
+            <button
+             
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full hidden md:block`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
-            </motion.button>
+            </button>
             <motion.button
                initial={{ y: 10, opacity: 0 }}
                whileInView={{ y: 0, opacity: 1 }}

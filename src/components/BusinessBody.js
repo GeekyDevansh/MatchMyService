@@ -99,10 +99,10 @@ const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalI
         {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[40%] bg-gradient-to-r from-[#c6ffdd] to-[#f7797d] md:top-[90%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
         </div>}
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
-          <div className="md:w-[40%] w-full ">
+          <div className={`md:w-[40%] w-full ${signoutModalIsOpen?"z-0":"z-10"}`}>
             <UserBids data={data} darkMode={darkMode} request={request} loading={loading} setLoading={setLoading} signoutModalIsOpen={signoutModalIsOpen} />
           </div>
-          <div className="md:w-[60%] w-full">
+          <div className={`md:w-[60%] w-full ${signoutModalIsOpen?"z-0":"z-10"}`}>
             <BusinessRequests darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} setLoading={setLoading} signoutModalIsOpen={signoutModalIsOpen} />
           </div>
         </div>
