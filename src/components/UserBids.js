@@ -147,14 +147,14 @@ const UserRequests = ({
                                 position="top"
                                 trigger="mouseenter"
                                 arrow="true"
-                                touchHold="true"
+                               
                               >
                                 
                                 <div
                                   className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                    <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                    <h1 className="font-semibold text-gray-900 md:text-lg text-base">
                                       Your Bid
                                     </h1>
                                   </div>
@@ -193,13 +193,13 @@ const UserRequests = ({
                                   position="top"
                                   trigger="mouseenter"
                                   arrow="true"
-                                  touchHold="true"
+                                  
                                 >
                                   <div
-                                    className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                    className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center relative`}
                                   >
                                     <div className="flex justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                      <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                      <h1 className="font-semibold text-gray-900 md:text-lg text-base">
                                         Your Bid
                                       </h1>
                                     </div>
@@ -235,13 +235,13 @@ const UserRequests = ({
                                   position="top"
                                   trigger="mouseenter"
                                   arrow="true"
-                                  touchHold="true"
+                              
                                 >
                                   <div
                                     className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                   >
                                     <div className="flex justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                      <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                      <h1 className="font-semibold text-gray-900 md:text-lg text-base">
                                         Your Bid
                                       </h1>
                                     </div>

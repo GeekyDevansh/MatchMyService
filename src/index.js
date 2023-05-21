@@ -1,17 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Login from './pages/Login';
-import Signup from './pages/Signup';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/Home';
-import Landing from './pages/Landing';
-import Business from './pages/Business';
-import Protected from './components/Protected';
-import ProtectedBusiness from './components/ProtectedBusiness';
-import ProtectedLanding from './components/ProtectedLanding';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 import { Toaster } from "react-hot-toast";
+import { AnimatePresence } from "framer-motion";
+import AnimatedRoutes from "./components/AnimatedRoutes";
 
 const user = JSON.parse(localStorage.getItem("user"));
 
@@ -21,15 +15,10 @@ root.render(
   <React.StrictMode>
     <Router>
     <Toaster />
-      <Routes>
-    <Route exact path='/login' element={<Login/>} />
-    <Route exact path='/signup' element={<Signup/>} />
-    <Route exact path='/home'  element={ <Protected> <Home/> </Protected>}/>
-    <Route exact path='/business/home'  element={ <ProtectedBusiness> <Business/> </ProtectedBusiness>}/>
-    <Route exact path='/' element={<ProtectedLanding><Landing/></ProtectedLanding>} />
-    <Route exact path='/landing' element={<Landing/>} />
-
-      </Routes>
+    <AnimatedRoutes/>
+    <AnimatePresence mode='wait'>
+     
+      </AnimatePresence>
     {/* <App /> */}
     </Router>
   </React.StrictMode>
