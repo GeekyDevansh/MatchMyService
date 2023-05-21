@@ -91,7 +91,7 @@ const BusinessRequests = ({
     <>
       <div
         className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${
-          darkMode ? "text-white" : "text-gray-900"
+          darkMode ? "text-white" : "text-black"
         } border-2 ${
           darkMode ? "border-white" : "border-gray-900"
         } drop-shadow-xl md:p-10 p-4 mt-10`}

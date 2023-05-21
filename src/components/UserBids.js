@@ -1,17 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { BsTagFill } from "react-icons/bs";
-import {
-  collection,
-  getDocs,
-  orderBy,
-  query,
-} from "firebase/firestore";
+import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
 import Loading from "./Loading";
 import { motion } from "framer-motion";
 import { Tooltip } from "react-tippy";
-import 'react-tippy/dist/tippy.css'
+import "react-tippy/dist/tippy.css";
 
 const UserRequests = ({
   darkMode,
@@ -50,7 +45,7 @@ const UserRequests = ({
   return (
     <div
       className={`flex flex-col ${
-        darkMode ? "text-white" : "text-gray-900"
+        darkMode ? "text-white" : "text-black"
       } border-2 ${
         darkMode ? "border-white" : "border-gray-900"
       } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
@@ -139,100 +134,239 @@ const UserRequests = ({
                   >
                     <div className="capitalize">
                       {e.acceptedId === undefined &&
-                        e.bidding_info?.map((e) => {
-                          return (
-                            <Tooltip
+                        e.bidding_info
+                          ?.filter((e) => {
+                            return e?.bidder_id === user;
+                          })
+                          .map((e) => {
+                            return (
+                              <div>
+                                 <div className=" h-px bg-gray-500 bg-opacity-50 "></div>
+                              <Tooltip
                                 title="&#10711; Pending"
                                 position="top"
                                 trigger="mouseenter"
                                 arrow="true"
+                                touchHold="true"
                               >
-                            <div
-                              className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
-                            >
-                              <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                <h1 className="font-normal text-gray-700 md:text-base text-sm">
-                                  Bidder Name
-                                </h1>
-                                {e.bidder_name}
-                              </div>
-                              <div className="w-0.5 bg-gray-500"></div>
-                              <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
-                                <h1 className="font-normal text-gray-700 md:text-base text-sm ">
-                                  Bidding price
-                                </h1>
-                                &#8377; {e.bidding_price}
-                              </div>
-                            </div>
-                            </Tooltip>
-                          );
-                        })}
-                      {e.acceptedId !== undefined &&
-                        e?.bidding_info
-                          ?.filter((f) => {
-                            return f?.bidder_id === e?.acceptedId;
-                          })
-                          ?.map((element) => {
-                            return (
-                              <div>
-                                 <Tooltip
-                                    title="&#10004; Accepted"
-                                    position="top"
-                                    trigger="mouseenter"
-                                    arrow="true"
-                                  >
+                                
                                 <div
-                                  className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
-                                  <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
-                                    <h1 className="font-normal text-gray-700 md:text-base text-sm">
-                                      Bidder Name
+                                  <div className="flex flex-col justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                    <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                      Your Bid
                                     </h1>
-                                    {element?.bidder_name}
                                   </div>
                                   <div className="w-0.5 bg-gray-500"></div>
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
                                     </h1>
-                                    &#8377; {element?.bidding_price}
+                                    &#8377; {e.bidding_price}
                                   </div>
                                 </div>
-                                </Tooltip>
+                              </Tooltip>
+                              <div className=" h-px bg-gray-500 bg-opacity-50 mt-5 "></div>
                               </div>
                             );
                           })}
+
+                       
+
+                      {
+                      e?.acceptedId !== undefined &&
+                        e?.bidding_info
+                          ?.filter((f) => {
+                            return (
+                              f?.bidder_id === e?.acceptedId &&
+                              e?.acceptedId === user
+                            );
+                          })
+                          ?.map((element) => {
+                            return (
+                              
+                              <div>
+                                 <div className=" h-px bg-gray-500 bg-opacity-50 "></div>
+                                <Tooltip
+                                  title="&#10004; Accepted"
+                                  position="top"
+                                  trigger="mouseenter"
+                                  arrow="true"
+                                  touchHold="true"
+                                >
+                                  <div
+                                    className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  >
+                                    <div className="flex justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                      <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                        Your Bid
+                                      </h1>
+                                    </div>
+                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm ">
+                                        Bidding price
+                                      </h1>
+                                      &#8377; {element?.bidding_price}
+                                    </div>
+                                  </div>
+                                </Tooltip>
+                                <div className=" h-px bg-gray-500 bg-opacity-50 mt-5"></div>
+                              </div>
+                            );
+                          })}
+
+                 
                       {e.acceptedId !== undefined &&
                         e?.bidding_info
                           ?.filter((f) => {
-                            return f.bidder_id !== e?.acceptedId;
+                            return (
+                              f?.bidder_id !== e?.acceptedId &&
+                              f?.bidder_id === user
+                            );
                           })
                           ?.map((element) => {
                             return (
                               <div>
-                                 <Tooltip
-                                    title="&#10006; Rejected"
-                                    position="top"
-                                    trigger="mouseenter"
-                                    arrow="true"
+                                <div className=" h-px bg-gray-500 bg-opacity-50 "></div>
+                                <Tooltip
+                                  title="&#10006; Rejected"
+                                  position="top"
+                                  trigger="mouseenter"
+                                  arrow="true"
+                                  touchHold="true"
+                                >
+                                  <div
+                                    className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                   >
+                                    <div className="flex justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                      <h1 className="font-semibold text-gray-900 md:text-lg text-sm">
+                                        Your Bid
+                                      </h1>
+                                    </div>
+                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm ">
+                                        Bidding price
+                                      </h1>
+                                      &#8377; {element?.bidding_price}
+                                    </div>
+                                  </div>
+                                </Tooltip>
+                                <div className=" h-px bg-gray-500 bg-opacity-50 mt-5 "></div>
+                              </div>
+                            );
+                          })}
+
+                      {e.acceptedId === undefined &&
+                        e.bidding_info
+                          ?.filter((f) => {
+                            return f?.bidder_id !== user;
+                          })
+                          .map((e) => {
+                            return (
+                              <Tooltip
+                                title="&#10711; Pending"
+                                position="top"
+                                trigger="mouseenter"
+                                arrow="true"
+                                touchHold="true"
+                              >
                                 <div
-                                  className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm">
                                       Bidder Name
                                     </h1>
-                                    {element?.bidder_name}
+                                    {e.bidder_name}
                                   </div>
                                   <div className="w-0.5 bg-gray-500"></div>
-                                  <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
+                                  <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
                                     </h1>
-                                    &#8377; {element?.bidding_price}
+                                    &#8377; {e.bidding_price}
                                   </div>
                                 </div>
+                              </Tooltip>
+                            );
+                          })}
+                      {e.acceptedId !== undefined &&
+                        e?.bidding_info
+                          ?.filter((f) => {
+                            return (
+                              f?.bidder_id === e?.acceptedId &&
+                              f?.bidder_id !== user
+                            );
+                          })
+                          ?.map((element) => {
+                            return (
+                              <div>
+                                <Tooltip
+                                  title="&#10004; Accepted"
+                                  position="top"
+                                  trigger="mouseenter"
+                                  arrow="true"
+                                  touchHold="true"
+                                >
+                                  <div
+                                    className={` bg-gradient-to-r from-green-300 to-green-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  >
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm">
+                                        Bidder Name
+                                      </h1>
+                                      {element?.bidder_name}
+                                    </div>
+                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm ">
+                                        Bidding price
+                                      </h1>
+                                      &#8377; {element?.bidding_price}
+                                    </div>
+                                  </div>
+                                </Tooltip>
+                              </div>
+                            );
+                          })}
+                      {e?.acceptedId !== undefined &&
+                        e?.bidding_info
+                          ?.filter((f) => {
+                            return (
+                              f?.bidder_id !== e?.acceptedId &&
+                              f?.bidder_id !== user
+                            );
+                          })
+                          ?.map((element) => {
+                            return (
+                              <div>
+                                <Tooltip
+                                  title="&#10006; Rejected"
+                                  position="top"
+                                  trigger="mouseenter"
+                                  arrow="true"
+                                  touchHold="true"
+                                >
+                                  <div
+                                    className={` bg-gradient-to-r from-red-300 to-red-600 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  >
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm">
+                                        Bidder Name
+                                      </h1>
+                                      {element?.bidder_name}
+                                    </div>
+                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
+                                      <h1 className="font-normal text-gray-700 md:text-base text-sm ">
+                                        Bidding price
+                                      </h1>
+                                      &#8377; {element?.bidding_price}
+                                    </div>
+                                  </div>
                                 </Tooltip>
                               </div>
                             );
@@ -245,10 +379,10 @@ const UserRequests = ({
         </div>
       )}
       <motion.div
-      initial={{ y: 10, opacity: 0 }}
-      whileInView={{ y: 0, opacity: 1 }}
-      exit={{ y: -10, opacity: 0 }}
-      transition={{ duration: 1 }}
+        initial={{ y: 10, opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        exit={{ y: -10, opacity: 0 }}
+        transition={{ duration: 1 }}
         className={`${
           signoutModalIsOpen ? "z-0" : "z-10"
         } md:block flex flex-col`}
