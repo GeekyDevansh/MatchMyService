@@ -7,10 +7,12 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import LandingNavbar from "../components/LandingNavbar";
+import Footer from "../components/Footer";
 
 const Landing = () => {
   var settings = {
     infinite: true,
+    pauseOnHover: true,
     slidesToShow: 1,
     slidesToScroll: 1,
     autoplay: true,
@@ -21,55 +23,233 @@ const Landing = () => {
   };
   return (
     <div>
+      <LandingNavbar />
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        className=" mt-[5%] md:mt-[2%] mx-[5%] md:p-[0.75%] p-[2%]"
+      >
+        <motion.div
+          initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }}
+          className="font-semibold text-5xl flex justify-center items-center"
+        >
+          <h1>Your One-Stop Platform for Quality Services!</h1>
+        </motion.div>
+        <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
+          <div className="md:w-1/2 overflow-x-hidden">
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1, delay: 0.5 }}
+              className="text-center font-semibold text-2xl mb-5 mt-10"
+            >
+              How It Works
+            </motion.div>
+            <Slider {...settings}>
+              <div>
+                <div className=" bg-red-400 p-10 rounded-xl mx-2 flex flex-col md:h-96 h-full text-center justify-center items-center">
+                  <div className="h-[82%]">
+                    <img src="post.svg" alt="" className="h-[80%]" />
+                  </div>
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white ">
+                    {" "}
+                    <span className="text-2xl"> 1. </span> Post your
+                    requirement.
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className=" bg-orange-400 p-10 rounded-xl flex flex-col mx-2 md:h-96 h-80 text-center justify-around items-center ">
+                  <div className="h-[90%]">
+                    <img src="compare.svg" alt="" className="h-[80%]" />
+                  </div>
 
-      <LandingNavbar/>
-    <motion.div
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    className=" mt-10 mx-[5%] md:p-[0.75%] p-[2%]"
-    >
-      <motion.div  initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: 1 }} className="font-semibold text-5xl flex justify-center items-center md:w-1/2">
-        <h1>Your One-Stop Platform for Quality Services!</h1>
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white">
+                    {" "}
+                    <span className="text-2xl"> 2. </span> Compare the bids.
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div className=" bg-green-500 p-10 rounded-xl flex flex-col mx-2 md:h-96 h-80 text-center justify-around items-center ">
+                  <div className="h-[90%]">
+                    <img src="choose.svg" alt="" className="h-[80%]" />
+                  </div>
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white">
+                    {" "}
+                    <span className="text-2xl"> 3. </span> Choose the Best
+                    Provider for the Job.{" "}
+                  </div>
+                </div>
+              </div>
+            </Slider>
+          </div>
+
+          <div className="md:w-1/2 overflow-x-hidden">
+            <motion.div
+              initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1 }}
+              className="text-center font-semibold text-2xl mb-5 md:mt-10"
+            >
+              Why Us?
+            </motion.div>
+            <div className="flex flex-col justify-between md:h-96 p-2 rounded-xl bg-[#D7B9E4]">
+              <div className="md:flex justify-between ">
+                <div className="flex md:w-1/2 gap-4 p-2 justify-center items-center ">
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className=" md:w-1/4 w-1/3"
+                  >
+                    <img src="/ui.svg" alt="" />
+                  </motion.div>
+                  <div className=" flex flex-col w-2/3">
+                    {" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="font-semibold text-lg"
+                    >
+                      {" "}
+                      User Friendly Interface{" "}
+                    </motion.div>{" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="text-gray-600 text-sm "
+                    >
+                      With intuitive navigation and a visually appealing design,
+                      users can navigate, post their requirements, and evaluate
+                      bids with ease.
+                    </motion.div>{" "}
+                  </div>
+                </div>
+                <div className="flex md:w-1/2 gap-4 p-2 justify-center items-center ">
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="md:w-1/4 w-1/3"
+                  >
+                    <img src="/bid.svg" alt="" />
+                  </motion.div>
+                  <div className=" flex flex-col w-2/3">
+                    {" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="font-semibold text-lg"
+                    >
+                      {" "}
+                      Transparent bidding Process{" "}
+                    </motion.div>{" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="text-gray-600 text-sm"
+                    >
+                      We promote a transparent bidding process, offering users
+                      full visibility into bids and creating a level playing
+                      field for informed decision-making.
+                    </motion.div>{" "}
+                  </div>
+                </div>
+              </div>
+              <div className="md:flex justify-between ">
+                <div className="flex md:w-1/2 gap-4 p-2 justify-center items-center ">
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="md:w-1/4 w-1/3"
+                  >
+                    <img src="/categories.svg" alt="" />
+                  </motion.div>
+                  <div className=" flex flex-col w-2/3">
+                    {" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="font-semibold text-lg"
+                    >
+                      {" "}
+                      Service Categories{" "}
+                    </motion.div>{" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="text-gray-600 text-sm"
+                    >
+                      We offer a diverse range of service categories, providing
+                      users with a wide selection to choose from based on their
+                      specific needs and preferences.
+                    </motion.div>{" "}
+                  </div>
+                </div>
+                <div className="flex md:w-1/2 gap-4 p-2 justify-center items-center ">
+                  <motion.div
+                    initial={{ y: 10, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    exit={{ y: -10, opacity: 0 }}
+                    transition={{ duration: 1 }}
+                    className="md:w-1/4 w-1/3"
+                  >
+                    <img src="/mobile.svg" alt="" />
+                  </motion.div>
+                  <div className=" flex flex-col w-2/3">
+                    {" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="font-semibold text-lg"
+                    >
+                      {" "}
+                      Mobile Compatibility{" "}
+                    </motion.div>{" "}
+                    <motion.div
+                      initial={{ y: 10, opacity: 0 }}
+                      whileInView={{ y: 0, opacity: 1 }}
+                      exit={{ y: -10, opacity: 0 }}
+                      transition={{ duration: 1 }}
+                      className="text-gray-600 text-sm"
+                    >
+                      The platform is fully mobile compatible, allowing users to
+                      access and navigate its features seamlessly on their
+                      smartphones.
+                    </motion.div>{" "}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </motion.div>
-
-      <div className="md:w-1/3 overflow-x-hidden">
-        <motion.div  initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
-        transition={{ duration: 1, delay:0.5 }} className="text-center font-semibold text-2xl mb-5 mt-10">How It Works</motion.div>
-        <Slider {...settings}>
-          <div>
-            <div className=" bg-red-400 p-10 rounded-xl mx-2 flex flex-col md:h-96 h-80 text-center justify-center items-center">
-              <div className="h-[82%]" >
-                <img src="post.svg" alt="" className="h-[80%]" />
-              </div>
-              <div className="h-1/2 font-normal text-xl tracking-wide text-white " > <span className="text-2xl" > 1. </span> Post your requirement.</div>
-            </div>
-          </div>
-          <div>
-            <div className=" bg-orange-400 p-10 rounded-xl flex flex-col mx-2 md:h-96 h-80 text-center justify-around items-center ">
-              <div className="h-[90%]" >
-                <img src="compare.svg" alt="" className="h-[80%]" />
-              </div>
-
-              <div className="h-1/2 font-normal text-xl tracking-wide text-white" > <span className="text-2xl" > 2. </span> Compare the bids.</div>
-            </div>
-          </div>
-          <div>
-            <div className=" bg-green-400 p-10 rounded-xl flex flex-col mx-2 md:h-96 h-80 text-center justify-around items-center ">
-              <div className="h-[90%]" >
-                <img src="choose.svg" alt="" className="h-[80%]" />
-              </div>
-              <div className="h-1/2 font-normal text-xl tracking-wide text-white" > <span className="text-2xl" > 3. </span> Choose the Best Provider for the Job. </div>
-            </div>
-          </div>
-        </Slider>
-      </div>
-    </motion.div>
+        <Footer/>
     </div>
   );
 };
