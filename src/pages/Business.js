@@ -13,8 +13,8 @@ const [signoutModalIsOpen,setSignoutModalIsOpen]=useState(false);
   return (
     <>
         <motion.div initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}>
+      animate={{ opacity: 1}}
+      exit={{ opacity: 0}}>
 
         <BusinessNavbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} />
         <BusinessBody darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} /> 

@@ -26,12 +26,14 @@ const Navbar = () => {
         <ul className="list-none flex justify-between items-center mx-[5%] md:p-[0.75%] p-[2%]">
           <li
             className={`
-               text-gray-300 font-light md:text-xl text-sm`}
+               text-white font-light md:text-xl text-sm`}
           >
             <motion.div  initial={{ y: 10, opacity: 0 }}
           whileInView={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
-          transition={{ duration: 0.5 }} >
+          transition={{ duration: 0.5 }} 
+          className="font-medium">
+            <img src="/logo_icon.png" alt="" className="inline-block md:h-6 md:w-6 h-5 w-5 mr-1" />
               MatchMyService
             </motion.div>
           </li>

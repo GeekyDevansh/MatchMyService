@@ -44,6 +44,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor:"#E8E8E8"
     },
   };
   const customStylesSm = {
@@ -76,7 +77,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
         contentLabel="Example Modal"
       >
        {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : 
-       <div className="flex md:border md:border-gray-800 md:justify-center items-center rounded-xl md:p-2 m-1 " >
+       <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl md:p-2 m-1 " >
         <div className="flex justify-center items-center w-[40%]  " >
           <img src="/signout.png" alt="" />
         </div>

@@ -61,9 +61,29 @@ input::-webkit-inner-spin-button {
   transition: opacity 200ms ease-out;
 }
 
+html::-webkit-scrollbar{
+  width:.7vw;
+}
+html::-webkit-scrollbar-thumb{
+    background-color: #6b7280;
+    border-radius: 100vw;
+}
+html::-webkit-scrollbar-thumb:hover{
+  background-color: #4b5563;
+  border-radius: 100vw;
+}
+html::-webkit-scrollbar-track{
+  background-color: #262626;
+  border-radius: 100vw;
+  margin-block:.1em;
+  margin-right:.1em;
+}
+
 @media only screen and (max-width: 768px) {
  .gradient-background{
   font-size: 0.75rem;
   line-height: 1rem;
  }
 }
+
+

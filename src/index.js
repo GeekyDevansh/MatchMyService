@@ -7,9 +7,6 @@ import { Toaster } from "react-hot-toast";
 import { AnimatePresence } from "framer-motion";
 import AnimatedRoutes from "./components/AnimatedRoutes";
 
-const user = JSON.parse(localStorage.getItem("user"));
-
-
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

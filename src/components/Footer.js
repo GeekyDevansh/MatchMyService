@@ -1,12 +1,16 @@
 import React from "react";
 import {BsFillSuitHeartFill} from "react-icons/bs";
+import {motion} from "framer-motion";
 
 const Footer = () => {
   return (
     <>
       <div>
-        <footer className="text-center lg:text-left bg-amber-300 text-gray-900 rounded-xl mt-20">
-          <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-900">
+        <footer className="text-center lg:text-left bg-[#FFDB58] text-gray-900 rounded-xl mt-20">
+          <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-900">
             <div className="mr-12 hidden lg:block">
               <span>Get connected with me on social networks:</span>
             </div>
@@ -101,10 +105,13 @@ const Footer = () => {
                 </svg>
               </a>
             </div>
-          </div>
+          </motion.div>
           <div className="mx-6 py-10 text-center md:text-left ">
             <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="flex flex-col justify-start items-center" >
+              <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} className="flex flex-col justify-start items-center" >
                 <h6
                   className="
             uppercase
@@ -125,8 +132,11 @@ const Footer = () => {
                   from <strong> NIT Jalandhar. </strong>  My passion lies in <strong> developing </strong> and <strong> contributing </strong> to projects that address real-world challenges for a brighter tomorrow. Fan of <strong> pop music </strong> , love to play <strong> badminton </strong> and a <strong> public
                   speaker </strong>.
                 </p>
-              </div>
-              <div className="flex flex-col items-center justify-start" >
+              </motion.div>
+              <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} className="flex flex-col items-center justify-start" >
                 <h6
                   className="
             uppercase
@@ -145,8 +155,11 @@ const Footer = () => {
                   Feel free to reach out to me any time. I prefer to talk over
                   email, especially since we may be a few time zones away.
                 </p>
-              </div>
-              <div className="flex flex-col items-center justify-start" >
+              </motion.div>
+              <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} className="flex flex-col items-center justify-start" >
                 <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start text-lg">
                   Contact
                 </h6>
@@ -156,7 +169,7 @@ const Footer = () => {
                     focusable="false"
                     data-prefix="fas"
                     data-icon="home"
-                    className="w-4 mr-4"
+                    className="w-4 mr-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 576 512"
@@ -174,7 +187,7 @@ const Footer = () => {
                     focusable="false"
                     data-prefix="fas"
                     data-icon="envelope"
-                    className="w-4 mr-4"
+                    className="w-4 mr-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -192,7 +205,7 @@ const Footer = () => {
                     focusable="false"
                     data-prefix="fas"
                     data-icon="phone"
-                    className="w-4 mr-4"
+                    className="w-4 mr-2"
                     role="img"
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 512 512"
@@ -204,14 +217,20 @@ const Footer = () => {
                   </svg>
                   +91 8448119914
                 </p>
-              </div>
+              </motion.div>
             </div>
           </div>
-          <div className="text-center text-white p-6 bg-violet-500 rounded-t-xl ">
-            <span>© 2023 Copyright</span> <br />
-            <div className=" text-center m-auto">
+          <div className="text-center text-white p-3 bg-[#4D4D99] bg-opacity-90 font-normal rounded-t-xl ">
+            <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} >© 2023 Copyright</motion.div>
+            <motion.div initial={{ y: 10, opacity: 0 }}
+          whileInView={{ y: 0, opacity: 1 }}
+          exit={{ y: -10, opacity: 0 }}
+          transition={{ duration: 1 }} className=" text-center m-auto">
               Made with <span className="text-red-600 inline-block mx-1" > <BsFillSuitHeartFill size={20}/> </span> by Devansh Khullar
-            </div>
+            </motion.div>
           </div>
         </footer>
       </div>

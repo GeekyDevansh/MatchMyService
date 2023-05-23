@@ -42,6 +42,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
+      backgroundColor:"#E8E8E8"
     },
   };
   const customStylesSm = {
@@ -79,7 +80,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex md:border md:border-black md:justify-center items-center rounded-xl p-2 m-1">
+          <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl p-2 m-1">
             <div className="flex justify-center items-center w-[40%]  ">
               <img src="/signout.png" alt="" />
             </div>
@@ -132,7 +133,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
           whileInView={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
           transition={{ duration: 0.5, delay:0.5 }} className=" text-xs md:text-sm font-thin"> {email} </motion.div>
-          </li>
+          </li> 
           <li className="flex justify-center md:gap-4 gap-2">
             <button
              
