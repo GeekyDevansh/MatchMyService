@@ -1,26 +1,26 @@
 import React from "react";
 import { motion } from "framer-motion";
-// import { Swiper, SwiperSlide } from 'swiper/react';
-// import SwiperCore, { Autoplay } from 'swiper';
-// import 'swiper/css';
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import SwiperCore, { Autoplay } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
+// import Slider from "react-slick";
 import LandingNavbar from "../components/LandingNavbar";
 import Footer from "../components/Footer";
 
 const Landing = () => {
-  var settings = {
-    infinite: true,
-    pauseOnHover: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 6000,
-    speed: 6000,
-    pauseOnHover: false,
-    cssEase: "linear",
-  };
+  // var settings = {
+  //   infinite: true,
+  //   slidesToShow: 1,
+  //   slidesToScroll: 1,
+  //   autoplay: true,
+  //   autoplaySpeed: 0,
+  //   pauseOnHover: false,
+  //   speed: 6000,
+  //   cssEase: "linear",
+  // };
   return (
     <div>
       <LandingNavbar />
@@ -50,9 +50,9 @@ const Landing = () => {
             >
               How It Works
             </motion.div>
-            <Slider {...settings}>
+            {/* <Slider {...settings}>
               <div>
-                <div className=" bg-red-400 p-10 rounded-xl mx-2 flex flex-col md:h-96 h-full text-center justify-center items-center">
+                <div className=" bg-red-400 p-10 rounded-xl mx-2 flex flex-col md:h-96 h-[80%] text-center justify-center items-center">
                   <div className="h-[82%]">
                     <img src="post.svg" alt="" className="h-[80%]" />
                   </div>
@@ -87,7 +87,53 @@ const Landing = () => {
                   </div>
                 </div>
               </div>
-            </Slider>
+            </Slider> */}
+
+<Swiper
+      modules={[Autoplay]}
+      spaceBetween={50}
+      slidesPerView={1}
+      autoplay={{delay:1500}}
+     
+    >
+      <SwiperSlide>
+      <div className=" bg-red-400 p-10 rounded-xl flex flex-col md:h-96 h-80 text-center justify-center items-center">
+                  <div className="h-[82%]">
+                    <img src="post.svg" alt="" className="h-[80%]" />
+                  </div>
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white ">
+                    {" "}
+                    <span className="text-2xl"> 1. </span> Post your
+                    requirement.
+                  </div>
+                </div>
+      </SwiperSlide>
+      <SwiperSlide>
+      <div className=" bg-orange-400 p-10 rounded-xl flex flex-col md:h-96 h-80 text-center justify-around items-center ">
+                  <div className="h-[90%]">
+                    <img src="compare.svg" alt="" className="h-[80%]" />
+                  </div>
+
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white">
+                    {" "}
+                    <span className="text-2xl"> 2. </span> Compare the bids.
+                  </div>
+                </div>
+      </SwiperSlide>
+      <SwiperSlide>
+      <div className=" bg-green-500 p-10 rounded-xl flex flex-col md:h-96 h-80 text-center justify-around items-center ">
+                  <div className="h-[90%]">
+                    <img src="choose.svg" alt="" className="h-[80%]" />
+                  </div>
+                  <div className="h-1/2 md:font-normal font-semibold text-xl md:tracking-wide text-white">
+                    {" "}
+                    <span className="text-2xl"> 3. </span> Choose the Best
+                    Provider for the Job.{" "}
+                  </div>
+                </div>
+      </SwiperSlide>
+    </Swiper>
+
           </div>
 
           <div className="md:w-1/2 overflow-x-hidden">
@@ -100,7 +146,7 @@ const Landing = () => {
             >
               Why Us?
             </motion.div>
-            <div className="flex flex-col justify-between md:h-96 p-2 rounded-xl bg-[#D7B9E4]">
+            <div className="flex flex-col justify-between md:h-96 p-2 rounded-xl bg-[#D7B9E4] ">
               <div className="md:flex justify-between ">
                 <div className="flex md:w-1/2 gap-4 p-2 justify-center items-center ">
                   <motion.div
