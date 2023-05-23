@@ -5,7 +5,7 @@ const Footer = () => {
   return (
     <>
       <div>
-        <footer className="text-center lg:text-left bg-amber-400 text-gray-900 rounded-xl mt-20">
+        <footer className="text-center lg:text-left bg-amber-300 text-gray-900 rounded-xl mt-20">
           <div className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-900">
             <div className="mr-12 hidden lg:block">
               <span>Get connected with me on social networks:</span>
@@ -104,7 +104,7 @@ const Footer = () => {
           </div>
           <div className="mx-6 py-10 text-center md:text-left ">
             <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div>
+              <div className="flex flex-col justify-start items-center" >
                 <h6
                   className="
             uppercase
@@ -114,18 +114,19 @@ const Footer = () => {
             items-center
             justify-center
             md:justify-start
+            text-lg
           "
                 >
                   About Me
                 </h6>
-                <p className="w-9/12 mx-auto md:mx-0 text-gray-800 ">
+                <p className="w-9/12 mx-auto md:mx-0 text-gray-700 ">
                   I'm a <strong> Full Stack Developer </strong> located in <strong> India </strong>.  Currently in
                   my Final year, pursuing my Bachelors in Technology
                   from <strong> NIT Jalandhar. </strong>  My passion lies in <strong> developing </strong> and <strong> contributing </strong> to projects that address real-world challenges for a brighter tomorrow. Fan of <strong> pop music </strong> , love to play <strong> badminton </strong> and a <strong> public
                   speaker </strong>.
                 </p>
               </div>
-              <div>
+              <div className="flex flex-col items-center justify-start" >
                 <h6
                   className="
             uppercase
@@ -135,20 +136,21 @@ const Footer = () => {
             items-center
             justify-center
             md:justify-start
+            text-lg
           "
                 >
                   Contact Information
                 </h6>
-                <p className="w-9/12 mx-auto md:mx-0 text-gray-800">
+                <p className="w-9/12 mx-auto md:mx-0 text-gray-700">
                   Feel free to reach out to me any time. I prefer to talk over
                   email, especially since we may be a few time zones away.
                 </p>
               </div>
-              <div>
-                <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start">
+              <div className="flex flex-col items-center justify-start" >
+                <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start text-lg">
                   Contact
                 </h6>
-                <p className="flex items-center justify-center md:justify-start mb-4 text-gray-800">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-700">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -166,7 +168,7 @@ const Footer = () => {
                   </svg>
                   Ghaziabad, UP 201002, IN
                 </p>
-                <p className="flex items-center justify-center md:justify-start mb-4 text-gray-800">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-700">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -184,7 +186,7 @@ const Footer = () => {
                   </svg>
                   devanshkhullar11@gmail.com
                 </p>
-                <p className="flex items-center justify-center md:justify-start mb-4 text-gray-800 ">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-700 ">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -205,10 +207,10 @@ const Footer = () => {
               </div>
             </div>
           </div>
-          <div className="text-center text-white p-6 bg-[#8d24fb] rounded-t-xl ">
+          <div className="text-center text-white p-6 bg-violet-500 rounded-t-xl ">
             <span>© 2023 Copyright</span> <br />
             <div className=" text-center m-auto">
-              Made with <span className="text-red-600 inline-block mx-1" > <BsFillSuitHeartFill/> </span> by Devansh Khullar
+              Made with <span className="text-red-600 inline-block mx-1" > <BsFillSuitHeartFill size={20}/> </span> by Devansh Khullar
             </div>
           </div>
         </footer>

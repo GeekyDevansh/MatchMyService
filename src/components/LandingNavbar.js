@@ -40,7 +40,7 @@ const Navbar = () => {
            
             <button
               
-              className="md:px-6 md:py-4 px-4 py-2 text-sm md:text-base text-white font-extrabold bg-blue-500 hover:bg-blue-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-4 px-6 py-3 text-sm md:text-base text-white font-extrabold bg-blue-500 hover:bg-blue-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={handleClick}
             >
               Get Started
