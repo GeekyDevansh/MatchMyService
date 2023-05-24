@@ -8,6 +8,7 @@ import Business from '../pages/Business';
 import Protected from './Protected';
 import ProtectedBusiness from './ProtectedBusiness';
 import ProtectedLanding from './ProtectedLanding';
+import NotFound from './NotFound';
 
 const AnimatedRoutes = () => {
 
@@ -21,6 +22,7 @@ const AnimatedRoutes = () => {
     <Route exact path='/business/home'  element={ <ProtectedBusiness> <Business/> </ProtectedBusiness>}/>
     <Route exact path='/' element={<ProtectedLanding><Landing/></ProtectedLanding>} />
     <Route exact path='/landing' element={<Landing/>} />
+    <Route exact path='*' element={<NotFound/>} />
 
       </Routes>
   )
