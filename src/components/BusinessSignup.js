@@ -74,7 +74,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
           className="max-h-screen overflow-y-hidden overflow-x-hidden "
         >
 <div className=" items-center gap-2 mb-4 bg-[#E8E8E8] p-[5%] md:p-[1%] md:h-34 md:w-[80%] rounded-xl md:mx-auto mt-5 ">
-              <div className="text-gray-400 mb-2 md:pl-3">Choose service type</div>
+              <div className="text-gray-400 mb-2 md:pl-3">Choose Service Type</div>
 
               <div className="flex justify-center items-center gap-2 px-2">
                 <div>
@@ -202,8 +202,8 @@ const BusinessSignup = ({ loading, setLoading }) => {
             <div className={`  ${serviceType==="other"?"block":"hidden"}`} >
               <input
                 type="text"
-                name="business_name"
-                placeholder="Business Name"
+                name="service_name"
+                placeholder="Service Name"
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[97%] md:w-[80%] md:mr-10 ml-1 md:ml-0 "
                 {...register("serviceType")}
                 onChange={(e)=>setServiceName(e.target.value.toUpperCase())}

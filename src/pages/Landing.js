@@ -52,8 +52,8 @@ const Landing = () => {
                   </div>
                   <div className="h-1/2 md:font-normal font-semibold text-xl text-white ">
                     {" "}
-                    <span className="text-2xl"> 1. </span> Post your
-                    requirement.
+                    <span className="text-2xl"> 1. </span> Post Your
+                    Requirement.
                   </div>
                 </div>
               </SwiperSlide>
@@ -65,7 +65,7 @@ const Landing = () => {
 
                   <div className="h-1/2 md:font-normal font-semibold text-xl text-white">
                     {" "}
-                    <span className="text-2xl"> 2. </span> Compare the bids.
+                    <span className="text-2xl"> 2. </span> Compare the Bids.
                   </div>
                 </div>
               </SwiperSlide>
