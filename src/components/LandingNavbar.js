@@ -32,8 +32,8 @@ const Navbar = () => {
           whileInView={{ y: 0, opacity: 1 }}
           exit={{ y: -10, opacity: 0 }}
           transition={{ duration: 0.5 }} 
-          className="font-medium">
-            <img src="/logo_icon.png" alt="" className="inline-block md:h-6 md:w-6 h-5 w-5 mr-1" />
+          className="font-medium md:text-xl text-base">
+            <img src="/logo_icon.png" alt="" className="inline-block md:h-7 md:w-7 h-6 w-6 mr-1" />
               MatchMyService
             </motion.div>
           </li>
@@ -42,7 +42,7 @@ const Navbar = () => {
            
             <button
               
-              className="md:px-6 md:py-4 px-6 py-3 text-sm md:text-base text-white font-extrabold bg-blue-500 hover:bg-blue-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 md:py-4 px-4 py-3 text-sm md:text-base text-white font-extrabold bg-blue-500 hover:bg-blue-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
               onClick={handleClick}
             >
               Get Started

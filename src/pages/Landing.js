@@ -25,7 +25,7 @@ const Landing = () => {
           transition={{ duration: 1 }}
           className="font-semibold text-5xl flex justify-center items-center"
         >
-          <h1>Your One-Stop Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00F260] to-[#0575E6]" > Quality Services! </span> </h1>
+          <h1>Your One-Stop Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#f9c823] to-[#fc506e]" > Quality Services! </span> </h1>
         </motion.div>
         <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
           <div className="md:w-1/2 overflow-x-hidden">
