@@ -38,7 +38,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
           .then((res) => {
             localStorage.setItem("user", JSON.stringify(res));
             setUser(res.user.uid);
-            console.log("res", res);
+           
           })
           .then(() => {
             navigate("/business/home");

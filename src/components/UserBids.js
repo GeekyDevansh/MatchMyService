@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import { BsTagFill } from "react-icons/bs";
 import { collection, getDocs, orderBy, query } from "firebase/firestore";
 import { db } from "../firebase";
@@ -24,9 +23,9 @@ const UserRequests = ({
         let list = [];
         const dataRef = collection(db, "product_data");
         const q = query(dataRef, orderBy("bidding_time", "desc"));
-        console.log("q", q);
+        
         const querySnapshot = await getDocs(q);
-        console.log(querySnapshot);
+        
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
@@ -40,7 +39,7 @@ const UserRequests = ({
     fetchData();
   }, [request]);
 
-  console.log("data", data);
+  
 
   return (
     <div

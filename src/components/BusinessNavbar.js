@@ -66,7 +66,6 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
     },
   };
 
-  console.log(window.screen);
 
   return (
     <>

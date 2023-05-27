@@ -59,7 +59,7 @@ const BusinessRequests = ({
   };
   
   const business = JSON.parse(localStorage.getItem("user"))?.user.photoURL;
-  console.log(business);
+  
   
   
   useEffect(() => {
@@ -69,9 +69,9 @@ const BusinessRequests = ({
         let list = [];
         const dataRef = collection(db, "product_data");
         const q = query(dataRef, orderBy("sendData.created", "desc"));
-        console.log("q", q);
+        
         const querySnapshot = await getDocs(q);
-        console.log(querySnapshot);
+        
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
@@ -85,7 +85,7 @@ const BusinessRequests = ({
     fetchData();
   }, [request]);
   
-  console.log("data", data);  
+   
   
   return (
     <>

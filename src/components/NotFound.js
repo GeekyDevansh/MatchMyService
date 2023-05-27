@@ -1,5 +1,4 @@
 import React from 'react';
-import LandingNavbar from "./LandingNavbar";
 import { useNavigate } from "react-router-dom";
 
 const NotFound = () => {

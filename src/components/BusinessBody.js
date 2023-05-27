@@ -28,9 +28,7 @@ const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalI
         let list = [];
         const dataRef = collection(db, "product_data");
         const q = query(dataRef, orderBy("sendData.created", "desc"));
-        console.log("q", q);
         const querySnapshot = await getDocs(q);
-        console.log(querySnapshot);
         querySnapshot.forEach((doc) => {
           list.push({ id: doc.id, ...doc.data() });
         });
@@ -45,7 +43,6 @@ const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalI
     fetchData();
   }, [request]);
 
-  console.log("data", data);
 
   const customStyles = {
     content: {

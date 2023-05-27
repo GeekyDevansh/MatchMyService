@@ -12,7 +12,6 @@ const AllRequests = ({
   signoutModalIsOpen,
   modalIsOpen,
 }) => {
-  console.log(signoutModalIsOpen);
 
   return (
     <>

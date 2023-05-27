@@ -1,10 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import Modal from "react-modal";
-import { HiMoon, HiSun } from "react-icons/hi";
-import Loading from "./Loading";
 import { motion } from "framer-motion"
-// import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
 

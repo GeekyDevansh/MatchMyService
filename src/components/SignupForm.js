@@ -34,7 +34,6 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
         .then((res) => {
           localStorage.setItem("user", JSON.stringify(res));
           setUser(res.user.uid);
-          console.log("res", res);
         })
         .then(() => {
           navigate("/home");

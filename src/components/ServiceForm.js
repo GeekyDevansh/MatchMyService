@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Loading from "./Loading";
-import {doc,serverTimestamp,addDoc,collection,getDocs, deleteDoc, updateDoc} from "firebase/firestore";
+import {serverTimestamp,addDoc,collection} from "firebase/firestore";
 import {db} from "../firebase";
 import toast from "react-hot-toast";
 import FormSubmitted from "./FormSubmitted";
@@ -19,7 +19,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   const user = JSON.parse(localStorage.getItem("user")).user.uid;
   const cName= JSON.parse(localStorage.getItem("user")).user.displayName;
 
-  console.log(budget);
+  
 
   const [sendData,setSendData] = useState({
     budget: budget,
@@ -36,7 +36,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   setLoading(true);
   e.preventDefault();
   try{
-    console.log("sendData",sendData);
+    
     setServiceType(" ");
     setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service?.toUpperCase()}));
     const res=await addDoc(collection(db, "product_data"), {
@@ -64,7 +64,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   return (
     <>
       {loading ? (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center md:w-1/2 md:mx-auto">
           {" "}
           <Loading />{" "}
         </div>

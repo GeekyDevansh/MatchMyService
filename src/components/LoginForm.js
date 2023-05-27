@@ -36,7 +36,7 @@ const Form = ({ loading, setLoading }) => {
           }
           localStorage.setItem("user", JSON.stringify(res));
           setUser(res?.user?.uid);
-          console.log("res", res?.user.photoURL);
+          
         })
         .catch((err) => {
           console.log(err);
