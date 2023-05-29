@@ -29,7 +29,7 @@ const Navbar = () => {
           exit={{ y: -10, opacity: 0 }}
           transition={{ duration: 0.5 }} 
           className="font-medium md:text-xl text-base">
-            <img src="/logo_icon.png" alt="" className="inline-block md:h-7 md:w-7 h-6 w-6 mr-1" />
+            <img src="/logo_icon.webp" alt="" className="inline-block md:h-7 md:w-7 h-6 w-6 mr-1" />
               MatchMyService
             </motion.div>
           </li>

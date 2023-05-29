@@ -94,10 +94,10 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
       >
 
         {!darkMode && <div className=" absolute md:top-[10%] top-[50%] " >
-          <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
+          <img src="/bg-1.webp" alt="" className="rotate-[0deg]"  />
         </div>}
          {!darkMode && <div className=" absolute md:top-[10%] top-[160%] md:hidden " >
-          <img src="/bg-1.png" alt="" className="rotate-[0deg]"  />
+          <img src="/bg-1.webp" alt="" className="rotate-[0deg]"  />
         </div>}
         {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#00b09b] to-[#96c93d] top-[10%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0" >
         </div>}

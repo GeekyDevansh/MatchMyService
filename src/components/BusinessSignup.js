@@ -87,7 +87,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                       // setSendData({...sendData,service_type:"Plumber"});
                     }}
                   >
-                    <img src="/plumber.gif" alt="" className="rounded-xl bg-white " />
+                    <img src="/plumber.webp" alt="" className="rounded-xl bg-white " />
                     <span className="text-xs font-semibold">
                       Plumber
                     </span>
@@ -103,7 +103,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                       // setSendData({...sendData,service_type:"Carpenter"});
                     }}
                   >
-                    <img src="/carpenter.gif" alt="" className="rounded-xl bg-white " />
+                    <img src="/carpenter.webp" alt="" className="rounded-xl bg-white " />
                     <span className="text-xs font-semibold">
                       Carpenter
                     </span>
@@ -120,7 +120,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                     }}
                   >
                     <img
-                      src="/electrician.gif"
+                      src="/electrician.webp"
                       alt=""
                       className="rounded-xl bg-white  "
                     />
@@ -137,7 +137,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                       setServiceType("other");
                     }}
                   >
-                    <img src="/other.gif" alt="" className="rounded-xl bg-white" />
+                    <img src="/other.webp" alt="" className="rounded-xl bg-white" />
                     <span className="text-xs  font-semibold">
                       Others
                     </span>

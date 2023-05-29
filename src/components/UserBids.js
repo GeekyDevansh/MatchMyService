@@ -91,12 +91,12 @@ const UserRequests = ({
                         <img
                           src={`${
                             e.sendData.service_type === "Plumber"
-                              ? "/plumber.png"
+                              ? "/plumbers.webp"
                               : e.sendData.service_type === "Carpenter"
-                              ? "/carpenter.png"
+                              ? "/carpenters.webp"
                               : e.sendData.service_type === "Electrician"
-                              ? "/electrician.png"
-                              : "/other.png"
+                              ? "/electricians.webp"
+                              : "/others.webp"
                           }`}
                           alt=""
                           className="rounded-full  border-2 border-gray-300 "

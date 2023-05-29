@@ -14,7 +14,7 @@ const NotFound = () => {
   return (
     <>
     <div className='flex justify-center' >
-         <img src="/404.gif" alt="" className='md:w-[25%]' />
+         <img src="/404.webp" alt="" className='md:w-[25%]' />
     </div>
     <h1 className=' md:text-5xl text-4xl flex justify-center items-center tracking-wider text-center' > Page Not Found </h1>
     <h3 className='font-semibold md:text-xl text-lg flex justify-center items-center md:mt-[1%] mt-[5%] text-center ' >It seems you have found yourself in unexplored and unfamiliar territory.</h3>

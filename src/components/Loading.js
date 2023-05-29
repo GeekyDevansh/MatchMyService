@@ -3,7 +3,7 @@ import React from 'react'
 const Loading = ({darkMode}) => {
   return (
     <div>
-      {darkMode? <img src="/cube_white.gif" alt="Loading..." />: <img src="/cube.gif" alt="Loading..." />}
+      {darkMode? <img src="/cube_white.webp" alt="Loading..." />: <img src="/cube.webp" alt="Loading..." />}
        
     </div>
   )

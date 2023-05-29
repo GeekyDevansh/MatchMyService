@@ -26,7 +26,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
             transition={{ duration: 0.5 }}
             >
               <img
-                src="/postRequirement.gif"
+                src="/postRequirement.webp"
                 alt="img"
                 className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />
@@ -39,7 +39,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
             transition={{ duration: 0.5 }}
             >
               <img
-                src="/postRequirementLight.gif"
+                src="/postRequirementLight.webp"
                 alt="img"
                 className="md:w-32 md:h-32 w-24 h-24 md:mt-[15%] mt-[20%] "
               />

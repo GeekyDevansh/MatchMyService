@@ -23,7 +23,7 @@ function Signup() {
            : 
             [ <motion.div initial={{scale:0.5,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}} className="bg-white md:flex md:justify-between md:p-10 p-6 md:h-2/3  md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[83%] overflow-y-auto scrollbar-hide rounded-xl shadow-lg md:mt-0 mt-[10%] ">
               <div className="flex justify-center md:w-1/2 mb-8 md:mb-0 h-48 md:h-full ">
-               {businessSignup? <img src="/business_signup.gif" alt="business_signup" />:<img src="/signup.gif" alt="signup" />}
+               {businessSignup? <img src="/business_signup.webp" alt="business_signup" />:<img src="/signup.webp" alt="signup" />}
               </div>
               <div className="md:w-1/2">
                 <Form loading={loading} setLoading={setLoading} businessSignup={businessSignup} setBusinessSignup={setBusinessSignup}  />

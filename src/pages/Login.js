@@ -23,7 +23,7 @@ function Login() {
             [
               <motion.div initial={{scale:0.5,opacity:0}} animate={{scale:1,opacity:1}} transition={{duration:1}} className="bg-white md:flex md:justify-between md:p-10 p-6 md:h-2/3 md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[80%]  rounded-xl shadow-lg mt-[10%] md:mt-0 ">
               <div className="flex justify-center md:w-1/2 mb-8 md:mb-0 h-48 md:h-full">
-                <img src="/signup.gif" alt="login" />
+                <img src="/signup.webp" alt="login" />
               </div>
               <div className="md:w-1/2">
                 <Form loading={loading} setLoading={setLoading} />
