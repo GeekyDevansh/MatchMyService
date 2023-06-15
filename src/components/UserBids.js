@@ -51,8 +51,7 @@ const UserRequests = ({
     >
       <motion.div
         initial={{ y: 10, opacity: 0 }}
-        whileInView={{ y: 0, opacity: 1 }}
-        exit={{ y: -10, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
         className={`${
           signoutModalIsOpen ? "z-0" : "z-10"
@@ -74,10 +73,12 @@ const UserRequests = ({
             ?.map((e, i) => {
               return (
                 <motion.div
-                  initial={{ y: 10, opacity: 0 }}
-                  whileInView={{ y: 0, opacity: 1 }}
-                  exit={{ y: -10, opacity: 0 }}
-                  transition={{ duration: 0.5 }}
+                initial={{ opacity: 0, scale: 0.5 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{
+                  duration: 0.8,
+                  ease: [0, 0.71, 0.2, 1.01]
+                }}
                   className={` ${
                     darkMode ? "bg-black" : "bg-white"
                   } drop-shadow-lg rounded-xl p-8 mt-4 `}
@@ -157,7 +158,7 @@ const UserRequests = ({
                                       Your Bid
                                     </h1>
                                   </div>
-                                  <div className="w-0.5 bg-gray-500"></div>
+                                  <div className="w-px bg-gray-900"></div>
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
@@ -202,7 +203,7 @@ const UserRequests = ({
                                         Your Bid
                                       </h1>
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="w-px bg-gray-900"></div>
                                     <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
@@ -244,7 +245,7 @@ const UserRequests = ({
                                         Your Bid
                                       </h1>
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="w-px bg-gray-900"></div>
                                     <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
@@ -280,7 +281,7 @@ const UserRequests = ({
                                     </h1>
                                     {e.bidder_name}
                                   </div>
-                                  <div className="w-0.5 bg-gray-500"></div>
+                                  <div className="w-px bg-gray-900"></div>
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
@@ -317,7 +318,7 @@ const UserRequests = ({
                                       </h1>
                                       {element?.bidder_name}
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="w-px bg-gray-900"></div>
                                     <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
@@ -355,7 +356,7 @@ const UserRequests = ({
                                       </h1>
                                       {element?.bidder_name}
                                     </div>
-                                    <div className="w-0.5 bg-gray-500"></div>
+                                    <div className="w-px bg-gray-900"></div>
                                     <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold ">
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price

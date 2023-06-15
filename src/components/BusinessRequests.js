@@ -98,8 +98,7 @@ const BusinessRequests = ({
       >
         <motion.div
           initial={{ y: 10, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 1 }}
           className={` ${
             modalIsOpen || signoutModalIsOpen ? "z-0" : "z-10"
@@ -124,10 +123,12 @@ const BusinessRequests = ({
               ?.map((e, i) => {
                 return (
                   <motion.div
-                    initial={{ y: 10, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    exit={{ y: -10, opacity: 0 }}
-                    transition={{ duration: 0.5 }}
+                  initial={{ opacity: 0, scale: 0.5 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{
+                    duration: 0.8,
+                    ease: [0, 0.71, 0.2, 1.01]
+                  }}
                     className={` ${
                       darkMode ? "bg-black" : "bg-white"
                     } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
@@ -210,7 +211,7 @@ const BusinessRequests = ({
                                 arrow="true"
                               >
                                 <div
-                                  className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-6 py-3 mt-5 md:text-lg text-center `}
+                                  className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-4 md:px-6 py-3 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col w-1/2 break-words font-semibold md:text-base text-sm ">
                                     <h1 className="text-gray-700 font-normal md:text-base text-sm">
@@ -218,7 +219,7 @@ const BusinessRequests = ({
                                     </h1>
                                     {e.bidder_name}
                                   </div>
-                                  <div className="w-px bg-gray-500"></div>
+                                  <div className="w-px bg-gray-900"></div>
                                   <div className="flex flex-col w-1/2 font-semibold md:text-base text-sm ">
                                     <h1 className="text-gray-700 md:text-base text-sm font-normal">
                                       Bidding price
@@ -252,7 +253,7 @@ const BusinessRequests = ({
                                         </h1>
                                         {element?.bidder_name}
                                       </div>
-                                      <div className="w-0.5 bg-gray-500"></div>
+                                      <div className="w-px bg-gray-900"></div>
                                       <div className="flex flex-col w-1/2 font-semibold md:text-base text-sm ">
                                         <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                           Bidding price
@@ -287,7 +288,7 @@ const BusinessRequests = ({
                                         </h1>
                                         {element?.bidder_name}
                                       </div>
-                                      <div className="w-0.5 bg-gray-500"></div>
+                                      <div className="w-px bg-gray-900"></div>
                                       <div className="flex flex-col md:text-base text-sm w-1/2 pl-2 font-semibold">
                                         <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                           Bidding price

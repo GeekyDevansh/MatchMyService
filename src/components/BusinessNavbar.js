@@ -116,21 +116,19 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
           <li
             className={`${
               darkMode ? "text-gray-300" : "text-gray-900"
-            } flex flex-col font-light md:text-xl text-sm`}
+            } flex flex-col font-light md:text-xl text-xs`}
           >
             <motion.div
             initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             >
               Welcome<span className="font-medium capitalize"> {name} <span className="gradient-background text-xs" >Business</span> </span>
             </motion.div>
 
             <motion.div initial={{ y: 10, opacity: 0 }}
-             whileInView={{ y: 0, opacity: 1 }}
-             exit={{ y: -10, opacity: 0 }}
-             transition={{ duration: 0.5, delay:0.5 }} className=" text-xs md:text-sm font-thin"> {email} </motion.div>
+             animate={{ y: 0, opacity: 1 }}
+             transition={{ duration: 0.5, delay:0.5 }} className=" text-[10px] leading-4 md:text-sm font-thin"> {email} </motion.div>
           </li>
           <li className="flex justify-center md:gap-4 gap-2">
             <button

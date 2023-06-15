@@ -21,8 +21,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
           {darkMode ? (
             <motion.div
             initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             >
               <img
@@ -34,8 +33,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
           ) : (
             <motion.div
             initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5 }}
             >
               <img
@@ -47,8 +45,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
           )}
 
           <motion.button initial={{ y: 10, opacity: 0 }}
-            whileInView={{ y: 0, opacity: 1 }}
-            exit={{ y: -10, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.5,delay: 0.5 }} className="md:px-4 px-2 text-white text-sm md:text-base font-black bg-blue-700 hover:bg-blue-800 rounded-md md:h-14 h-12 md:drop-shadow-xl drop-shadow-lg ">
             <span className="pr-2"> POST REQUIREMENT </span>{" "}
             <span className=" hidden float-right md:flex justify-center items-center border-l-2 pl-2 border-slate-400 ">
@@ -62,8 +59,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
           </motion.button>
           <motion.div
           initial={{ y: 10, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          exit={{ y: -10, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5, delay:0.75 }}
             className={`md:text-sm text-medium font-bold ${
               darkMode ? "text-gray-300" : "text-gray-900"
