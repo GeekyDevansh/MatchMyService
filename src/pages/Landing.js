@@ -25,7 +25,7 @@ const Landing = () => {
           transition={{ duration: 1 }}
           className="font-semibold text-5xl flex justify-center items-center"
         >
-          <h1>Your One-Stop Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#00BFFF] to-[#FFC300]" > Quality Services! </span> </h1>
+          <h1>Your One-Stop Platform for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#833ab4] to-[#fd1d1d]" > Quality Services! </span> </h1>
         </motion.div>
         <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
           <div className="md:w-1/2 overflow-x-hidden">
@@ -50,9 +50,9 @@ const Landing = () => {
                   <div className="h-[82%]">
                     <img src="post.svg" alt="" className="h-[80%]" />
                   </div>
-                  <div className="h-1/2 md:font-normal font-semibold text-xl text-white ">
+                  <div className="h-1/2 md:font-normal font-semibold text-2xl text-white ">
                     {" "}
-                    <span className="text-2xl"> 1. </span> Post Your
+                    <span className="text-3xl"> 1. </span> Post Your
                     Requirement.
                   </div>
                 </div>
@@ -63,9 +63,9 @@ const Landing = () => {
                     <img src="compare.svg" alt="" className="h-[80%]" />
                   </div>
 
-                  <div className="h-1/2 md:font-normal font-semibold text-xl text-white">
+                  <div className="h-1/2 md:font-normal font-semibold text-2xl text-white">
                     {" "}
-                    <span className="text-2xl"> 2. </span> Compare the Bids.
+                    <span className="text-3xl"> 2. </span> Compare the Bids.
                   </div>
                 </div>
               </SwiperSlide>
@@ -74,9 +74,9 @@ const Landing = () => {
                   <div className="h-[90%]">
                     <img src="choose.svg" alt="" className="h-[80%]" />
                   </div>
-                  <div className="h-1/2 md:font-normal font-semibold text-xl text-white">
+                  <div className="h-1/2 md:font-normal font-semibold text-2xl text-white">
                     {" "}
-                    <span className="text-2xl"> 3. </span> Choose the Best
+                    <span className="text-3xl"> 3. </span> Choose the Best
                     Provider for the Job.{" "}
                   </div>
                 </div>
