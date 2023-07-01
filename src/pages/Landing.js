@@ -70,7 +70,7 @@ const Landing = () => {
                 </div>
               </SwiperSlide>
               <SwiperSlide>
-                <div className=" bg-green-500 p-10 rounded-xl flex flex-col md:h-96 h-80 text-center justify-around items-center ">
+                <div className="  bg-[#69c47a] p-10 rounded-xl flex flex-col md:h-96 h-80 text-center justify-around items-center ">
                   <div className="h-[90%]">
                     <img src="choose.svg" alt="" className="h-[80%]" />
                   </div>

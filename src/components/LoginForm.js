@@ -81,7 +81,7 @@ const Form = ({ loading, setLoading }) => {
                   className="p-3 bg-gray-200 rounded-l-xl text-gray-700 w-3/4 focus:outline-0 "
                   {...register("password")}
                 />
-                <div className="w-1/4 text-2xl cursor-pointer bg-gray-200 text-gray-700 p-3 rounded-r-xl items-center justify-center flex" onClick={()=>{setShowPassword(!showPassword)}} >
+                <div className="w-1/4 text-2xl cursor-pointer bg-gray-200 text-gray-500 p-3 rounded-r-xl items-center justify-center flex" onClick={()=>{setShowPassword(!showPassword)}} >
                  {showPassword?<AiOutlineEyeInvisible/>:<AiOutlineEye/>}
                 </div>
               </div>
@@ -93,7 +93,7 @@ const Form = ({ loading, setLoading }) => {
             <div className="w-full flex justify-center ">
               <button
                 type="submit"
-                className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg"
+                className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 hover:bg-blue-800 rounded-2xl md:drop-shadow-xl drop-shadow-lg"
               >
                 SIGN IN
               </button>
