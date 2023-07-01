@@ -2,9 +2,12 @@ import React, { useState } from "react";
 import Form from "../components/LoginForm";
 import Loading from "../components/Loading";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import { BsArrowLeft } from "react-icons/bs";
 
 function Login() {
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -26,20 +29,25 @@ function Login() {
               initial={{ scale: 0.5, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
-              className="bg-white md:flex-row md:justify-between justify-center flex flex-col md:p-10 p-6 md:h-2/3 md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[80%]  rounded-xl shadow-lg mt-[10%] md:mt-0 overflow-y-auto scrollbar-hide "
+              className="bg-white md:flex md:justify-between md:p-10 p-6 md:h-2/3 md:min-h-0 md:w-2/3 w-[90%] min-h-fit max-h-[83%] overflow-y-auto scrollbar-hide rounded-xl shadow-lg md:mt-0 mt-[10%] "
             >
-              <div className="flex md:hidden flex-col justify-center items-center pb-[5%]">
+              <div className="md:flex md:flex-col" >
+              <button onClick={()=>navigate("/landing")} className="text-2xl cursor-pointer md:hidden " > <BsArrowLeft/> </button>
+            
+              <div className="flex md:hidden flex-col justify-center items-center pb-[6%] ">
                 <div className="flex justify-center md:w-1/2 h-52 w-3/4 items-center md:h-full">
                   <img src="/signin.webp" alt="login" />
                 </div>
               </div>
-              <div className="md:flex hidden justify-center md:w-1/2 h-52 w-3/4 md:h-full">
+                <button onClick={()=>navigate("/landing")} className="text-2xl cursor-pointer hidden md:inline-block " > <BsArrowLeft/> </button>
+                </div>
+              <div className="md:flex hidden justify-center mx-auto md:w-1/2 h-52 w-3/4 md:h-full">
                   <img src="/signin.webp" alt="login" />
                 </div>
               <div className="md:w-1/2">
                 <Form loading={loading} setLoading={setLoading} />
               </div>
-            </motion.div>,
+            </motion.div>
           ]
         )}
       </motion.div>
