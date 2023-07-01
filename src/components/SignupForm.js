@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
 import BusinessSignup from "./BusinessSignup";
+import {AiOutlineEye} from "react-icons/ai";
+import {AiOutlineEyeInvisible} from "react-icons/ai";
 
 const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
   const {
@@ -20,6 +22,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
 
   const navigate = useNavigate();
   const [user, setUser] = useState();
+  const [showPassword,setShowPassword]=useState(false);
 
   const handleSignup = (data, e) => {
     e.preventDefault();
@@ -67,7 +70,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 type="text"
                 name="name"
                 placeholder="Enter Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%]"
+                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] focus:outline-0 "
                 {...register("name")}
               />
               {errors && (
@@ -81,7 +84,7 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
+                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] focus:outline-0 "
                 {...register("email")}
               />
               {errors && (
@@ -90,20 +93,25 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                 </span>
               )}
             </div>
-            <div className="w-full flex flex-col justify-center items-center ">
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter Password"
-                className="p-3 bg-gray-200 rounded-xl text-gray-700 md:w-2/3 w-[85%] "
-                {...register("password")}
-              />
-              {errors && (
-                <span className="text-center text-red-500 font-semibold text-sm">
-                  {errors?.password?.message}
-                </span>
-              )}
+              <div className="w-full flex flex-col justify-center items-center">
+              <div className="flex md:w-2/3 w-[85%]">
+                <input
+                  type={showPassword?"text":"password"}
+                  name="password"
+                  id="password"
+                  placeholder="Enter Password"
+                  className="p-3 bg-gray-200 rounded-l-xl text-gray-700 w-3/4 focus:outline-0 "
+                  {...register("password")}
+                />
+                <div className="w-1/4 text-2xl cursor-pointer bg-gray-200 text-gray-700 p-3 rounded-r-xl items-center justify-center flex" onClick={()=>{setShowPassword(!showPassword)}} >
+                 {showPassword?<AiOutlineEyeInvisible/>:<AiOutlineEye/>}
+                </div>
+              </div>
+              <span className="text-center text-red-500 font-semibold text-sm ">
+                {errors?.password?.message}
+              </span>
             </div>
+
             <button
               type="submit"
               className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg "

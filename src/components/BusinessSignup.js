@@ -7,6 +7,8 @@ import { businessSchema } from "../schemas/businessSchema";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import toast from "react-hot-toast";
+import {AiOutlineEye} from "react-icons/ai";
+import {AiOutlineEyeInvisible} from "react-icons/ai";
 
 const BusinessSignup = ({ loading, setLoading }) => {
   const {
@@ -21,6 +23,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
   const [user, setUser] = useState();
   const [serviceType, setServiceType] = useState();
   const [serviceName, setServiceName] = useState("");
+  const [showPassword,setShowPassword]=useState(false);
 
   const handleSignup = (data, e) => {
     e.preventDefault();
@@ -152,7 +155,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="text"
                 name="name"
                 placeholder="Enter Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full  md:w-[80%] md:ml-12 ml-1"
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full  md:w-[80%] md:ml-12 ml-1 focus:outline-0"
                 {...register("name")}
               />
               {errors && (
@@ -166,7 +169,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="email"
                 name="email"
                 placeholder="Enter Email"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[98%] md:w-[80%] md:mr-10 "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[98%] md:w-[80%] md:mr-10 focus:outline-0 "
                 {...register("email")}
               />
               {errors && (
@@ -177,20 +180,29 @@ const BusinessSignup = ({ loading, setLoading }) => {
             </div>
           </div>
           <div className={`gap-1 flex mt-4`}>
+
             <div className={`${serviceType==="other"?"":"md:w-[56%]"} flex flex-col justify-center md:items-start items-center `} >
+              <div className="flex" >
+
+             
               <input
-                type="password"
+                type={showPassword?"text":"password"}
                 name="password"
                 placeholder="Enter Password"
-                className={`p-3 bg-gray-200 rounded-xl text-gray-900 ${serviceType==="other"?"w-full":"w-[95%]"} md:w-[80%] md:ml-12 ${serviceType==="other"?"ml-1":"ml-0"} `}
+                className={`p-3 bg-gray-200 rounded-l-xl text-gray-900 focus:outline-0 ${serviceType==="other"?"w-full":"w-[95%]"} md:w-[80%] md:ml-12 ${serviceType==="other"?"ml-1":"ml-0"} `}
                 {...register("password")}
               />
+              <div className="w-1/4 text-2xl cursor-pointer bg-gray-200 text-gray-700 p-3 rounded-r-xl items-center justify-center flex" onClick={()=>{setShowPassword(!showPassword)}} >
+                 {showPassword?<AiOutlineEyeInvisible/>:<AiOutlineEye/>}
+                </div>
+                </div>
               {errors && (
                 <span className="text-center text-red-500 font-semibold text-sm md:ml-12 ">
                   {errors?.password?.message}
                 </span>
               )}
             </div>
+
             <div className={`md:w-1/3 w-[80%]  ${serviceType==="other"?"hidden":"block"}`} >
               <button
                 type="submit"
@@ -204,7 +216,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                 type="text"
                 name="service_name"
                 placeholder="Service Name"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[97%] md:w-[80%] md:mr-10 ml-1 md:ml-0 "
+                className="p-3 bg-gray-200 rounded-xl text-gray-900 w-[97%] md:w-[80%] md:mr-10 ml-1 md:ml-0 focus:outline-0"
                 {...register("serviceType")}
                 onChange={(e)=>setServiceName(e.target.value.toUpperCase())}
               />
@@ -231,34 +243,6 @@ const BusinessSignup = ({ loading, setLoading }) => {
               <Link to="/login"> Sign In </Link>{" "}
             </div>
           </div>
-
-          {/* <div className="w-full flex flex-col justify-center items-center ">
-              <input
-                type="password"
-                name="password"
-                placeholder="Enter Password"
-                className="p-3 bg-gray-200 rounded-xl text-gray-900 md:w-2/3 w-[85%] "
-                {...register("password")}
-              />
-              {errors && (
-                <span className="text-center text-red-500 font-semibold text-sm">
-                  {errors?.password?.message}
-                </span>
-              )}
-            </div> */}
-          {/* <button
-              type="submit"
-              className=" px-6 py-3 md:w-[80%] w-full text-white font-extrabold bg-blue-700 rounded-2xl md:drop-shadow-xl drop-shadow-lg "
-            >
-              SIGN UP
-            </button> */}
-
-          {/* <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
-              <div className="text-center"> Already have an account?</div>{" "}
-              <div className="text-center font-semibold text-blue-800 ">
-                <Link to="/login"> Sign In </Link>{" "}
-              </div>
-            </div> */}
         </form>
       </div>
     </>
