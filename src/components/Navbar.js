@@ -8,6 +8,7 @@ import { motion } from "framer-motion"
 const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, signoutModalIsOpen }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
+  const [isActive, setIsActive] = useState(false);
 
   const handleClick = () => {
     setSignoutModalIsOpen(true);
@@ -26,7 +27,9 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
   };
 
   const toggleMode = () => {
+    setIsActive(!isActive);
     setDarkMode(!darkMode);
+
   };
 
   const customStyles = {
@@ -131,23 +134,30 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
           transition={{ duration: 0.5, delay:0.5 }} className=" text-[10px] leading-4 md:text-sm font-thin"> {email} </motion.div>
           </li> 
           <li className="flex justify-center md:gap-4 gap-2">
-            <button
-             
+            <motion.button
+            animate={{
+              rotate: isActive ? 20 : 0
+            }}
+            transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full hidden md:block`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
-            </button>
-            <button
+            </motion.button>
+            <motion.button
+            animate={{
+              rotate: isActive ? 20 : 0
+            }}
+            transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
               } rounded-full md:hidden`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={24} /> : <HiMoon size={24} />}
-            </button>
+            </motion.button>
             <button
               onClick={handleClick}
               className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
