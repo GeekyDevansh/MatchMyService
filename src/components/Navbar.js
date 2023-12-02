@@ -141,7 +141,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
-              } rounded-full hidden md:block`}
+              } rounded-full focus:shadow-none focus:border-transparent hidden md:block`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
@@ -153,7 +153,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
-              } rounded-full md:hidden`}
+              } rounded-full focus:after:shadow-none focus:after:border-transparent md:hidden`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={24} /> : <HiMoon size={24} />}
