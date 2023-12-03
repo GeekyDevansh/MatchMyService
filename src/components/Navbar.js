@@ -134,30 +134,30 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
           transition={{ duration: 0.5, delay:0.5 }} className=" text-[10px] leading-4 md:text-sm font-thin"> {email} </motion.div>
           </li> 
           <li className="flex justify-center md:gap-4 gap-2">
-            <motion.button
+            <motion.div
             animate={{
               rotate: isActive ? 20 : 0
             }}
             transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
-              } rounded-full focus:shadow-none focus:border-transparent hidden md:block`}
+              } rounded-full justify-center items-center cursor-pointer hidden md:flex`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={28} /> : <HiMoon size={28} />}
-            </motion.button>
-            <motion.button
+            </motion.div>
+            <motion.div
             animate={{
               rotate: isActive ? 20 : 0
             }}
             transition={{ duration: 0.5,ease: "linear" }}
               className={`${
                 darkMode ? "text-white" : "text-gray-900"
-              } rounded-full focus:after:shadow-none focus:after:border-transparent md:hidden`}
+              } rounded-full justify-center items-center flex md:hidden`}
               onClick={toggleMode}
             >
               {darkMode ? <HiSun size={24} /> : <HiMoon size={24} />}
-            </motion.button>
+            </motion.div>
             <button
               onClick={handleClick}
               className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
