@@ -34,7 +34,7 @@ function Login() {
               <div className="md:flex md:flex-col" >
               <button onClick={()=>navigate("/landing")} className="text-2xl cursor-pointer md:hidden " > <BsArrowLeft/> </button>
             
-              <div className="flex md:hidden flex-col justify-center items-center pb-[6%] ">
+              <div className="flex md:hidden flex-col justify-center items-center pb-[6%] mt-[8%] ">
                 <div className="flex justify-center md:w-1/2 h-52 w-3/4 items-center md:h-full">
                   <img src="/signin.webp" alt="login" />
                 </div>

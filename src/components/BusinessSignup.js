@@ -93,7 +93,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   }}
                 >
                   <img
-                    src="/plumber.webp"
+                    src="/plumbers.webp"
                     alt=""
                     className="rounded-xl bg-white "
                   />
@@ -115,7 +115,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   }}
                 >
                   <img
-                    src="/carpenter.webp"
+                    src="/carpenters.webp"
                     alt=""
                     className="rounded-xl bg-white "
                   />
@@ -137,7 +137,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   }}
                 >
                   <img
-                    src="/electrician.webp"
+                    src="/electricians.webp"
                     alt=""
                     className="rounded-xl bg-white  "
                   />
@@ -157,7 +157,7 @@ const BusinessSignup = ({ loading, setLoading }) => {
                   }}
                 >
                   <img
-                    src="/other.webp"
+                    src="/others.webp"
                     alt=""
                     className="rounded-xl bg-white"
                   />
