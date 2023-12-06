@@ -45,7 +45,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor:"#E8E8E8"
+      backgroundColor:"#E8E8E8",
+      overflowY:"hidden",
     },
   };
   const customStylesSm = {
@@ -62,6 +63,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
       display: "flex",
+      overflowY:"hidden"
     },
   };
 
@@ -81,9 +83,9 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl p-2 m-1">
+          <div className="flex md:drop-shadow-xl md:bg-white h-full md:justify-center items-center rounded-xl p-2 m-1">
             <div className="flex justify-center items-center w-[40%]  ">
-              <img src="/signout.webp" alt="" />
+              <img src="/signout.svg" alt="" />
             </div>
             <div className="w-[60%] flex justify-center items-center ">
               <div className="flex flex-col gap-10">

@@ -78,7 +78,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
        {loading? <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] " > <Loading/> </div> : 
        <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl md:p-2 m-1 " >
         <div className="flex justify-center items-center w-[40%]  " >
-          <img src="/signout.webp" alt="" />
+          <img src="/signout.svg" alt="" />
         </div>
         <div className="w-[60%] flex justify-center items-center " >
         <div className="flex flex-col gap-10">

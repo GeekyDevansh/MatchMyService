@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { BsTagFill } from "react-icons/bs";
 import {
   doc,
+  deleteDoc,
   collection,
   getDocs,
   updateDoc,
@@ -14,6 +15,7 @@ import { motion } from "framer-motion";
 import { Tooltip } from "react-tippy";
 import "react-tippy/dist/tippy.css";
 import { MdDelete } from "react-icons/md";
+import Modal from "react-modal";
 
 const UserRequests = ({
   setModalIsOpen,
@@ -60,21 +62,117 @@ const UserRequests = ({
     });
   };
 
+  const [deleteModalIsOpen,setDeleteModalIsOpen] = useState(false);
+  const [deleteId,setDeleteId] = useState("");
+
+  const handleDelete = (id)=>{
+    setDeleteModalIsOpen(true);
+    setDeleteId(id);
+  }
+  console.log(deleteId);
+  const closeModal = () => {
+    setDeleteModalIsOpen(false);
+  };
+
+  const handleDeleteRequest = async ()=>{
+    try {
+     await deleteDoc(doc(db,"product_data",deleteId));
+       console.log(`Document with ID '${deleteId}' successfully deleted.`);
+    } catch (error) {
+      console.error('Error deleting document:', error);
+    }
+    setDeleteModalIsOpen(false);
+    window.location.reload();
+  }
+
+  const customStyles = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      height: "40%",
+      width: "50%",
+      borderWidth: "1px",
+      borderColor: "gray",
+      borderRadius: "15px",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      backgroundColor:"#E8E8E8",
+      overflowY:"hidden"
+    },
+  };
+  const customStylesSm = {
+    content: {
+      top: "50%",
+      left: "50%",
+      right: "auto",
+      bottom: "auto",
+      height: "25%",
+      width: "90%",
+      borderWidth: "1px",
+      borderColor: "gray",
+      borderRadius: "15px",
+      marginRight: "-50%",
+      transform: "translate(-50%, -50%)",
+      display: "flex",
+      overflowY:"hidden"
+    },
+  };
+
   return (
+    <>
+    <Modal
+        isOpen={deleteModalIsOpen}
+        closeTimeoutMS={200}
+        style={window.screen.width > "768" ? customStyles : customStylesSm}
+        contentLabel="Example Modal"
+        >
+        {loading ? (
+          <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] ">
+            {" "}
+            <Loading />{" "}
+          </div>
+        ) : (
+          <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl p-2 m-1 h-full">
+            <div className="flex justify-center items-center w-[40%]  ">
+              <img src="/delete.svg" alt="" />
+            </div>
+            <div className="w-[60%] flex justify-center items-center ">
+              <div className="flex flex-col gap-10">
+                <div className="md:text-xl text-base font-medium text-center ">
+                  
+                  <span className="font-black">Delete</span> service request?
+                </div>
+                <div className="flex justify-end gap-2">
+                  <button
+                    className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+                    onClick={closeModal}
+                    >
+                    Cancel
+                  </button>
+                  <button
+                    className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+                    onClick={handleDeleteRequest}
+                    >
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </Modal>
     <div
       className={`flex flex-col ${
         darkMode ? "text-white" : "text-gray-900"
-      } border-2 ${darkMode ? "border-white" : "border-gray-900"} ${
-        modalIsOpen || signoutModalIsOpen ? "z-0" : "z-10"
-      } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
+      } border-2 ${darkMode ? "border-white" : "border-gray-900"}  rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
     >
       <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className={`${
-          signoutModalIsOpen || modalIsOpen ? "z-0" : "z-10"
-        } font-semibold text-2xl`}
+        className= "font-semibold text-2xl"
       >
         Your Service Requests
       </motion.div>
@@ -105,7 +203,7 @@ const UserRequests = ({
                 >
                     <div className="flex justify-between mb-4">
                       <div>{e?.sendData?.created_at}</div>
-                      <div className="flex cursor-pointer rounded-full border p-1 border-gray-900">
+                      <div className="flex cursor-pointer rounded-full" onClick={()=>handleDelete(e.id)}>
                         <MdDelete size={20} />
                       </div>
                     </div>
@@ -288,6 +386,7 @@ const UserRequests = ({
         </span>
       </motion.div>
     </div>
+  </>
   );
 };
 
