@@ -88,36 +88,19 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
       <div
         className={` 
         ${
-          darkMode ? "bg-neutral-800" : "bg-[#E8E8E8]"
+          darkMode ? "bg-stone-800" : "bg-gray-200"
         } 
         flex flex-col justify-center items-center md:h-auto min-h-screen`}
-      >
-
-        {!darkMode && <div className=" absolute md:top-[10%] top-[50%] " >
-          <img src="/bg-1.webp" alt="" className="rotate-[0deg]"  />
-        </div>}
-         {!darkMode && <div className=" absolute md:top-[10%] top-[160%] md:hidden " >
-          <img src="/bg-1.webp" alt="" className="rotate-[0deg]"  />
-        </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#00b09b] to-[#96c93d] top-[10%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0" >
-        </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[20%] bg-gradient-to-r from-[#eeaeca] to-[#94bbe9] top-[55%] md:rounded-full rounded-l-full md:-right-20 -right-0 overflow-x-hidden z-0" >
-        </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[20%] bg-gradient-to-r from-[#fcb045] to-[#833ab4] md:top-[105%] top-[145%] md:rounded-full rounded-l-full md:-right-20 -right-0 overflow-x-hidden z-0" >
-        </div>}
-        {darkMode && <div className="absolute md:h-[20%] md:w-[40%] h-[20%] w-[50%] bg-gradient-to-r from-[#f86594] to-[#ffcaa6] md:top-[155%] bottom-[0%] md:rounded-full rounded-r-full -left-28 overflow-x-hidden z-0 " >
-        </div>}
-        
-        
+      >        
         <PostRequirement
           setModalIsOpen={setModalIsOpen}
           darkMode={darkMode}
         />
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
-          <div className={`md:w-[40%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"} `}>
+          <div className='md:w-[40%] w-full'>
            <UserRequests data={data} signoutModalIsOpen={signoutModalIsOpen} darkMode={darkMode} request={request} setRequest={setRequest} loading={loading} modalIsOpen={modalIsOpen} setModalIsOpen={setModalIsOpen} />
           </div>
-          <div className={`md:w-[60%] w-full ${modalIsOpen || signoutModalIsOpen ?"z-0":"z-10"}`}>
+          <div className='md:w-[60%] w-full'>
            <AllRequests data={data} darkMode={darkMode} loading={loading} signoutModalIsOpen={signoutModalIsOpen} modalIsOpen={modalIsOpen} />
           </div>
         </div>

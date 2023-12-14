@@ -98,7 +98,7 @@ const UserRequests = ({
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor:"#E8E8E8",
+      backgroundColor:"#FFFFFF",
       overflowY:"hidden"
     },
   };
@@ -129,20 +129,20 @@ const UserRequests = ({
         contentLabel="Example Modal"
         >
         {loading ? (
-          <div className="flex justify-center items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] ">
+          <div className="flex justify-end items-center overflow-y-hidden h-full w-full md:w-[60%] md:ml-[20%] ">
             {" "}
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex md:drop-shadow-xl md:bg-white md:justify-center items-center rounded-xl p-2 m-1 h-full">
+          <div className="flex md:bg-white md:justify-center items-center rounded-xl p-2 m-1 md:mr-4 h-full">
             <div className="flex justify-center items-center w-[40%]  ">
               <img src="/delete.svg" alt="" />
             </div>
             <div className="w-[60%] flex justify-center items-center ">
               <div className="flex flex-col gap-10">
-                <div className="md:text-xl text-base font-medium text-center ">
+                <div className="md:text-xl text-base font-medium text-right ">
                   
-                  <span className="font-black">Delete</span> service request?
+                Are you sure you want to <span className="font-black">Delete</span> the service request?
                 </div>
                 <div className="flex justify-end gap-2">
                   <button
@@ -375,9 +375,7 @@ const UserRequests = ({
         whileInView={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 1 }}
-        className={`md:block flex flex-col ${
-          signoutModalIsOpen || modalIsOpen ? "z-0" : "z-10"
-        }`}
+        className='md:block flex flex-col'
       >
         Need some service?{" "}
         <span onClick={openModal} className="cursor-pointer font-semibold">

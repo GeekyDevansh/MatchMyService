@@ -26,9 +26,7 @@ const AllRequests = ({
           initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.5 }}
-          className={` ${
-            signoutModalIsOpen || modalIsOpen ? "z-0" : "z-10"
-          } text-center text-2xl font-semibold `}
+          className='text-center text-2xl font-semibold'
         >
           All Service Requests
         </motion.div>
@@ -234,9 +232,7 @@ const AllRequests = ({
          duration: 0.8,
          ease: [0, 0.71, 0.2, 1.01]
        }}
-          className={` ${
-            signoutModalIsOpen ? "z-0" : "z-10"
-          } flex justify-center items-center font-normal`}
+          className='flex justify-center items-center font-normal'
         >
           You're all caught up.
         </motion.div>

@@ -45,7 +45,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
       borderRadius: "15px",
       marginRight: "-50%",
       transform: "translate(-50%, -50%)",
-      backgroundColor:"#E8E8E8",
+      backgroundColor:"#FFFFFF",
       overflowY:"hidden",
     },
   };
@@ -83,7 +83,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex md:drop-shadow-xl md:bg-white h-full md:justify-center items-center rounded-xl p-2 m-1">
+          <div className="flex md:bg-white h-full md:justify-center items-center rounded-xl p-2 m-1">
             <div className="flex justify-center items-center w-[40%]  ">
               <img src="/signout.svg" alt="" />
             </div>
