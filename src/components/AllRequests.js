@@ -18,9 +18,8 @@ const AllRequests = ({
       <div
         className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${
           darkMode ? "text-white" : "text-gray-900"
-        } border-2 ${
-          darkMode ? "border-white" : "border-gray-900"
-        } drop-shadow-xl md:p-10 p-4 mt-10`}
+        }  border-y-2 ${darkMode?"border-y-[#37393f]":"border-y-indigo-400"}
+         drop-shadow-xl md:p-10 p-4 mt-10`}
       >
         <motion.div
           initial={{ y: 10, opacity: 0 }}
@@ -47,8 +46,8 @@ const AllRequests = ({
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
                   className={` ${
-                    darkMode ? "bg-black" : "bg-white"
-                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
+                    darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
+                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 ${darkMode?"border-l-4" : "border-l-0"} border-[#6fa1d6] `}
                   key={i}
                 >
                   <div className="flex flex-col gap-2">
@@ -92,7 +91,7 @@ const AllRequests = ({
                       <div className="flex flex-col gap-4 w-2/3">
                         <div
                           className={`flex justify-between text-gray-900 font-semibold ${
-                            darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                            darkMode ? "bg-white" : "bg-indigo-300"
                           } p-4 rounded-xl`}
                         >
                           <div className="md:text-lg text-sm flex justify-center items-center gap-1 text-gray-800">
@@ -105,7 +104,7 @@ const AllRequests = ({
                         </div>
                         <div
                           className={`text-gray-900 rounded-xl p-4 ${
-                            darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                            darkMode ? "bg-white" : "bg-indigo-300"
                           } font-semibold text-sm md:text-base `}
                         >
                           {e.sendData.description}
@@ -128,7 +127,7 @@ const AllRequests = ({
                                 arrow="true"
                               >
                                 <div
-                                  className={`bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  className={`bg-gradient-to-r from-indigo-100 to-indigo-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
                                     <h1 className="md:text-base text-sm font-normal text-gray-700">

@@ -165,19 +165,19 @@ const UserRequests = ({
       </Modal>
     <div
       className={`flex flex-col ${
-        darkMode ? "text-white" : "text-gray-900"
-      } border-2 ${darkMode ? "border-white" : "border-gray-900"}  rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
+        darkMode ? "text-white" : "text-[#f1f2f9]"
+      } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${darkMode?"border-y-[#37393f]":"border-y-indigo-400"} `}
     >
       <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
-        className= "font-semibold text-2xl"
+        className= {`font-semibold text-2xl ${darkMode?"text-white":"text-gray-900"}`}
       >
         Your Service Requests
       </motion.div>
       {loading ? (
-        <div className="flex justify-center items-center">
+        <div className="flex justify-center items-center ">
           {" "}
           <Loading darkMode={darkMode} />{" "}
         </div>
@@ -197,8 +197,8 @@ const UserRequests = ({
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
                   className={` ${
-                    darkMode ? "bg-black" : "bg-white"
-                  } drop-shadow-lg rounded-xl p-8 mt-4 `}
+                    darkMode ? "bg-[#37393f]" : "bg-[#3547ac]"
+                  } drop-shadow-lg rounded-xl p-8 mt-4 ${darkMode?"border-l-4":"border-l-0"} border-orange-500 `}
                   key={i}
                 >
                     <div className="flex justify-between mb-4">
@@ -207,7 +207,7 @@ const UserRequests = ({
                         <MdDelete size={20} />
                       </div>
                     </div>
-                  <div className="flex flex-col gap-4 items-center">
+                  <div className="flex flex-col gap-4 items-center ">
 
                     <div>
                       <div className="md:w-28 md:h-28 w-20 h-20 items-center">
@@ -232,7 +232,7 @@ const UserRequests = ({
 
                     <div
                       className={`flex justify-between w-full text-gray-900 font-semibold ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
                       } p-4 rounded-xl`}
                     >
                       <div className="md:text-lg  flex justify-center items-center gap-1 ">
@@ -245,7 +245,7 @@ const UserRequests = ({
                     </div>
                     <div
                       className={`text-gray-900 rounded-xl border-white p-4 ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
                       } font-semibold w-full`}
                     >
                       {e?.sendData?.description}
@@ -375,7 +375,7 @@ const UserRequests = ({
         whileInView={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 1 }}
-        className='md:block flex flex-col'
+        className={`md:block flex flex-col ${darkMode?"text-white":"text-gray-900"} `}
       >
         Need some service?{" "}
         <span onClick={openModal} className="cursor-pointer font-semibold">
