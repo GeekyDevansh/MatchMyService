@@ -19,6 +19,7 @@ import Loading from "./Loading";
 import { BsTagFill } from "react-icons/bs";
 import { motion} from "framer-motion";
 import { Tooltip } from "react-tippy";
+import toast from "react-hot-toast";
 import 'react-tippy/dist/tippy.css'
 
 const BusinessRequests = ({
@@ -91,10 +92,8 @@ const BusinessRequests = ({
     <>
       <div
         className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${
-          darkMode ? "text-white" : "text-black"
-        } border-2 ${
-          darkMode ? "border-white" : "border-gray-900"
-        } drop-shadow-xl md:p-10 p-4 mt-10`}
+          darkMode ? "text-white" : "text-gray-900"
+        } border-y-2 ${darkMode?"border-y-[#37393f]":"border-y-indigo-400"} drop-shadow-xl md:p-10 p-4 mt-10`}
       >
         <motion.div
           initial={{ y: 10, opacity: 0 }}
@@ -130,8 +129,8 @@ const BusinessRequests = ({
                     ease: [0, 0.71, 0.2, 1.01]
                   }}
                     className={` ${
-                      darkMode ? "bg-black" : "bg-white"
-                    } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4`}
+                      darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
+                    } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 ${darkMode?"border-l-4" : "border-l-0"} border-[#6fa1d6] `}
                     key={i}
                   >
                     <div className="flex flex-col gap-2">
@@ -174,8 +173,8 @@ const BusinessRequests = ({
                         </div>
                         <div className="flex flex-col gap-4 w-2/3">
                           <div
-                            className={`flex justify-between text-gray-900 font-semibold ${
-                              darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                            className={`flex justify-between ${darkMode?"text-gray-900":"text-[#f8f9fb]"} font-semibold ${
+                              darkMode ? "bg-white" : "bg-[#3547ac]"
                             } p-4 rounded-xl`}
                           >
                             <div className="md:text-lg text-sm flex justify-center items-center gap-1 ">
@@ -187,8 +186,8 @@ const BusinessRequests = ({
                             </div>
                           </div>
                           <div
-                            className={`text-gray-900 rounded-xl p-4 ${
-                              darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                            className={`${darkMode?"text-gray-900":"text-[#f8f9fb]"} rounded-xl p-4 ${
+                              darkMode ? "bg-white" : "bg-[#3547ac]"
                             } font-semibold text-sm md:text-base `}
                           >
                             {e.sendData.description}
@@ -211,7 +210,7 @@ const BusinessRequests = ({
                                 arrow="true"
                               >
                                 <div
-                                  className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl px-4 md:px-6 py-3 mt-5 md:text-lg text-center `}
+                                  className={` bg-gradient-to-r from-[#ffffff] to-[#8a9cd6] flex justify-between w-full text-gray-900 rounded-xl px-4 md:px-6 py-3 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col w-1/2 break-words font-semibold md:text-base text-sm ">
                                     <h1 className="text-gray-700 font-normal md:text-base text-sm">
@@ -319,7 +318,9 @@ const BusinessRequests = ({
                       </div>
                       <button
                         onClick={() => {
-                          handleClick(e.id);
+                          if(biddingPrice!="")
+                          handleClick(e.id)
+                        else{toast.error("Please add the bid amount");}
                         }}
                         className="bg-blue-700 disabled:bg-gray-600 rounded-lg px-8 py-3 mt-5 hover:bg-blue-600 text-white text-lg font-semibold"
                         disabled={

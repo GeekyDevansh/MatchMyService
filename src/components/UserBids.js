@@ -44,16 +44,14 @@ const UserRequests = ({
   return (
     <div
       className={`flex flex-col ${
-        darkMode ? "text-white" : "text-black"
-      } border-2 ${
-        darkMode ? "border-white" : "border-gray-900"
-      } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide`}
+        darkMode ? "text-white" : "text-[#f1f2f9]"
+      } border-t-2 rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${darkMode?"border-y-[#37393f]":"border-y-indigo-400"} `}
     >
       <motion.div
         initial={{ y: 10, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1 }}
-        className={`${
+        className={` ${darkMode?"text-white":"text-gray-900"} ${
           signoutModalIsOpen ? "z-0" : "z-10"
         } font-semibold text-2xl`}
       >
@@ -79,9 +77,8 @@ const UserRequests = ({
                   duration: 0.8,
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
-                  className={` ${
-                    darkMode ? "bg-black" : "bg-white"
-                  } drop-shadow-lg rounded-xl p-8 mt-4 `}
+                  className={`   ${darkMode ? "bg-[#37393f]" : "bg-[#3547ac]"
+                } ${darkMode?"border-l-4":"border-l-0"} text-white border-orange-500 drop-shadow-lg rounded-xl p-8 mt-4 `}
                   key={i}
                 >
                   <div className="flex flex-col gap-4 items-center">
@@ -110,7 +107,7 @@ const UserRequests = ({
 
                     <div
                       className={`flex justify-between w-full text-gray-900 font-semibold ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
                       } p-4 rounded-xl`}
                     >
                       <div className="md:text-lg  flex justify-center items-center gap-1">
@@ -123,7 +120,7 @@ const UserRequests = ({
                     </div>
                     <div
                       className={`text-gray-900 rounded-xl border-white p-4 ${
-                        darkMode ? "bg-white" : "bg-[#E8E8E8]"
+                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
                       } font-semibold w-full`}
                     >
                       {e.sendData.description}
@@ -151,7 +148,7 @@ const UserRequests = ({
                               >
                                 
                                 <div
-                                  className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  className={`bg-gradient-to-r from-[#ffffff] to-[#8a9cd6] flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col justify-center items-center md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
                                     <h1 className="font-semibold text-gray-900 md:text-lg text-base">
@@ -382,7 +379,7 @@ const UserRequests = ({
         transition={{ duration: 1 }}
         className={`${
           signoutModalIsOpen ? "z-0" : "z-10"
-        } md:block flex flex-col`}
+        } md:block flex flex-col ${darkMode?"text-white":"text-gray-900"} `}
       >
         Need some work? <span className="font-semibold"> Start Bidding.</span>
       </motion.div>

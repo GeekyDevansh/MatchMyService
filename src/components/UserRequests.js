@@ -262,7 +262,7 @@ const UserRequests = ({
                             arrow="true"
                           >
                             <div
-                              className={` bg-gradient-to-r from-blue-100 to-blue-400 flex justify-between w-full text-gray-900 rounded-t-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                              className={` bg-gradient-to-r from-[#ffffff] to-[#8a9cd6] flex justify-between w-full text-gray-900 rounded-t-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                             >
                               <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold capitalize ">
                                 <h1 className="font-normal text-gray-700 md:text-base text-sm">
