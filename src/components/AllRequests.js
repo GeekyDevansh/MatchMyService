@@ -90,11 +90,11 @@ const AllRequests = ({
                       </div>
                       <div className="flex flex-col gap-4 w-2/3">
                         <div
-                          className={`flex justify-between text-gray-900 font-semibold ${
-                            darkMode ? "bg-white" : "bg-indigo-300"
+                          className={`flex justify-between ${darkMode?"text-gray-900":"text-[#f8f9fb]"} font-semibold ${
+                            darkMode ? "bg-white" : "bg-[#3547ac]"
                           } p-4 rounded-xl`}
                         >
-                          <div className="md:text-lg text-sm flex justify-center items-center gap-1 text-gray-800">
+                          <div className={`md:text-lg text-sm flex justify-center items-center gap-1 ${darkMode?"text-gray-800":"text-[#f8f9fb]"}`}>
                             {" "}
                             <BsTagFill /> Budget{" "}
                           </div>
@@ -103,8 +103,8 @@ const AllRequests = ({
                           </div>
                         </div>
                         <div
-                          className={`text-gray-900 rounded-xl p-4 ${
-                            darkMode ? "bg-white" : "bg-indigo-300"
+                          className={`${darkMode?"text-gray-900":"text-[#f8f9fb]"} rounded-xl p-4 ${
+                            darkMode ? "bg-white" : "bg-[#3547ac]"
                           } font-semibold text-sm md:text-base `}
                         >
                           {e.sendData.description}
@@ -127,7 +127,7 @@ const AllRequests = ({
                                 arrow="true"
                               >
                                 <div
-                                  className={`bg-gradient-to-r from-indigo-100 to-indigo-400 flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
+                                  className={`bg-gradient-to-r from-[#ffffff] to-[#8a9cd6] flex justify-between w-full text-gray-900 rounded-xl md:px-6 px-4 md:py-3 py-2 mt-5 md:text-lg text-center `}
                                 >
                                   <div className="flex flex-col md:text-base text-sm w-1/2 pr-2 break-words font-semibold">
                                     <h1 className="md:text-base text-sm font-normal text-gray-700">
