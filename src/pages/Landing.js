@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { motion } from "framer-motion";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper";
@@ -6,8 +6,19 @@ import "swiper/css";
 import "swiper/css/autoplay";
 import LandingNavbar from "../components/LandingNavbar";
 import Footer from "../components/Footer";
+import TextTransition, { presets } from 'react-text-transition';
 
+const TEXTS = ['Plumbers.', 'Carpenters.', 'Electricians.', 'Other utility providers.'];
 const Landing = () => {
+
+  const [index, setIndex] = useState(0);
+  useEffect(() => {
+    const intervalId = setInterval(
+      () => setIndex((index) => index + 1),
+      2000,
+    );
+    return () => clearTimeout(intervalId);
+  }, []);
 
   return (
     <div>
@@ -25,7 +36,7 @@ const Landing = () => {
           transition={{ duration: 1 }}
           className="font-semibold text-5xl flex justify-center items-center"
         >
-          <h1>Your One-Stop Platform for <span className="text-transparent bg-clip-text gradient-background-1 " > Quality Services! </span> </h1>
+          <h1>Your One-Stop Platform for finding the best <TextTransition className="text-teal-500 italic justify-center " springConfig={presets.wobbly}>{TEXTS[index % TEXTS.length]}</TextTransition></h1>
         </motion.div>
         <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
           <div className="md:w-1/2 overflow-x-hidden">

@@ -55,7 +55,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
       left: "50%",
       right: "auto",
       bottom: "auto",
-      height: "25%",
+      height: "40%",
       width: "90%",
       borderWidth: "1px",
       borderColor: "gray",
@@ -83,25 +83,25 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex md:bg-white h-full md:justify-center items-center rounded-xl p-2 m-1">
-            <div className="flex justify-center items-center w-[40%]  ">
+          <div className="flex md:flex-row gap-10 md:gap-0 flex-col md:bg-white h-full justify-center items-center rounded-xl p-2 m-1">
+            <div className="flex justify-center items-center md:w-[40%] w-[60%]  ">
               <img src="/signout.svg" alt="" />
             </div>
-            <div className="w-[60%] flex justify-center items-center ">
-              <div className="flex flex-col gap-10">
-                <div className="md:text-xl text-base font-medium text-right ">
+            <div className="md:w-[60%] flex justify-center items-center ">
+              <div className="flex flex-col md:gap-10 gap-10">
+                <div className="md:text-xl text-lg font-medium md:text-right ">
                   Are you sure you want to{" "}
                   <span className="font-semibold">Sign Out</span> ?
                 </div>
-                <div className="flex justify-end gap-2">
+                <div className="flex md:justify-end justify-center gap-4 md:gap-2">
                   <button
-                    className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+                    className="md:px-6 md:py-2 px-4 py-3 text-xs md:text-base text-white font-extrabold bg-gray-500 hover:bg-gray-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
                     onClick={closeModal}
                     >
                     Cancel
                   </button>
                   <button
-                    className="md:px-6 md:py-2 px-3 py-2 text-xs md:text-base text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+                    className="md:px-6 md:py-2 px-4 py-3 text-xs md:text-base text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
                     onClick={handleSignOut}
                     >
                     Sign Out
