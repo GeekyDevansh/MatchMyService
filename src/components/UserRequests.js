@@ -108,8 +108,8 @@ const UserRequests = ({
       left: "50%",
       right: "auto",
       bottom: "auto",
-      height: "40%",
-      width: "90%",
+      height: "50%",
+      width: "80%",
       borderWidth: "1px",
       borderColor: "gray",
       borderRadius: "15px",
@@ -134,7 +134,7 @@ const UserRequests = ({
             <Loading />{" "}
           </div>
         ) : (
-          <div className="flex flex-col md:flex-row gap-10 md:gap-0 md:bg-white md:justify-center items-center rounded-xl p-2 m-1 md:mr-4 h-full mt-4 md:mt-0 ">
+          <div className="flex flex-col md:flex-row gap-10 md:gap-0 md:bg-white justify-center items-center rounded-xl p-2 m-1 md:mr-4 h-full  md:mt-0 ">
             <div className="flex justify-center items-center md:w-[40%] w-[60%]  ">
               <img src="/delete.svg" alt="" />
             </div>

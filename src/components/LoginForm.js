@@ -51,7 +51,7 @@ const Form = ({ loading, setLoading }) => {
   };
   return (
     <>
-      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-t-2 md:border-t-0 border-gray-300 max-h-[110%] scrollbar-hide overflow-y-auto  ">
+      <div className=" bg-white text-gray-900 w-full md:border-l-2 border-gray-300  max-h-[110%] scrollbar-hide overflow-y-auto  ">
         <div className="flex justify-center mt-8 md:mt-0 md:text-5xl text-3xl font-semibold">
           <h1>Sign In</h1>
         </div>
