@@ -120,15 +120,9 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
             </button>
 
             <div className=" flex flex-col justify-center items-center gap-1 text-center">
-              <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm">
-                <div className="text-center"> Already have an account?</div>{" "}
-                <div className="text-center font-semibold text-blue-800">
-                  <Link to="/login"> Sign In </Link>{" "}
-                </div>
-              </div>
-              <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
+            <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm ">
                 {" "}
-                Are you a business?{" "}
+                Or{" "}
                 <span
                   className="cursor-pointer font-semibold text-blue-800"
                   onClick={() => {
@@ -139,6 +133,13 @@ const Form = ({ loading, setLoading, businessSignup, setBusinessSignup }) => {
                  Create a FREE business account{" "}
                 </span>{" "}
               </div>
+              <div className="flex flex-col md:flex-row md:gap-1 text-center md:text-sm">
+                <div className="text-center"> Already have an account?</div>{" "}
+                <div className="text-center font-semibold text-blue-800">
+                  <Link to="/login"> Sign In </Link>{" "}
+                </div>
+              </div>
+             
             </div>
           </div>
         </form>}

@@ -15,11 +15,10 @@ const Navbar = () => {
   return (
     <>
     <div
-        className={`
-           bg-black 
-         border-gray-300 drop-shadow-lg p-2 md:p-1`}
+        className="
+         border-gray-300 drop-shadow-lg p-2 md:p-1 "
       >
-        <ul className="list-none flex justify-between items-center mx-[4%] md:p-[0.75%] p-[2%]">
+        <ul className="list-none flex justify-between items-center md:mx-[13%] mx-4 md:p-[0.75%] p-[2%]">
           <li
             className={`
                text-white font-light md:text-xl text-sm`}
