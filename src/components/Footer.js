@@ -12,7 +12,7 @@ const Footer = () => {
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 1 }}
-            className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-900 mx-[13%] "
+            className="flex justify-center items-center lg:justify-between p-6 border-b border-gray-900 md:mx-[13%] "
           >
             <div className="mr-12 hidden lg:block">
               <span>Get connected with me on social networks:</span>
@@ -109,7 +109,7 @@ const Footer = () => {
               </a>
             </div>
           </motion.div>
-          <div className="mx-[13%] py-10 text-center md:text-left ">
+          <div className="md:mx-[13%] py-10 text-center md:text-left ">
             <div className="grid grid-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
               <motion.div
                 initial={{ y: 10, opacity: 0 }}
@@ -132,7 +132,7 @@ const Footer = () => {
                 >
                   About Me
                 </h6>
-                <p className="w-9/12 mx-auto md:mx-0 text-gray-500 ">
+                <p className="w-9/12 mx-auto md:mx-0 text-gray-400 ">
                   Indian{" "}
                   <span className="text-white"> Full Stack Developer </span> ,
                   final year B.Tech student at{" "}
@@ -140,9 +140,7 @@ const Footer = () => {
                   Passionate about addressing real-world challenges through{" "}
                   <span className="text-white"> product development </span> .
                   Enthusiastic{" "}
-                  <span className="text-white"> pop music fan </span> ,{" "}
-                  <span className="text-white"> badminton player </span> , and{" "}
-                  <span className="text-white"> public speaker </span> .
+                  <span className="text-white"> pop music fan </span> , badminton player, and public speaker.
                 </p>
               </motion.div>
 
@@ -156,7 +154,7 @@ const Footer = () => {
                 <h6 className="uppercase font-semibold mb-4 flex justify-center md:justify-start text-lg">
                   Contact
                 </h6>
-                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-500">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-400">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -174,7 +172,7 @@ const Footer = () => {
                   </svg>
                   Ghaziabad, UP 201002, IN
                 </p>
-                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-500">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-400">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -192,7 +190,7 @@ const Footer = () => {
                   </svg>
                   devanshkhullar11@gmail.com
                 </p>
-                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-500 ">
+                <p className="flex items-center justify-center md:justify-start md:mb-4 mb-2 text-gray-400 ">
                   <svg
                     aria-hidden="true"
                     focusable="false"
@@ -219,7 +217,7 @@ const Footer = () => {
               whileInView={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 1 }}
-              className=" text-center m-auto text-gray-500 "
+              className=" text-center m-auto text-gray-400 "
             >
               Made with{" "}
               <span className="text-red-600 inline-block mx-1">
@@ -233,7 +231,7 @@ const Footer = () => {
               whileInView={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 1 }}
-              className="text-gray-500"
+              className="text-gray-400"
             >
               © 2024 Copyright. All Rights Reserved.
             </motion.div>

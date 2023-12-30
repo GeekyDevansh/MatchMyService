@@ -90,7 +90,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
         ${
           darkMode ? "bg-[#242529]" : "bg-white"
         } 
-        flex flex-col justify-center items-center md:h-auto min-h-screen`}
+        flex flex-col justify-center items-center md:h-auto min-h-screen `}
       >        
         <PostRequirement
           setModalIsOpen={setModalIsOpen}

@@ -7,6 +7,7 @@ import "swiper/css/autoplay";
 import LandingNavbar from "../components/LandingNavbar";
 import Footer from "../components/Footer";
 import TextTransition, { presets } from "react-text-transition";
+import CTA from "../components/CTA";
 
 const TEXTS = [
   "plumbers.",
@@ -115,10 +116,10 @@ const Landing = () => {
         Why Us?
       </motion.div>
 
-      <div className="md:w-2/3 w-[90%] flex flex-col items-center justify-center mx-auto gap-10 overflow-x-hidden">
+      <div className="md:w-2/3 w-[90%] flex flex-col items-center justify-center mx-auto gap-10 ">
         <div className="flex md:flex-nowrap flex-wrap justify-between gap-10">
 
-          <div className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#6699CC] bg-opacity-90 rounded-xl">
+          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#6699CC] bg-opacity-90 rounded-xl cursor-pointer ">
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -152,9 +153,9 @@ const Landing = () => {
                 ease.
               </motion.div>{" "}
             </div>
-          </div>
+          </motion.div>
 
-          <div className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FFF275] bg-opacity-90 rounded-xl">
+          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FFF275] bg-opacity-90 rounded-xl cursor-pointer ">
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -188,11 +189,11 @@ const Landing = () => {
                 informed decision-making.
               </motion.div>{" "}
             </div>
-          </div>
+          </motion.div>
         </div>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
-          <div className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8C42] bg-opacity-90 rounded-xl">
+          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8C42] bg-opacity-90 rounded-xl cursor-pointer ">
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -226,8 +227,8 @@ const Landing = () => {
                 needs and preferences.
               </motion.div>{" "}
             </div>
-          </div>
-          <div className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF3C38] bg-opacity-90 rounded-xl">
+          </motion.div>
+          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF3C38] bg-opacity-90 rounded-xl cursor-pointer ">
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -261,7 +262,7 @@ const Landing = () => {
                 smartphones.
               </motion.div>{" "}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
       <Footer />
