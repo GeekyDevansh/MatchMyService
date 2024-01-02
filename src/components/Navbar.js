@@ -9,6 +9,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const audio = new Audio("/darkMode.wav");
+  const audio2 = new Audio("/getStarted.wav");
 
   const handleClick = () => {
     setSignoutModalIsOpen(true);
@@ -18,6 +20,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
   };
 
   const handleSignOut = () => {
+    audio2.play();
     setLoading(true);
     setTimeout(() => {
       localStorage.removeItem("user");
@@ -27,6 +30,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
   };
 
   const toggleMode = () => {
+    audio.play();
     setIsActive(!isActive);
     setDarkMode(!darkMode);
 

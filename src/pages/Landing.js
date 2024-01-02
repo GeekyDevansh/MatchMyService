@@ -59,9 +59,12 @@ const Landing = () => {
             >
               How It Works
             </motion.div>
-            <div className="text-center text-normal text-gray-300 mb-10">
+            <motion.div  initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1 }} className="text-center text-normal text-gray-300 mb-10">
               Just 3 easy steps and you're done.
-            </div>
+            </motion.div>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={50}
@@ -118,9 +121,12 @@ const Landing = () => {
       >
         Why Us?
       </motion.div>
-      <div className="text-center text-normal text-gray-300 mb-10">
+      <motion.div  initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1 }} className="text-center text-normal text-gray-300 mb-10">
         Know why we are superior.
-      </div>
+      </motion.div>
 
       <div className="md:w-2/3 w-[90%] flex flex-col items-center justify-center mx-auto gap-10 ">
         <div className="flex md:flex-nowrap flex-wrap justify-between gap-10">
@@ -291,13 +297,16 @@ const Landing = () => {
             whileInView={{ y: 0, opacity: 1 }}
             exit={{ y: -10, opacity: 0 }}
             transition={{ duration: 1 }}
-            className="text-center font-semibold text-3xl mt-14 tracking-wider text-white"
+            className="text-center font-semibold text-3xl mt-10 tracking-wider text-white"
           >
             Our Services
           </motion.div>
-          <div className="text-center text-normal text-gray-300 mb-10">
+          <motion.div  initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1 }} className="text-center text-normal text-gray-300 mb-10">
             We provide a wide range of services.
-          </div>
+          </motion.div>
           <div className="flex md:flex-nowrap flex-wrap justify-between gap-10">
             <motion.div
               whileHover={{ scale: 1.1 }}
@@ -421,7 +430,7 @@ const Landing = () => {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#E42256] bg-opacity-90 rounded-xl cursor-pointer "
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8FB3] bg-opacity-90 rounded-xl cursor-pointer "
             >
               <motion.div
                 initial={{ y: 10, opacity: 0 }}
@@ -458,9 +467,12 @@ const Landing = () => {
             </motion.div>
           </div>
         </div>
-        <div className="w-full flex justify-center items-center mt-10" >
+        <motion.div  initial={{ y: 10, opacity: 0 }}
+              whileInView={{ y: 0, opacity: 1 }}
+              exit={{ y: -10, opacity: 0 }}
+              transition={{ duration: 1 }} className="w-full flex justify-center items-center mt-10" >
           <CTA/>
-        </div>
+        </motion.div>
       </div>
       <Footer />
     </div>

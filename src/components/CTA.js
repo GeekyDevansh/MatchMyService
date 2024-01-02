@@ -5,9 +5,11 @@ const CTA = () => {
 
 
   const Navigate=useNavigate();
+  const audio = new Audio("/getStarted.wav");
 
   const handleClick= ()=>{
 
+    audio.play()
       Navigate('/login');
 
   }

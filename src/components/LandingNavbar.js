@@ -5,9 +5,11 @@ import { motion } from "framer-motion"
 const Navbar = () => {
 
   const Navigate=useNavigate();
+  const audio = new Audio("/getStarted.wav");
 
   const handleClick= ()=>{
 
+      audio.play()
       Navigate('/login');
 
   }
