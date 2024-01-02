@@ -46,8 +46,8 @@ const AllRequests = ({
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
                   className={` ${
-                    darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
-                  } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 ${darkMode?"border-l-4" : "border-l-0"} border-[#6fa1d6] `}
+                    darkMode ? "bg-[#272D35]" : "bg-[#f8f9fb]"
+                  } drop-shadow-lg rounded-2xl mt-4 md:p-8 p-4 hover:border border-gray-500 hover:cursor-pointer`}
                   key={i}
                 >
                   <div className="flex flex-col gap-2">
@@ -60,7 +60,7 @@ const AllRequests = ({
                       </div>
                       <div
                         className={`${
-                          darkMode ? "text-gray-300" : "text-gray-700"
+                          darkMode ? "text-gray-400" : "text-gray-700"
                         } font-normal `}
                       >
                         {e.sendData.contact_number}
@@ -89,10 +89,12 @@ const AllRequests = ({
                         </div>
                       </div>
                       <div className="flex flex-col gap-4 w-2/3">
+                        <div className={`rounded-2xl ${
+                            darkMode ? "bg-gray-200" : "bg-[#3547ac]"
+                          } `} >
+
                         <div
-                          className={`flex justify-between ${darkMode?"text-gray-900":"text-[#f8f9fb]"} font-semibold ${
-                            darkMode ? "bg-white" : "bg-[#3547ac]"
-                          } p-4 rounded-xl`}
+                          className={`flex justify-between ${darkMode?"text-gray-900":"text-[#f8f9fb]"} font-semibold p-4 border-dashed  border-b ${darkMode?"border-black":"border-gray-200"} `}
                         >
                           <div className={`md:text-lg text-sm flex justify-center items-center gap-1 ${darkMode?"text-gray-800":"text-[#f8f9fb]"}`}>
                             {" "}
@@ -103,12 +105,11 @@ const AllRequests = ({
                           </div>
                         </div>
                         <div
-                          className={`${darkMode?"text-gray-900":"text-[#f8f9fb]"} rounded-xl p-4 ${
-                            darkMode ? "bg-white" : "bg-[#3547ac]"
-                          } font-semibold text-sm md:text-base `}
-                        >
+                          className={`${darkMode?"text-gray-900":"text-[#f8f9fb]"} p-4 font-semibold text-sm md:text-base `}
+                          >
                           {e.sendData.description}
                         </div>
+                          </div>
                       </div>
                     </div>
                   </div>

@@ -88,7 +88,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
       <div
         className={` 
         ${
-          darkMode ? "bg-[#242529]" : "bg-white"
+          darkMode ? "bg-[#0E131A]" : "bg-white"
         } 
         flex flex-col justify-center items-center md:h-auto min-h-screen `}
       >        

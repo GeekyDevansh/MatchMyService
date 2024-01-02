@@ -116,13 +116,13 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
 
       <div
         className={`${
-          darkMode ? "bg-[#242529]" : "bg-white"
+          darkMode ? "bg-[#0E131A]" : "bg-white"
         } border-gray-300  md:p-0 p-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li
             className={`${
-              darkMode ? "text-gray-300" : "text-gray-900"
+              darkMode ? "text-white" : "text-gray-900"
             } flex flex-col font-light md:text-xl text-xs/5`}
           >
             <motion.div  initial={{ y: 10, opacity: 0 }}
@@ -133,7 +133,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
 
             <motion.div  initial={{ y: 10, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ duration: 0.5, delay:0.5 }} className=" text-[10px] leading-4 md:text-sm font-thin"> {email} </motion.div>
+          transition={{ duration: 0.5, delay:0.5 }} className={`text-[10px] leading-4 md:text-sm font-thin ${darkMode?"text-gray-400":"text-gray-900"}`}> {email} </motion.div>
           </li> 
           <li className="flex justify-center md:gap-4 gap-2">
             <motion.div

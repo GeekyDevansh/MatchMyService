@@ -197,8 +197,8 @@ const UserRequests = ({
                     ease: [0, 0.71, 0.2, 1.01],
                   }}
                   className={` ${
-                    darkMode ? "bg-[#37393f]" : "bg-[#3547ac]"
-                  } drop-shadow-lg rounded-xl p-8 mt-4 ${darkMode?"border-l-4":"border-l-0"} border-orange-500 `}
+                    darkMode ? "bg-[#272D35]" : "bg-[#3547ac]"
+                  } drop-shadow-lg rounded-2xl p-8 mt-4 hover:border ${darkMode?"border-gray-500":"border-gray-900"} hover:cursor-pointer`}
                   key={i}
                 >
                     <div className="flex justify-between mb-4">
@@ -230,11 +230,12 @@ const UserRequests = ({
                       </div>
                     </div>
 
+
+                    <div className={`${darkMode?"bg-gray-200":"bg-[#f8f9fb]"} rounded-2xl`} >
+
                     <div
-                      className={`flex justify-between w-full text-gray-900 font-semibold ${
-                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
-                      } p-4 rounded-xl`}
-                    >
+                      className={`flex justify-between w-full text-gray-900 font-semibold  p-4 border-dashed  border-b border-black `}
+                      >
                       <div className="md:text-lg  flex justify-center items-center gap-1 ">
                         {" "}
                         <BsTagFill /> Budget
@@ -244,12 +245,11 @@ const UserRequests = ({
                       </div>
                     </div>
                     <div
-                      className={`text-gray-900 rounded-xl border-white p-4 ${
-                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
-                      } font-semibold w-full`}
-                    >
+                      className={`text-gray-900 rounded-xl border-white p-4  font-semibold w-full`}
+                      >
                       {e?.sendData?.description}
                     </div>
+                      </div>
                   </div>
                   {e.acceptedId === undefined &&
                     e?.bidding_info?.map((element) => {

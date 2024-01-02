@@ -55,10 +55,13 @@ const Landing = () => {
               whileInView={{ y: 0, opacity: 1 }}
               exit={{ y: -10, opacity: 0 }}
               transition={{ duration: 1 }}
-              className="text-center font-semibold text-3xl mb-5 mt-10"
+              className="text-center font-semibold text-3xl mt-14 tracking-wider"
             >
               How It Works
             </motion.div>
+            <div className="text-center text-normal text-gray-300 mb-10">
+              Just 3 easy steps and you're done.
+            </div>
             <Swiper
               modules={[Autoplay]}
               spaceBetween={50}
@@ -111,15 +114,21 @@ const Landing = () => {
         whileInView={{ y: 0, opacity: 1 }}
         exit={{ y: -10, opacity: 0 }}
         transition={{ duration: 1 }}
-        className="text-center font-semibold text-3xl mb-5 mt-10 text-white"
+        className="text-center font-semibold text-3xl mt-14 tracking-wider text-white"
       >
         Why Us?
       </motion.div>
+      <div className="text-center text-normal text-gray-300 mb-10">
+        Know why we are superior.
+      </div>
 
       <div className="md:w-2/3 w-[90%] flex flex-col items-center justify-center mx-auto gap-10 ">
         <div className="flex md:flex-nowrap flex-wrap justify-between gap-10">
-
-          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#6699CC] bg-opacity-90 rounded-xl cursor-pointer ">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#6699CC] bg-opacity-90 rounded-xl cursor-pointer "
+          >
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -155,7 +164,11 @@ const Landing = () => {
             </div>
           </motion.div>
 
-          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FFF275] bg-opacity-90 rounded-xl cursor-pointer ">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FFF275] bg-opacity-90 rounded-xl cursor-pointer "
+          >
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -193,7 +206,11 @@ const Landing = () => {
         </div>
 
         <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 ">
-          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8C42] bg-opacity-90 rounded-xl cursor-pointer ">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8C42] bg-opacity-90 rounded-xl cursor-pointer "
+          >
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -228,7 +245,11 @@ const Landing = () => {
               </motion.div>{" "}
             </div>
           </motion.div>
-          <motion.div whileHover={{ scale: 1.1 }} transition={{ type: "spring", stiffness: 400, damping: 17 }} className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF3C38] bg-opacity-90 rounded-xl cursor-pointer ">
+          <motion.div
+            whileHover={{ scale: 1.1 }}
+            transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF3C38] bg-opacity-90 rounded-xl cursor-pointer "
+          >
             <motion.div
               initial={{ y: 10, opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
@@ -263,6 +284,182 @@ const Landing = () => {
               </motion.div>{" "}
             </div>
           </motion.div>
+        </div>
+        <div>
+          <motion.div
+            initial={{ y: 10, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            exit={{ y: -10, opacity: 0 }}
+            transition={{ duration: 1 }}
+            className="text-center font-semibold text-3xl mt-14 tracking-wider text-white"
+          >
+            Our Services
+          </motion.div>
+          <div className="text-center text-normal text-gray-300 mb-10">
+            We provide a wide range of services.
+          </div>
+          <div className="flex md:flex-nowrap flex-wrap justify-between gap-10">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8370] bg-opacity-90 rounded-xl cursor-pointer "
+            >
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 1 }}
+                className=" md:w-1/3 w-1/2"
+              >
+                <img src="/welding.png" alt="" className="" />
+              </motion.div>
+              <div className=" flex flex-col md:w-2/3">
+                {" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="font-semibold text-xl text-[#333333] text-center md:text-left "
+                >
+                  {" "}
+                  Fabricators{" "}
+                </motion.div>{" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="text-[#333333] text-lg  text-center md:text-left "
+                >
+                  Precision welding for diverse projects. Trust our skilled
+                  welders for top-notch craftsmanship, repairs, and structural
+                  welding.
+                </motion.div>{" "}
+              </div>
+            </motion.div>
+
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#00B1B0] bg-opacity-90 rounded-xl cursor-pointer "
+            >
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="md:w-1/3 w-1/2"
+              >
+                <img src="/electric.png" alt="" />
+              </motion.div>
+              <div className=" flex flex-col md:w-2/3">
+                {" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="font-semibold text-xl text-[#001F3F] text-center md:text-left "
+                >
+                  {" "}
+                  Electricians{" "}
+                </motion.div>{" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="text-[#001F3F] text-lg text-center md:text-left "
+                >
+                  Certified electricians for installations, wiring, and repairs.
+                  Rely on us for safe and efficient electrical solutions.
+                </motion.div>{" "}
+              </div>
+            </motion.div>
+          </div>
+          <div className="flex flex-wrap md:flex-nowrap justify-between gap-10 mt-10 ">
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FEC84D] bg-opacity-90 rounded-xl cursor-pointer "
+            >
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="md:w-1/3 w-1/2"
+              >
+                <img src="/carpentry.png" alt="" />
+              </motion.div>
+              <div className=" flex flex-col md:w-2/3">
+                {" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="font-semibold text-xl text-gray-900 text-center md:text-left "
+                >
+                  {" "}
+                  Carpenters{" "}
+                </motion.div>{" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="text-gray-900 text-lg md:text-left text-center"
+                >
+                  Crafting excellence in woodwork, installations, and repairs.
+                  Our carpenters bring precision and creativity to every
+                  project.
+                </motion.div>{" "}
+              </div>
+            </motion.div>
+            <motion.div
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#E42256] bg-opacity-90 rounded-xl cursor-pointer "
+            >
+              <motion.div
+                initial={{ y: 10, opacity: 0 }}
+                whileInView={{ y: 0, opacity: 1 }}
+                exit={{ y: -10, opacity: 0 }}
+                transition={{ duration: 1 }}
+                className="md:w-1/3 w-1/2"
+              >
+                <img src="/plumbing.png" alt="" />
+              </motion.div>
+              <div className=" flex flex-col md:w-2/3">
+                {" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="font-semibold text-xl text-[#001F3F] text-center md:text-left "
+                >
+                  {" "}
+                  Plumbers{" "}
+                </motion.div>{" "}
+                <motion.div
+                  initial={{ y: 10, opacity: 0 }}
+                  whileInView={{ y: 0, opacity: 1 }}
+                  exit={{ y: -10, opacity: 0 }}
+                  transition={{ duration: 1 }}
+                  className="text-[#001F3F] text-lg text-center md:text-left "
+                >
+                  Tailored plumbing expertise for emergencies, installations,
+                  and upgrades. Trust us for prompt, customer-focused solutions.
+                </motion.div>{" "}
+              </div>
+            </motion.div>
+          </div>
+        </div>
+        <div className="w-full flex justify-center items-center mt-10" >
+          <CTA/>
         </div>
       </div>
       <Footer />
