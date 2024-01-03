@@ -254,7 +254,7 @@ const Landing = () => {
           <motion.div
             whileHover={{ scale: 1.1 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
-            className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF3C38] bg-opacity-90 rounded-xl cursor-pointer "
+            className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF6F6D] bg-opacity-90 rounded-xl cursor-pointer "
           >
             <motion.div
               initial={{ y: 10, opacity: 0 }}

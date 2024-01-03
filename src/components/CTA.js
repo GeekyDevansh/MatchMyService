@@ -5,7 +5,7 @@ const CTA = () => {
 
 
   const Navigate=useNavigate();
-  const audio = new Audio("/getStarted.wav");
+  const audio = new Audio("/getStarted.mp3");
 
   const handleClick= ()=>{
 

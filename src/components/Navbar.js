@@ -9,8 +9,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [isActive, setIsActive] = useState(false);
-  const audio = new Audio("/darkMode.wav");
-  const audio2 = new Audio("/getStarted.wav");
+  const audio = new Audio("/darkMode.mp3");
+  const audio2 = new Audio("/getStarted.mp3");
 
   const handleClick = () => {
     setSignoutModalIsOpen(true);

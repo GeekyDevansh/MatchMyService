@@ -5,7 +5,7 @@ import { motion } from "framer-motion"
 const Navbar = () => {
 
   const Navigate=useNavigate();
-  const audio = new Audio("/getStarted.wav");
+  const audio = new Audio("/getStarted.mp3");
 
   const handleClick= ()=>{
 
