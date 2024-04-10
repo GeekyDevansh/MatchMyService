@@ -149,7 +149,7 @@ const BusinessRequests = ({
                       darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
                     } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 ${
                       darkMode ? "border-l-4" : "border-l-0"
-                    } border-[#6fa1d6] `}
+                    } border-[#6fa1d6] relative `}
                     key={i}
                   >
                     <div className="flex flex-col gap-2">
@@ -330,7 +330,7 @@ const BusinessRequests = ({
                     )}
 
                     <div className="flex flex-col">
-                      <div className=" flex flex-row justify-between">
+                      <div className=" flex md:flex-row flex-col justify-center items-center md:justify-between">
                         <div>
                           <input
                             type="number"
@@ -340,14 +340,14 @@ const BusinessRequests = ({
                             required={true}
                             placeholder="Bid Amount"
                             onChange={(e) => setBiddingPrice(e.target.value)}
-                            className=" rounded-lg px-10 w-44 py-3 mt-5 text-gray-900 font-semibold "
+                            className=" rounded-lg px-10 md:w-44 w-full py-3 mt-5 text-gray-900 font-semibold border border-gray-500 "
                           />
                         </div>
                         <div>
                           <button
                             id="dropdownDefaultButton"
                             data-dropdown-toggle="dropdown"
-                            class="text-gray-900 bg-white hover:bg-gray-200 font-medium rounded-lg text-sm px-5 py-3 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 mt-5 "
+                            class={`text-gray-900 ${darkMode?"bg-white":"bg-gray-200"} hover:bg-gray-200 font-medium rounded-lg text-sm px-6 py-4 text-center inline-flex items-center md:mt-5 mt-2 w-full`}
                             type="button"
                             onClick={()=> handleDrop()}
                           >
@@ -372,11 +372,11 @@ const BusinessRequests = ({
 
                           <div
                             id="dropdown"
-                            class={`z-20 divide-y divide-gray-100 rounded-lg shadow w-40 mt-2 bg-gray-700 ${drop?"block":"hidden"} `}
+                            class={`z-20 absolute divide-y divide-gray-100 rounded-lg shadow w-40 mt-2 ${darkMode?"bg-gray-700":"bg-white"} drop-shadow-lg ${drop?"block":"hidden"} `}
                             
                           >
                             <ul
-                              class="py-2 text-sm text-gray-200"
+                              class={`py-2 text-sm ${darkMode?"text-gray-200":"text-gray-900"}`}
                               aria-labelledby="dropdownDefaultButton"
                             >
                               <li>

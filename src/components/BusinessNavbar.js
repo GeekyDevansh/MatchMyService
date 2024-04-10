@@ -118,7 +118,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
       <div
         className={`${
           darkMode ? "bg-[#242529]" : "bg-white"
-        } border-gray-300 md:p-2 `}
+        } border-gray-300 md:p-2 pt-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li
@@ -165,7 +165,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
             </motion.div>
             <button
               onClick={handleClick}
-              className="md:px-6 md:py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
+              className="md:px-6 py-2 px-3 text-xs md:text-sm text-white font-extrabold bg-red-500 hover:bg-red-600 rounded-lg md:drop-shadow-xl drop-shadow-lg"
             >
               SIGN OUT
             </button>
