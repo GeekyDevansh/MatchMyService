@@ -22,7 +22,6 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   
 
   const [sendData,setSendData] = useState({
-    budget: budget,
     customer_name: cName,
     user_id: user,
     created_at: moment().format('MMMM Do YYYY'),
@@ -38,7 +37,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
   try{
     
     setServiceType(" ");
-    setSendData((prev)=>({...prev,budget:budget,customer_name:cName,contact_number:contact,description:description,service_type:service?.toUpperCase()}));
+    setSendData((prev)=>({...prev,customer_name:cName,contact_number:contact,description:description,service_type:service?.toUpperCase()}));
     const res=await addDoc(collection(db, "product_data"), {
      sendData,
      bidding:false
@@ -166,7 +165,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
                 onChange={(e)=> setSendData({...sendData,description:e.target.value})}
               />
-              <input
+              {/* <input
                 type="number"
                 min="500"
                 max="500000"
@@ -175,7 +174,7 @@ const ServiceForm = ({ setModalIsOpen, setRequest, request }) => {
                 value={budget}
                 className="p-3 bg-gray-200 rounded-xl text-gray-900 w-full "
                 onChange={(e)=> setSendData({...sendData,budget:e.target.value})}
-              />
+              /> */}
               <input
                 type="text" 
                 pattern="[6789][0-9]{9}"

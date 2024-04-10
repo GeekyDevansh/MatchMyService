@@ -93,7 +93,7 @@ const AllRequests = ({
                             darkMode ? "bg-gray-200" : "bg-[#3547ac]"
                           } `} >
 
-                        <div
+                        {/* <div
                           className={`flex justify-between ${darkMode?"text-gray-900":"text-[#f8f9fb]"} font-semibold p-4 border-dashed  border-b ${darkMode?"border-black":"border-gray-200"} `}
                         >
                           <div className={`md:text-lg text-sm flex justify-center items-center gap-1 ${darkMode?"text-gray-800":"text-[#f8f9fb]"}`}>
@@ -103,10 +103,15 @@ const AllRequests = ({
                           <div className="md:text-lg text-sm">
                             &#8377; {e.sendData.budget}
                           </div>
-                        </div>
+                        </div> */}
                         <div
-                          className={`${darkMode?"text-gray-900":"text-[#f8f9fb]"} p-4 font-semibold text-sm md:text-base `}
+                          className={`${darkMode?"text-gray-900":"text-gray-200"} p-4 font-medium text-sm md:text-base text-center `}
                           >
+                            <div className={`text-center text-lg font-extrabold border-b ${darkMode?"border-black":"border-gray-300"} border-dashed ${darkMode?"text-black":"text-white"} pb-3 mb-4`} >
+
+                              Requirement
+
+                            </div>
                           {e.sendData.description}
                         </div>
                           </div>
@@ -141,7 +146,10 @@ const AllRequests = ({
                                     <h1 className="md:text-base text-sm text-gray-700 font-normal">
                                       Bidding price
                                     </h1>
-                                    &#8377; {e.bidding_price}
+                                    <div>
+
+                                    &#8377; {e.bidding_price} {e.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+                                    </div>
                                   </div>
                                 </div>
                               </Tooltip>
@@ -175,7 +183,10 @@ const AllRequests = ({
                                         <h1 className=" md:text-base text-sm text-gray-700 font-normal ">
                                           Bidding price
                                         </h1>
-                                        &#8377; {element?.bidding_price}
+                                        <div>
+
+&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                       </div>
                                     </div>
                                   </Tooltip>
@@ -210,7 +221,10 @@ const AllRequests = ({
                                         <h1 className="font-normal md:text-base text-sm text-gray-700">
                                           Bidding price
                                         </h1>
-                                        &#8377; {element?.bidding_price}
+                                        <div>
+
+                                          &#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+                                          </div>
                                       </div>
                                     </div>
                                   </Tooltip>

@@ -105,24 +105,15 @@ const UserRequests = ({
                       </div>
                     </div>
 
-                    <div
-                      className={`flex justify-between w-full text-gray-900 font-semibold ${
-                        darkMode ? "bg-white" : "bg-[#f1f2f9]"
-                      } p-4 rounded-xl`}
-                    >
-                      <div className="md:text-lg  flex justify-center items-center gap-1">
-                        {" "}
-                        <BsTagFill /> Budget
-                      </div>
-                      <div className="md:text-lg ">
-                        &#8377; {e.sendData.budget}
-                      </div>
-                    </div>
+                    
                     <div
                       className={`text-gray-900 rounded-xl border-white p-4 ${
                         darkMode ? "bg-white" : "bg-[#f1f2f9]"
-                      } font-semibold w-full`}
+                      } font-medium w-full`}
                     >
+                       <div className="text-center text-lg font-extrabold border-b border-black border-dashed text-black pb-3 mb-3 ">
+                          Requirement
+                        </div>
                       {e.sendData.description}
                     </div>
                   </div>
@@ -160,7 +151,10 @@ const UserRequests = ({
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
                                     </h1>
-                                    &#8377; {e.bidding_price}
+                                   <div>
+
+&#8377; {e?.bidding_price} {e.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                   </div>
                                 </div>
                               </Tooltip>
@@ -205,7 +199,10 @@ const UserRequests = ({
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
                                       </h1>
-                                      &#8377; {element?.bidding_price}
+                                      <div>
+
+&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                     </div>
                                   </div>
                                 </Tooltip>
@@ -247,7 +244,10 @@ const UserRequests = ({
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
                                       </h1>
-                                      &#8377; {element?.bidding_price}
+                                      <div>
+
+                                    &#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+                                    </div>
                                     </div>
                                   </div>
                                 </Tooltip>
@@ -283,7 +283,10 @@ const UserRequests = ({
                                     <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                       Bidding price
                                     </h1>
-                                    &#8377; {e.bidding_price}
+                                    <div>
+
+&#8377; {e?.bidding_price} {e.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                   </div>
                                 </div>
                               </Tooltip>
@@ -320,7 +323,10 @@ const UserRequests = ({
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
                                       </h1>
-                                      &#8377; {element?.bidding_price}
+                                      <div>
+
+&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                     </div>
                                   </div>
                                 </Tooltip>
@@ -358,7 +364,10 @@ const UserRequests = ({
                                       <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                         Bidding price
                                       </h1>
-                                      &#8377; {element?.bidding_price}
+                                      <div>
+
+&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+</div>
                                     </div>
                                   </div>
                                 </Tooltip>

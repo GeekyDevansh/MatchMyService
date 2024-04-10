@@ -118,7 +118,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
       <div
         className={`${
           darkMode ? "bg-[#242529]" : "bg-white"
-        } border-gray-300 md:p-0 p-2 `}
+        } border-gray-300 md:p-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li
