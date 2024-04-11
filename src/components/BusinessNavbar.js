@@ -10,6 +10,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
 
   const [loading, setLoading] = useState(false);
   const [isActive, setIsActive] = useState(false);
+  const audio = new Audio("/darkMode.mp3");
+  const audio2 = new Audio("/getStarted.mp3");
 
   const handleClick = () => {
     setSignoutModalIsOpen(true);
@@ -19,6 +21,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
   };
 
   const handleSignOut = () => {
+    audio2.play();
     setLoading(true);
     setTimeout(() => {
       localStorage.removeItem("user");
@@ -29,6 +32,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
   };
 
   const toggleMode = () => {
+    audio.play();
     setIsActive(!isActive);
     setDarkMode(!darkMode);
 
@@ -57,8 +61,8 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
       left: "50%",
       right: "auto",
       bottom: "auto",
-      height: "40%",
-      width: "90%",
+      height: "50%",
+      width: "80%",
       borderWidth: "1px",
       borderColor: "gray",
       borderRadius: "15px",
@@ -91,7 +95,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
             </div>
             <div className="md:w-[60%] flex justify-center items-center ">
               <div className="flex flex-col gap-10">
-                <div className="md:text-xl text-lg font-medium md:text-right ">
+                <div className="md:text-xl text-lg font-medium md:text-right text-center ">
                   Are you sure you want to{" "}
                   <span className="font-semibold">Sign Out</span> ?
                 </div>
@@ -116,14 +120,12 @@ const Navbar = ({ name, email, darkMode, setDarkMode, signoutModalIsOpen, setSig
       </Modal>
 
       <div
-        className={`${
-          darkMode ? "bg-[#242529]" : "bg-white"
-        } border-gray-300 md:p-2 pt-2 `}
+        className={` ${darkMode?"bg-opacity-0":"bg-[#c2e9fb]"} border-gray-300 md:p-2 pt-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li
             className={`${
-              darkMode ? "text-gray-300" : "text-gray-900"
+              darkMode ? "text-white" : "text-gray-900"
             } flex flex-col font-light md:text-xl text-xs`}
           >
             <motion.div

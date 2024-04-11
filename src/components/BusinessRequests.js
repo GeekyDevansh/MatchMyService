@@ -37,6 +37,7 @@ const BusinessRequests = ({
   const [biddingPrice, setBiddingPrice] = useState("");
   const [drop,setDrop] = useState(false);
   const [type,setType] = useState("Select Bid Type");
+  const [id,setId] = useState(null);
 
   const handleClick = async (req_id) => {
     setLoading(true);
@@ -67,8 +68,9 @@ const BusinessRequests = ({
 
   const business = JSON.parse(localStorage.getItem("user"))?.user.photoURL;
 
-  const handleDrop = ()=>{
+  const handleDrop = (i)=>{
 
+    setId(i);
     setDrop(!drop);
 
   }
@@ -109,7 +111,7 @@ const BusinessRequests = ({
         className={`flex flex-col gap-4 h-auto max-h-screen overflow-scroll scrollbar-hide rounded-lg ${
           darkMode ? "text-white" : "text-gray-900"
         } border-y-2 ${
-          darkMode ? "border-y-[#37393f]" : "border-y-indigo-400"
+          darkMode ? "border-y-[#ffffff]" : "border-y-gray-900"
         } drop-shadow-xl md:p-10 p-4 mt-10`}
       >
         <motion.div
@@ -147,9 +149,7 @@ const BusinessRequests = ({
                     }}
                     className={` ${
                       darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
-                    } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 ${
-                      darkMode ? "border-l-4" : "border-l-0"
-                    } border-[#6fa1d6] relative `}
+                    } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 relative `}
                     key={i}
                   >
                     <div className="flex flex-col gap-2">
@@ -345,14 +345,14 @@ const BusinessRequests = ({
                         </div>
                         <div>
                           <button
-                            id="dropdownDefaultButton"
+                            id={i}
                             data-dropdown-toggle="dropdown"
-                            class={`text-gray-900 ${darkMode?"bg-white":"bg-gray-200"} hover:bg-gray-200 font-medium rounded-lg text-sm px-6 py-4 text-center inline-flex items-center md:mt-5 mt-2 w-full`}
+                            class={`text-gray-900 ${darkMode?"bg-white":"bg-gray-200"} hover:bg-gray-200 font-semibold rounded-lg text-sm px-6 py-4 text-center inline-flex items-center md:mt-5 mt-2 w-full`}
                             type="button"
-                            onClick={()=> handleDrop()}
+                            onClick={()=> handleDrop(i)}
                           >
                             {" "}
-                            {type}
+                            {id===i?type:"Select Bid Type"}
                             <svg
                               class="w-2.5 h-2.5 ms-3"
                               aria-hidden="true"
@@ -372,7 +372,7 @@ const BusinessRequests = ({
 
                           <div
                             id="dropdown"
-                            class={`z-20 absolute divide-y divide-gray-100 rounded-lg shadow w-40 mt-2 ${darkMode?"bg-gray-700":"bg-white"} drop-shadow-lg ${drop?"block":"hidden"} `}
+                            class={`z-20 absolute divide-y divide-gray-100 rounded-lg shadow w-40 mt-2 ${darkMode?"bg-gray-700":"bg-white"} drop-shadow-lg ${drop && id===i?"block":"hidden"} `}
                             
                           >
                             <ul

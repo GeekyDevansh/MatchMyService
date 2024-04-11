@@ -93,7 +93,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
             </div>
             <div className="md:w-[60%] flex justify-center items-center ">
               <div className="flex flex-col md:gap-10 gap-10">
-                <div className="md:text-xl text-lg font-medium md:text-right ">
+                <div className="md:text-xl text-lg font-medium md:text-right text-center ">
                   Are you sure you want to{" "}
                   <span className="font-semibold">Sign Out</span> ?
                 </div>
@@ -119,9 +119,7 @@ const Navbar = ({ name, email, darkMode, setDarkMode, setSignoutModalIsOpen, sig
        
 
       <div
-        className={`${
-          darkMode ? "bg-[#0E131A]" : "bg-white"
-        } border-gray-300  md:pt-3 p-2 `}
+        className={`${darkMode?"bg-opacity-0":"bg-[#c2e9fb]"} border-gray-300  md:pt-3 p-2 `}
       >
         <ul className="list-none flex  justify-between mx-[5%] md:p-[0.75%] p-[2%]">
           <li

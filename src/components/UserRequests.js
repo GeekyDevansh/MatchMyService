@@ -167,9 +167,7 @@ const UserRequests = ({
       <div
         className={`flex flex-col ${
           darkMode ? "text-white" : "text-[#f1f2f9]"
-        } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${
-          darkMode ? "border-y-[#37393f]" : "border-y-indigo-400"
-        } `}
+        } rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${darkMode?"border-y-[#ffffff]":"border-y-gray-900"}  `}
       >
         <motion.div
           initial={{ y: 10, opacity: 0 }}
@@ -278,10 +276,14 @@ const UserRequests = ({
                                   <h1 className="font-normal text-gray-700 md:text-base text-sm ">
                                     Bidding price
                                   </h1>
-                                  <div >
-
-&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
-</div>
+                                  <div>
+                                    &#8377; {element?.bidding_price}{" "}
+                                    {element.type === "Amount / Sqft" ? (
+                                      <span>/ Sqft</span>
+                                    ) : (
+                                      <span> </span>
+                                    )}
+                                  </div>
                                 </div>
                               </div>
                             </Tooltip>
@@ -330,9 +332,13 @@ const UserRequests = ({
                                       Bidding price
                                     </h1>
                                     <div>
-
-&#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
-</div>
+                                      &#8377; {element?.bidding_price}{" "}
+                                      {element.type === "Amount / Sqft" ? (
+                                        <span>/ Sqft</span>
+                                      ) : (
+                                        <span> </span>
+                                      )}
+                                    </div>
                                   </div>
                                 </div>
                               </Tooltip>
@@ -368,8 +374,12 @@ const UserRequests = ({
                                       Bidding price
                                     </h1>
                                     <div>
-
-                                    &#8377; {element?.bidding_price} {element.type==="Amount / Sqft"? <span>/ Sqft</span>: <span> </span>}
+                                      &#8377; {element?.bidding_price}{" "}
+                                      {element.type === "Amount / Sqft" ? (
+                                        <span>/ Sqft</span>
+                                      ) : (
+                                        <span> </span>
+                                      )}
                                     </div>
                                   </div>
                                 </div>

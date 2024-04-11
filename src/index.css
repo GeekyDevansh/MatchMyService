@@ -24,7 +24,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 .gradient-background {
-  background: linear-gradient(99deg, #72a489, #cf15d9, #9c3135);
+  background: linear-gradient(99deg, #FCCD12, #FCCD12);
   background-size: 180% 180%;
   animation: gradient-animation 3s ease infinite;
   font-size: 1rem;

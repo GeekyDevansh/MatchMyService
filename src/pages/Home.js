@@ -16,7 +16,7 @@ const [signoutModalIsOpen,setSignoutModalIsOpen]=useState(false);
         <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="bg-[url('/public/grid.svg')]"      >
+      className='bg-gradient-to-b from-[#111527] to-[#6B82A6]'>
 
         <Navbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} />
         <Body darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} /> 

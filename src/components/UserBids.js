@@ -45,7 +45,7 @@ const UserRequests = ({
     <div
       className={`flex flex-col ${
         darkMode ? "text-white" : "text-[#f1f2f9]"
-      } border-t-2 rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${darkMode?"border-y-[#37393f]":"border-y-indigo-400"} `}
+      } border-t-2 rounded-lg text-center gap-4 mt-10 md:p-10 p-4 h-auto max-h-screen overflow-scroll scrollbar-hide border-y-2 ${darkMode?"border-y-[#ffffff]":"border-y-gray-900"} `}
     >
       <motion.div
         initial={{ y: 10, opacity: 0 }}
@@ -78,7 +78,7 @@ const UserRequests = ({
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
                   className={`   ${darkMode ? "bg-[#37393f]" : "bg-[#3547ac]"
-                } ${darkMode?"border-l-4":"border-l-0"} text-white border-orange-500 drop-shadow-lg rounded-xl p-8 mt-4 `}
+                } text-white drop-shadow-lg rounded-xl p-8 mt-4 `}
                   key={i}
                 >
                   <div className="flex flex-col gap-4 items-center">

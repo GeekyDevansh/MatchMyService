@@ -8,6 +8,10 @@ import LandingNavbar from "../components/LandingNavbar";
 import Footer from "../components/Footer";
 import TextTransition, { presets } from "react-text-transition";
 import CTA from "../components/CTA";
+import { GiAnvilImpact } from "react-icons/gi";
+import { MdCarpenter } from "react-icons/md";
+import { FaPlug } from "react-icons/fa";
+import { BsWrenchAdjustable } from "react-icons/bs";
 
 const TEXTS = [
   "plumbers.",
@@ -151,7 +155,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="font-semibold text-xl text-[#1E3954] text-center md:text-left "
+                className="font-semibold text-xl text-[#112437] mb-2 text-center md:text-left "
               >
                 {" "}
                 User Friendly Interface{" "}
@@ -161,7 +165,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="text-[#1E3954] text-lg  text-center md:text-left "
+                className="text-[#152a40] text-base font-medium  text-center md:text-left "
               >
                 With intuitive navigation and a visually appealing design, users
                 can navigate, post their requirements, and evaluate bids with
@@ -191,7 +195,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="font-semibold text-xl text-[#46411A] text-center md:text-left "
+                className="font-semibold text-xl text-[#46411A] mb-2 text-center md:text-left "
               >
                 {" "}
                 Transparent Bidding{" "}
@@ -201,7 +205,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="text-[#46411A] text-lg text-center md:text-left "
+                className="text-[#46411A] text-base font-medium text-center md:text-left "
               >
                 We promote a transparent bidding process, offering users full
                 visibility into bids and creating a level playing field for
@@ -233,7 +237,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="font-semibold text-xl text-[#3E2913] text-center md:text-left "
+                className="font-semibold text-xl text-[#3E2913] text-center mb-2 md:text-left "
               >
                 {" "}
                 Service Categories{" "}
@@ -243,7 +247,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="text-[#3E2913] text-lg md:text-left text-center"
+                className="text-[#3E2913] text-base font-medium md:text-left text-center"
               >
                 We offer a diverse range of service categories, providing users
                 with a wide selection to choose from based on their specific
@@ -272,7 +276,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="font-semibold text-xl text-[#45110F] text-center md:text-left "
+                className="font-semibold text-xl text-[#45110F] text-center mb-2 md:text-left "
               >
                 {" "}
                 Mobile Compatibility{" "}
@@ -282,7 +286,7 @@ const Landing = () => {
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
                 transition={{ duration: 1 }}
-                className="text-[#45110F] text-lg text-center md:text-left "
+                className="text-[#45110F] text-base font-medium text-center md:text-left "
               >
                 The platform is fully mobile compatible, allowing users to
                 access and navigate its features seamlessly on their
@@ -311,9 +315,9 @@ const Landing = () => {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8370] bg-opacity-90 rounded-xl cursor-pointer "
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FFDAB9] bg-opacity-90 rounded-xl cursor-pointer "
             >
-              <motion.div
+              {/* <motion.div
                 initial={{ y: 10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
@@ -321,8 +325,8 @@ const Landing = () => {
                 className=" md:w-1/3 w-1/2"
               >
                 <img src="/welding.png" alt="" className="" />
-              </motion.div>
-              <div className=" flex flex-col md:w-2/3">
+              </motion.div> */}
+              <div className=" flex flex-col md:w-full">
                 {" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
@@ -332,14 +336,17 @@ const Landing = () => {
                   className="font-semibold text-xl text-[#333333] text-center md:text-left "
                 >
                   {" "}
+                  <div className="flex gap-3 mb-4 text-[#563b22] border-b pb-3 border-gray-700" >
+                  <GiAnvilImpact size={30} />
                   Fabricators{" "}
+                  </div>
                 </motion.div>{" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#333333] text-lg  text-center md:text-left "
+                  className="text-[#57493a] text-lg  text-center md:text-left font-medium "
                 >
                   Precision welding for diverse projects. Trust our skilled
                   welders for top-notch craftsmanship, repairs, and structural
@@ -351,9 +358,9 @@ const Landing = () => {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#00B1B0] bg-opacity-90 rounded-xl cursor-pointer "
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#40E0D0] bg-opacity-90 rounded-xl cursor-pointer "
             >
-              <motion.div
+              {/* <motion.div
                 initial={{ y: 10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
@@ -361,25 +368,28 @@ const Landing = () => {
                 className="md:w-1/3 w-1/2"
               >
                 <img src="/electric.png" alt="" />
-              </motion.div>
-              <div className=" flex flex-col md:w-2/3">
+              </motion.div> */}
+              <div className=" flex flex-col md:w-full">
                 {" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="font-semibold text-xl text-[#001F3F] text-center md:text-left "
+                  className="font-semibold text-xl text-[#174949] text-center md:text-left "
                 >
                   {" "}
+                  <div className="flex gap-3 mb-4 border-b pb-3 border-gray-700" >
+                  <FaPlug size={30}/>
                   Electricians{" "}
+                  </div>
                 </motion.div>{" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#001F3F] text-lg text-center md:text-left "
+                  className="text-[#194945] text-lg text-center md:text-left font-medium "
                 >
                   Certified electricians for installations, wiring, and repairs.
                   Rely on us for safe and efficient electrical solutions.
@@ -391,9 +401,9 @@ const Landing = () => {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FEC84D] bg-opacity-90 rounded-xl cursor-pointer "
+              className="flex flex-col md:flex-row md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#98FB98] bg-opacity-90 rounded-xl cursor-pointer "
             >
-              <motion.div
+              {/* <motion.div
                 initial={{ y: 10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
@@ -401,8 +411,8 @@ const Landing = () => {
                 className="md:w-1/3 w-1/2"
               >
                 <img src="/carpentry.png" alt="" />
-              </motion.div>
-              <div className=" flex flex-col md:w-2/3">
+              </motion.div> */}
+              <div className=" flex flex-col md:w-full">
                 {" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
@@ -412,14 +422,17 @@ const Landing = () => {
                   className="font-semibold text-xl text-gray-900 text-center md:text-left "
                 >
                   {" "}
+                  <div className="flex gap-3 mb-4 border-b pb-3 border-gray-700" >
+                  <MdCarpenter size={30} />
                   Carpenters{" "}
+                  </div>
                 </motion.div>{" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-gray-900 text-lg md:text-left text-center"
+                  className="text-gray-900 text-lg md:text-left text-center font-medium "
                 >
                   Crafting excellence in woodwork, installations, and repairs.
                   Our carpenters bring precision and creativity to every
@@ -430,9 +443,9 @@ const Landing = () => {
             <motion.div
               whileHover={{ scale: 1.1 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#FF8FB3] bg-opacity-90 rounded-xl cursor-pointer "
+              className="flex md:flex-row flex-col md:w-1/2 md:gap-4 gap-8 p-10 justify-center items-center bg-[#b3a9ec] bg-opacity-90 rounded-xl cursor-pointer "
             >
-              <motion.div
+              {/* <motion.div
                 initial={{ y: 10, opacity: 0 }}
                 whileInView={{ y: 0, opacity: 1 }}
                 exit={{ y: -10, opacity: 0 }}
@@ -440,8 +453,8 @@ const Landing = () => {
                 className="md:w-1/3 w-1/2"
               >
                 <img src="/plumbing.png" alt="" />
-              </motion.div>
-              <div className=" flex flex-col md:w-2/3">
+              </motion.div> */}
+              <div className=" flex flex-col md:w-full">
                 {" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
@@ -451,14 +464,17 @@ const Landing = () => {
                   className="font-semibold text-xl text-[#001F3F] text-center md:text-left "
                 >
                   {" "}
+                  <div className="flex gap-3 mb-4 border-b pb-3 border-gray-700" >
+                  <BsWrenchAdjustable size={30} />
                   Plumbers{" "}
+                  </div>
                 </motion.div>{" "}
                 <motion.div
                   initial={{ y: 10, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#001F3F] text-lg text-center md:text-left "
+                  className="text-[#001F3F] text-lg text-center md:text-left font-medium "
                 >
                   Tailored plumbing expertise for emergencies, installations,
                   and upgrades. Trust us for prompt, customer-focused solutions.

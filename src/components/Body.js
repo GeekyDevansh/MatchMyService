@@ -87,9 +87,7 @@ const Body = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalIsOpen })
       </Modal>
       <div
         className={` 
-        ${
-          darkMode ? "bg-[#0E131A]" : "bg-white"
-        } 
+        ${darkMode?"bg-opacity-0":"bg-gradient-to-b to-[#6e9cdb] from-[#c2e9fb]"}
         flex flex-col justify-center items-center md:h-auto min-h-screen `}
       >        
         <PostRequirement

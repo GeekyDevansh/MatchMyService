@@ -14,7 +14,9 @@ const [signoutModalIsOpen,setSignoutModalIsOpen]=useState(false);
     <>
         <motion.div initial={{ opacity: 0 }}
       animate={{ opacity: 1}}
-      exit={{ opacity: 0}}>
+      exit={{ opacity: 0}}
+      className='bg-gradient-to-b from-[#111527] to-[#6B82A6]'
+      >
 
         <BusinessNavbar name={name} email={email} darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} />
         <BusinessBody darkMode={darkMode} setDarkMode={setDarkMode} signoutModalIsOpen={signoutModalIsOpen} setSignoutModalIsOpen={setSignoutModalIsOpen} /> 
