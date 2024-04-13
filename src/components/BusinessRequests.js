@@ -148,7 +148,7 @@ const BusinessRequests = ({
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
                     className={` ${
-                      darkMode ? "bg-[#37393f]" : "bg-[#f8f9fb]"
+                      darkMode ? "bg-[#1d2127]" : "bg-[#f8f9fb]"
                     } drop-shadow-lg rounded-xl mt-4 md:p-8 p-4 relative `}
                     key={i}
                   >
@@ -330,7 +330,7 @@ const BusinessRequests = ({
                     )}
 
                     <div className="flex flex-col">
-                      <div className=" flex md:flex-row flex-col justify-center items-center md:justify-between">
+                      <div className=" flex flex-row gap-2 md:gap-0 items-center justify-between">
                         <div>
                           <input
                             type="number"
@@ -340,14 +340,14 @@ const BusinessRequests = ({
                             required={true}
                             placeholder="Bid Amount"
                             onChange={(e) => setBiddingPrice(e.target.value)}
-                            className=" rounded-lg px-10 md:w-44 w-full py-3 mt-5 text-gray-900 font-semibold border border-gray-500 "
+                            className=" rounded-lg md:text-sm text-xs md:px-10 px-3 md:w-44 w-full md:py-4 py-3 mt-5 text-gray-900 font-semibold border border-gray-500 "
                           />
                         </div>
                         <div>
                           <button
                             id={i}
                             data-dropdown-toggle="dropdown"
-                            class={`text-gray-900 ${darkMode?"bg-white":"bg-gray-200"} hover:bg-gray-200 font-semibold rounded-lg text-sm px-6 py-4 text-center inline-flex items-center md:mt-5 mt-2 w-full`}
+                            class={`text-gray-900 ${darkMode?"bg-white":"bg-gray-200"} hover:bg-gray-200 font-semibold rounded-lg md:text-sm text-xs md:px-6 px-2 md:py-4 py-3 text-center inline-flex items-center mt-5 w-full`}
                             type="button"
                             onClick={()=> handleDrop(i)}
                           >

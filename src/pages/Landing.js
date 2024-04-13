@@ -346,7 +346,7 @@ const Landing = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#57493a] text-lg  text-center md:text-left font-medium "
+                  className="text-[#57493a] text-lg  text-left font-medium "
                 >
                   Precision welding for diverse projects. Trust our skilled
                   welders for top-notch craftsmanship, repairs, and structural
@@ -389,7 +389,7 @@ const Landing = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#194945] text-lg text-center md:text-left font-medium "
+                  className="text-[#194945] text-lg text-left font-medium "
                 >
                   Certified electricians for installations, wiring, and repairs.
                   Rely on us for safe and efficient electrical solutions.
@@ -432,7 +432,7 @@ const Landing = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-gray-900 text-lg md:text-left text-center font-medium "
+                  className="text-gray-900 text-lg text-left font-medium "
                 >
                   Crafting excellence in woodwork, installations, and repairs.
                   Our carpenters bring precision and creativity to every
@@ -474,7 +474,7 @@ const Landing = () => {
                   whileInView={{ y: 0, opacity: 1 }}
                   exit={{ y: -10, opacity: 0 }}
                   transition={{ duration: 1 }}
-                  className="text-[#001F3F] text-lg text-center md:text-left font-medium "
+                  className="text-[#001F3F] text-lg text-left font-medium "
                 >
                   Tailored plumbing expertise for emergencies, installations,
                   and upgrades. Trust us for prompt, customer-focused solutions.

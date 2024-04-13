@@ -48,7 +48,7 @@ const AllRequests = ({
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
                   className={` ${
-                    darkMode ? "bg-[#272D35]" : "bg-[#f8f9fb]"
+                    darkMode ? "bg-[#1d2127]" : "bg-[#f8f9fb]"
                   } drop-shadow-lg rounded-2xl mt-4 md:p-8 p-4 hover:border border-gray-500 hover:cursor-pointer`}
                   key={i}
                 >

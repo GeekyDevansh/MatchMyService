@@ -46,7 +46,7 @@ const BusinessBody = ({ darkMode, sendData, signoutModalIsOpen, setSignoutModalI
   return (
     <>
       <div
-        className={` ${darkMode?"bg-opacity-0":"bg-gradient-to-b to-[#6e9cdb] from-[#c2e9fb]"}  flex flex-col justify-center items-center md:h-auto min-h-screen `}
+        className={` ${darkMode?"bg-opacity-0":"bg-gradient-to-b to-[#5078F2] from-[#EFE9F4]"}  flex flex-col justify-center items-center md:h-auto min-h-screen `}
       >
    <div className="flex flex-wrap md:flex-nowrap md:w-[75%] w-[80%] md:gap-10 gap-2 mb-[5%] ">
           <div className={`md:w-[40%] w-full ${signoutModalIsOpen?"z-0":"z-10"}`}>

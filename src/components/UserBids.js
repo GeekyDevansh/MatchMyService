@@ -77,7 +77,7 @@ const UserRequests = ({
                   duration: 0.8,
                   ease: [0, 0.71, 0.2, 1.01]
                 }}
-                  className={`   ${darkMode ? "bg-[#37393f]" : "bg-[#3547ac]"
+                  className={`   ${darkMode ? "bg-[#1d2127]" : "bg-[#3547ac]"
                 } text-white drop-shadow-lg rounded-xl p-8 mt-4 `}
                   key={i}
                 >

@@ -200,7 +200,7 @@ const UserRequests = ({
                       ease: [0, 0.71, 0.2, 1.01],
                     }}
                     className={` ${
-                      darkMode ? "bg-[#272D35]" : "bg-[#3547ac]"
+                      darkMode ? "bg-[#1d2127]" : "bg-[#3547ac]"
                     } drop-shadow-lg rounded-2xl p-8 mt-4 hover:border ${
                       darkMode ? "border-gray-500" : "border-gray-900"
                     } hover:cursor-pointer`}

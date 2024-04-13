@@ -12,7 +12,7 @@ const PostRequirement = ({setModalIsOpen,darkMode}) => {
     <>
     <div
           className={` md:w-[75%] w-[80%] ${
-            darkMode ? "bg-[#272D35]" : "bg-[#f8f9fb]"
+            darkMode ? "bg-[#1d2127]" : "bg-[#f8f9fb]"
           } flex flex-col cursor-pointer items-center pb-10 border-2 border-dashed ${
             darkMode ? "border-white" : "border-gray-900"
           } rounded-2xl text-white gap-2 md:gap-0 drop-shadow-2xl md:mt-[5%] mt-[10%] `}
